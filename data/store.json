@@ -1,0 +1,10010 @@
+{
+ "storeId": "STORE_ID",
+ "captured": "2026-10-30T11:48:30.228+03:00",
+ "currency": "RUB",
+ "dishes": [
+  {
+   "id": "128690",
+   "title": "Ножки Оригинальные",
+   "cats": [],
+   "price": 115.0,
+   "oldPrice": 115.0,
+   "variant": "101677392",
+   "orderable": true,
+   "unit": "g",
+   "size": 84,
+   "flavor": null,
+   "per100": {
+    "kcal": 229,
+    "protein": 21,
+    "fat": 12.7,
+    "carbs": 7.7
+   }
+  },
+  {
+   "id": "128745",
+   "title": "Картофель по-деревенски",
+   "cats": [],
+   "price": 101.0,
+   "oldPrice": 101.0,
+   "variant": "101677393",
+   "orderable": true,
+   "unit": "g",
+   "size": 80,
+   "flavor": null,
+   "per100": {
+    "kcal": 265,
+    "protein": 3,
+    "fat": 17.4,
+    "carbs": 24.2
+   }
+  },
+  {
+   "id": "128752",
+   "title": "Картофель фри",
+   "cats": [],
+   "price": 97.0,
+   "oldPrice": 97.0,
+   "variant": "101677377",
+   "orderable": true,
+   "unit": "g",
+   "size": 60,
+   "flavor": null,
+   "per100": {
+    "kcal": 291,
+    "protein": 3.6,
+    "fat": 20.7,
+    "carbs": 22.6
+   }
+  },
+  {
+   "id": "128797",
+   "title": "Мороженое Рожок",
+   "cats": [
+    "Десерты и Мороженое",
+    "Комбо с игрушкой"
+   ],
+   "price": 62.0,
+   "oldPrice": 62.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 84,
+   "flavor": null,
+   "per100": {
+    "kcal": 151,
+    "protein": 3.6,
+    "fat": 3.5,
+    "carbs": 26.3
+   }
+  },
+  {
+   "id": "129163",
+   "title": "Чай Lipton Зеленый",
+   "cats": [],
+   "price": 147.0,
+   "oldPrice": 147.0,
+   "variant": "101677372",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 27,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "129170",
+   "title": "Чай Lipton Лимон",
+   "cats": [],
+   "price": 147.0,
+   "oldPrice": 147.0,
+   "variant": "101677373",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 27,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "129535",
+   "title": "Ножки Оригинальные",
+   "cats": [],
+   "price": 193.0,
+   "oldPrice": 193.0,
+   "variant": "101677392",
+   "orderable": true,
+   "unit": "g",
+   "size": 168,
+   "flavor": null,
+   "per100": {
+    "kcal": 229,
+    "protein": 21,
+    "fat": 12.7,
+    "carbs": 7.7
+   }
+  },
+  {
+   "id": "129549",
+   "title": "Острые Крылышки",
+   "cats": [],
+   "price": 223.0,
+   "oldPrice": 223.0,
+   "variant": "101677398",
+   "orderable": true,
+   "unit": "g",
+   "size": 75,
+   "flavor": null,
+   "per100": {
+    "kcal": 304,
+    "protein": 19.6,
+    "fat": 20.8,
+    "carbs": 9.8
+   }
+  },
+  {
+   "id": "129556",
+   "title": "Ножки Оригинальные",
+   "cats": [
+    "Сочная курица"
+   ],
+   "price": 270.0,
+   "oldPrice": 270.0,
+   "variant": "101677392",
+   "orderable": true,
+   "unit": "g",
+   "size": 252,
+   "flavor": null,
+   "per100": {
+    "kcal": 229,
+    "protein": 21,
+    "fat": 12.7,
+    "carbs": 7.7
+   }
+  },
+  {
+   "id": "129570",
+   "title": "Стрипсы Оригинальные",
+   "cats": [],
+   "price": 191.0,
+   "oldPrice": 191.0,
+   "variant": "103099326",
+   "orderable": true,
+   "unit": "g",
+   "size": 102,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 219,
+    "protein": 21.1,
+    "fat": 10,
+    "carbs": 11.3
+   }
+  },
+  {
+   "id": "129577",
+   "title": "Стрипсы Острые",
+   "cats": [],
+   "price": 191.0,
+   "oldPrice": 191.0,
+   "variant": "103099326",
+   "orderable": true,
+   "unit": "g",
+   "size": 93,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 240,
+    "protein": 23.1,
+    "fat": 12.8,
+    "carbs": 8.1
+   }
+  },
+  {
+   "id": "129584",
+   "title": "Острые Крылышки",
+   "cats": [
+    "Сочная курица"
+   ],
+   "price": 312.0,
+   "oldPrice": 312.0,
+   "variant": "101677398",
+   "orderable": true,
+   "unit": "g",
+   "size": 125,
+   "flavor": null,
+   "per100": {
+    "kcal": 304,
+    "protein": 19.6,
+    "fat": 20.8,
+    "carbs": 9.8
+   }
+  },
+  {
+   "id": "129591",
+   "title": "Стрипсы Оригинальные",
+   "cats": [],
+   "price": 239.0,
+   "oldPrice": 301.0,
+   "variant": "103099326",
+   "orderable": true,
+   "unit": "g",
+   "size": 170,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 219,
+    "protein": 21.1,
+    "fat": 10,
+    "carbs": 11.3
+   }
+  },
+  {
+   "id": "129598",
+   "title": "Стрипсы Острые",
+   "cats": [],
+   "price": 239.0,
+   "oldPrice": 301.0,
+   "variant": "103099326",
+   "orderable": true,
+   "unit": "g",
+   "size": 155,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 240,
+    "protein": 23.1,
+    "fat": 12.8,
+    "carbs": 8.1
+   }
+  },
+  {
+   "id": "129605",
+   "title": "Острые Крылышки",
+   "cats": [],
+   "price": 452.0,
+   "oldPrice": 452.0,
+   "variant": "101677398",
+   "orderable": true,
+   "unit": "g",
+   "size": 200,
+   "flavor": null,
+   "per100": {
+    "kcal": 304,
+    "protein": 19.6,
+    "fat": 20.8,
+    "carbs": 9.8
+   }
+  },
+  {
+   "id": "129612",
+   "title": "Стрипсы Оригинальные",
+   "cats": [
+    "Вкусные цены",
+    "Сочная курица"
+   ],
+   "price": 322.0,
+   "oldPrice": 405.0,
+   "variant": "103099326",
+   "orderable": true,
+   "unit": "g",
+   "size": 272,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 219,
+    "protein": 21.1,
+    "fat": 10,
+    "carbs": 11.3
+   }
+  },
+  {
+   "id": "129619",
+   "title": "Стрипсы Острые",
+   "cats": [
+    "Вкусные цены",
+    "Сочная курица"
+   ],
+   "price": 322.0,
+   "oldPrice": 405.0,
+   "variant": "103099326",
+   "orderable": true,
+   "unit": "g",
+   "size": 248,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 240,
+    "protein": 23.1,
+    "fat": 12.8,
+    "carbs": 8.1
+   }
+  },
+  {
+   "id": "129633",
+   "title": "Аква Минерале Актив Цитрус 0,5 л",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 153.0,
+   "oldPrice": 153.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 13,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 2.9
+   }
+  },
+  {
+   "id": "129639",
+   "title": "Байтсы",
+   "cats": [],
+   "price": 301.0,
+   "oldPrice": 379.0,
+   "variant": "101677384",
+   "orderable": true,
+   "unit": "g",
+   "size": 300,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 220,
+    "protein": 20.8,
+    "fat": 11.5,
+    "carbs": 8.4
+   }
+  },
+  {
+   "id": "129645",
+   "title": "Байтсы",
+   "cats": [],
+   "price": 179.0,
+   "oldPrice": 179.0,
+   "variant": "101677384",
+   "orderable": true,
+   "unit": "g",
+   "size": 95,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 220,
+    "protein": 20.8,
+    "fat": 11.5,
+    "carbs": 8.4
+   }
+  },
+  {
+   "id": "129659",
+   "title": "Байтсы",
+   "cats": [
+    "Вкусные цены",
+    "Сочная курица"
+   ],
+   "price": 190.0,
+   "oldPrice": 239.0,
+   "variant": "101677384",
+   "orderable": true,
+   "unit": "g",
+   "size": 135,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 220,
+    "protein": 20.8,
+    "fat": 11.5,
+    "carbs": 8.4
+   }
+  },
+  {
+   "id": "129673",
+   "title": "Баскет S 12 Острых крылышек",
+   "cats": [
+    "Баскеты"
+   ],
+   "price": 614.0,
+   "oldPrice": 614.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 304,
+    "protein": 19.6,
+    "fat": 20.8,
+    "carbs": 9.8
+   }
+  },
+  {
+   "id": "129681",
+   "title": "Баскет М 18 Острых крылышек",
+   "cats": [
+    "Баскеты"
+   ],
+   "price": 806.0,
+   "oldPrice": 806.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 450,
+   "flavor": null,
+   "per100": {
+    "kcal": 304,
+    "protein": 19.6,
+    "fat": 20.8,
+    "carbs": 9.8
+   }
+  },
+  {
+   "id": "129688",
+   "title": "Картофель фри",
+   "cats": [],
+   "price": 202.0,
+   "oldPrice": 239.0,
+   "variant": "101677377",
+   "orderable": true,
+   "unit": "g",
+   "size": 200,
+   "flavor": null,
+   "per100": {
+    "kcal": 291,
+    "protein": 3.6,
+    "fat": 20.7,
+    "carbs": 22.6
+   }
+  },
+  {
+   "id": "129702",
+   "title": "Аква Минерале без газа 0,5 л",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 153.0,
+   "oldPrice": 153.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "129709",
+   "title": "Аква Минерале с газом 0,5 л",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 153.0,
+   "oldPrice": 153.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "129716",
+   "title": "Кетчуп Томатный",
+   "cats": [
+    "Соусы"
+   ],
+   "price": 62.0,
+   "oldPrice": 62.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "130215",
+   "title": "Пирожок с вишней",
+   "cats": [
+    "Вкусные цены",
+    "Десерты и Мороженое"
+   ],
+   "price": 76.0,
+   "oldPrice": 95.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 82,
+   "flavor": null,
+   "per100": {
+    "kcal": 258,
+    "protein": 2.9,
+    "fat": 14.4,
+    "carbs": 29.1
+   }
+  },
+  {
+   "id": "130227",
+   "title": "Салфетка влажная",
+   "cats": [],
+   "price": 9.0,
+   "oldPrice": 9.0,
+   "variant": null,
+   "orderable": false,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "130287",
+   "title": "Сок J7 яблочный 0,2 л",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 108.0,
+   "oldPrice": 108.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 200,
+   "flavor": null,
+   "per100": {
+    "kcal": 50,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 12
+   }
+  },
+  {
+   "id": "130293",
+   "title": "Соус Барбекю",
+   "cats": [
+    "Соусы"
+   ],
+   "price": 62.0,
+   "oldPrice": 62.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "130299",
+   "title": "Соус Кисло-Сладкий Чили",
+   "cats": [
+    "Соусы"
+   ],
+   "price": 62.0,
+   "oldPrice": 62.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "130309",
+   "title": "Соус Сырный",
+   "cats": [
+    "Соусы"
+   ],
+   "price": 62.0,
+   "oldPrice": 62.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "130315",
+   "title": "Соус Терияки",
+   "cats": [
+    "Соусы"
+   ],
+   "price": 62.0,
+   "oldPrice": 62.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "130321",
+   "title": "Соус Чесночный",
+   "cats": [
+    "Соусы"
+   ],
+   "price": 62.0,
+   "oldPrice": 62.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "130327",
+   "title": "Картофель по-деревенски",
+   "cats": [
+    "Вкусные цены",
+    "Картофель и Снэки",
+    "Комбо с игрушкой"
+   ],
+   "price": 124.0,
+   "oldPrice": 147.0,
+   "variant": "101677393",
+   "orderable": true,
+   "unit": "g",
+   "size": 135,
+   "flavor": null,
+   "per100": {
+    "kcal": 265,
+    "protein": 3,
+    "fat": 17.4,
+    "carbs": 24.2
+   }
+  },
+  {
+   "id": "130334",
+   "title": "Картофель фри",
+   "cats": [
+    "Вкусные цены",
+    "Картофель и Снэки",
+    "Комбо с игрушкой"
+   ],
+   "price": 101.0,
+   "oldPrice": 119.0,
+   "variant": "101677377",
+   "orderable": true,
+   "unit": "g",
+   "size": 100,
+   "flavor": null,
+   "per100": {
+    "kcal": 291,
+    "protein": 3.6,
+    "fat": 20.7,
+    "carbs": 22.6
+   }
+  },
+  {
+   "id": "146606",
+   "title": "Донат Клубничный",
+   "cats": [
+    "Десерты и Мороженое",
+    "Комбо с игрушкой"
+   ],
+   "price": 136.0,
+   "oldPrice": 136.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 70,
+   "flavor": null,
+   "per100": {
+    "kcal": 390,
+    "protein": 6,
+    "fat": 16,
+    "carbs": 56
+   }
+  },
+  {
+   "id": "148216",
+   "title": "Эвервесс Кола",
+   "cats": [],
+   "price": 125.0,
+   "oldPrice": 125.0,
+   "variant": "101677370",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 36,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 9
+   }
+  },
+  {
+   "id": "148222",
+   "title": "Эвервесс Кола",
+   "cats": [],
+   "price": 147.0,
+   "oldPrice": 147.0,
+   "variant": "101677370",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 36,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 9
+   }
+  },
+  {
+   "id": "148228",
+   "title": "Эвервесс Кола",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 158.0,
+   "oldPrice": 158.0,
+   "variant": "101677370",
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 36,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 9
+   }
+  },
+  {
+   "id": "148234",
+   "title": "Эвервесс Кола",
+   "cats": [],
+   "price": 207.0,
+   "oldPrice": 207.0,
+   "variant": "101677370",
+   "orderable": true,
+   "unit": "ml",
+   "size": 800,
+   "flavor": null,
+   "per100": {
+    "kcal": 36,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 9
+   }
+  },
+  {
+   "id": "159468",
+   "title": "Баскет L 24 Острых крылышка",
+   "cats": [
+    "Баскеты"
+   ],
+   "price": 968.0,
+   "oldPrice": 968.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 600,
+   "flavor": null,
+   "per100": {
+    "kcal": 304,
+    "protein": 19.6,
+    "fat": 20.8,
+    "carbs": 9.8
+   }
+  },
+  {
+   "id": "167448",
+   "title": "Баскет Фри Дуэт",
+   "cats": [
+    "Вкусные цены",
+    "Картофель и Снэки"
+   ],
+   "price": 202.0,
+   "oldPrice": 239.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 200,
+   "flavor": null,
+   "per100": {
+    "kcal": 278,
+    "protein": 3.3,
+    "fat": 19.1,
+    "carbs": 23.4
+   }
+  },
+  {
+   "id": "167451",
+   "title": "Эвервесс Кола 0,5 л",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 170.0,
+   "oldPrice": 170.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 44,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 11.1
+   }
+  },
+  {
+   "id": "167454",
+   "title": "Фрустайл Апельсин",
+   "cats": [],
+   "price": 125.0,
+   "oldPrice": 125.0,
+   "variant": "101677379",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 34,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 8.5
+   }
+  },
+  {
+   "id": "167473",
+   "title": "Фрустайл Апельсин",
+   "cats": [],
+   "price": 147.0,
+   "oldPrice": 147.0,
+   "variant": "101677379",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 34,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 8.5
+   }
+  },
+  {
+   "id": "167476",
+   "title": "Фрустайл Апельсин",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 158.0,
+   "oldPrice": 158.0,
+   "variant": "101677379",
+   "orderable": true,
+   "unit": "g",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 34,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 8.5
+   }
+  },
+  {
+   "id": "167481",
+   "title": "Фрустайл Апельсин",
+   "cats": [],
+   "price": 207.0,
+   "oldPrice": 207.0,
+   "variant": "101677379",
+   "orderable": true,
+   "unit": "ml",
+   "size": 800,
+   "flavor": null,
+   "per100": {
+    "kcal": 34,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 8.5
+   }
+  },
+  {
+   "id": "167485",
+   "title": "Фрустайл Лимон-Лайм",
+   "cats": [],
+   "price": 125.0,
+   "oldPrice": 125.0,
+   "variant": "101677380",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 29,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 7.2
+   }
+  },
+  {
+   "id": "167488",
+   "title": "Фрустайл Лимон-Лайм",
+   "cats": [],
+   "price": 147.0,
+   "oldPrice": 147.0,
+   "variant": "101677380",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 29,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 7.2
+   }
+  },
+  {
+   "id": "167491",
+   "title": "Фрустайл Лимон-Лайм",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 158.0,
+   "oldPrice": 158.0,
+   "variant": "101677380",
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 29,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 7.2
+   }
+  },
+  {
+   "id": "167494",
+   "title": "Фрустайл Лимон-Лайм",
+   "cats": [],
+   "price": 207.0,
+   "oldPrice": 207.0,
+   "variant": "101677380",
+   "orderable": true,
+   "unit": "g",
+   "size": 800,
+   "flavor": null,
+   "per100": {
+    "kcal": 29,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 7.2
+   }
+  },
+  {
+   "id": "197259",
+   "title": "Кофе Американо",
+   "cats": [],
+   "price": 80.0,
+   "oldPrice": 80.0,
+   "variant": "101677407",
+   "orderable": true,
+   "unit": "ml",
+   "size": 200,
+   "flavor": null,
+   "per100": {
+    "kcal": 6,
+    "protein": 0.2,
+    "fat": 0.5,
+    "carbs": 0.2
+   }
+  },
+  {
+   "id": "197264",
+   "title": "Кофе Американо",
+   "cats": [
+    "Вкусные цены",
+    "Кофе и чай"
+   ],
+   "price": 84.0,
+   "oldPrice": 106.0,
+   "variant": "101677407",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 6,
+    "protein": 0.2,
+    "fat": 0.5,
+    "carbs": 0.2
+   }
+  },
+  {
+   "id": "197295",
+   "title": "Кофе Капучино",
+   "cats": [],
+   "price": 98.0,
+   "oldPrice": 98.0,
+   "variant": "101677409",
+   "orderable": true,
+   "unit": "ml",
+   "size": 130,
+   "flavor": null,
+   "per100": {
+    "kcal": 32,
+    "protein": 2.1,
+    "fat": 1.2,
+    "carbs": 3.3
+   }
+  },
+  {
+   "id": "197306",
+   "title": "Кофе Капучино",
+   "cats": [
+    "Вкусные цены",
+    "Кофе и чай"
+   ],
+   "price": 130.0,
+   "oldPrice": 164.0,
+   "variant": "101677409",
+   "orderable": true,
+   "unit": "ml",
+   "size": 270,
+   "flavor": null,
+   "per100": {
+    "kcal": 32,
+    "protein": 2.1,
+    "fat": 1.2,
+    "carbs": 3.3
+   }
+  },
+  {
+   "id": "197357",
+   "title": "Кофе Глясе",
+   "cats": [
+    "Кофе и чай"
+   ],
+   "price": 170.0,
+   "oldPrice": 170.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 200,
+   "flavor": null,
+   "per100": {
+    "kcal": 42,
+    "protein": 0.9,
+    "fat": 1.2,
+    "carbs": 7
+   }
+  },
+  {
+   "id": "197374",
+   "title": "Кофе Капучино",
+   "cats": [],
+   "price": 104.0,
+   "oldPrice": 131.0,
+   "variant": "101677409",
+   "orderable": true,
+   "unit": "ml",
+   "size": 205,
+   "flavor": null,
+   "per100": {
+    "kcal": 32,
+    "protein": 2.1,
+    "fat": 1.2,
+    "carbs": 3.3
+   }
+  },
+  {
+   "id": "197381",
+   "title": "Кофе Латте",
+   "cats": [],
+   "price": 98.0,
+   "oldPrice": 98.0,
+   "variant": "101677408",
+   "orderable": true,
+   "unit": "ml",
+   "size": 177,
+   "flavor": null,
+   "per100": {
+    "kcal": 48,
+    "protein": 2.3,
+    "fat": 1.3,
+    "carbs": 7
+   }
+  },
+  {
+   "id": "197386",
+   "title": "Кофе Латте",
+   "cats": [],
+   "price": 104.0,
+   "oldPrice": 131.0,
+   "variant": "101677408",
+   "orderable": true,
+   "unit": "ml",
+   "size": 275,
+   "flavor": null,
+   "per100": {
+    "kcal": 46,
+    "protein": 2.2,
+    "fat": 1.2,
+    "carbs": 6.4
+   }
+  },
+  {
+   "id": "197391",
+   "title": "Кофе Латте",
+   "cats": [
+    "Вкусные цены",
+    "Кофе и чай"
+   ],
+   "price": 130.0,
+   "oldPrice": 164.0,
+   "variant": "101677408",
+   "orderable": true,
+   "unit": "ml",
+   "size": 360,
+   "flavor": null,
+   "per100": {
+    "kcal": 46,
+    "protein": 2.2,
+    "fat": 1.2,
+    "carbs": 6.4
+   }
+  },
+  {
+   "id": "197439",
+   "title": "Кофе Двойной Эспрессо",
+   "cats": [
+    "Кофе и чай"
+   ],
+   "price": 104.0,
+   "oldPrice": 104.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 100,
+   "flavor": null,
+   "per100": {
+    "kcal": 23,
+    "protein": 0.2,
+    "fat": 0.6,
+    "carbs": 4.2
+   }
+  },
+  {
+   "id": "197444",
+   "title": "Чай Зеленый",
+   "cats": [],
+   "price": 108.0,
+   "oldPrice": 108.0,
+   "variant": "103124567",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "197448",
+   "title": "Чай Зеленый",
+   "cats": [
+    "Кофе и чай"
+   ],
+   "price": 125.0,
+   "oldPrice": 125.0,
+   "variant": "103124567",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "197452",
+   "title": "Чай Черный",
+   "cats": [],
+   "price": 108.0,
+   "oldPrice": 108.0,
+   "variant": "103124567",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "197456",
+   "title": "Чай Черный",
+   "cats": [
+    "Кофе и чай"
+   ],
+   "price": 125.0,
+   "oldPrice": 125.0,
+   "variant": "103124567",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "214550",
+   "title": "Чай Lipton Лимон 0,5 л",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 180.0,
+   "oldPrice": 180.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 19,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 4.6
+   }
+  },
+  {
+   "id": "216295",
+   "title": "Чай Lipton Зеленый 0,5 л",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 180.0,
+   "oldPrice": 180.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 19,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 4.6
+   }
+  },
+  {
+   "id": "268681",
+   "title": "Шефбургер Джуниор",
+   "cats": [
+    "Бургеры"
+   ],
+   "price": 115.0,
+   "oldPrice": 151.0,
+   "variant": "103124564",
+   "orderable": true,
+   "unit": "g",
+   "size": 171,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 219,
+    "protein": 12.6,
+    "fat": 8.9,
+    "carbs": 22.2
+   }
+  },
+  {
+   "id": "268688",
+   "title": "Шефбургер Джуниор",
+   "cats": [],
+   "price": 115.0,
+   "oldPrice": 151.0,
+   "variant": "103124564",
+   "orderable": true,
+   "unit": "g",
+   "size": 161,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 233,
+    "protein": 13.3,
+    "fat": 10.1,
+    "carbs": 22
+   }
+  },
+  {
+   "id": "268696",
+   "title": "Шефбургер",
+   "cats": [
+    "Вкусные цены",
+    "Бургеры"
+   ],
+   "price": 149.0,
+   "oldPrice": 223.0,
+   "variant": "103376980",
+   "orderable": true,
+   "unit": "g",
+   "size": 190,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 211,
+    "protein": 14.3,
+    "fat": 8.2,
+    "carbs": 20.2
+   }
+  },
+  {
+   "id": "268703",
+   "title": "Шефбургер",
+   "cats": [],
+   "price": 149.0,
+   "oldPrice": 223.0,
+   "variant": "103376980",
+   "orderable": true,
+   "unit": "g",
+   "size": 179,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 225,
+    "protein": 14.7,
+    "fat": 9,
+    "carbs": 21.3
+   }
+  },
+  {
+   "id": "268710",
+   "title": "Шефбургер Де Люкс",
+   "cats": [
+    "Бургеры"
+   ],
+   "price": 239.0,
+   "oldPrice": 239.0,
+   "variant": "103376981",
+   "orderable": true,
+   "unit": "g",
+   "size": 210,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 222,
+    "protein": 14.4,
+    "fat": 10,
+    "carbs": 18.6
+   }
+  },
+  {
+   "id": "268730",
+   "title": "Шефбургер Де Люкс",
+   "cats": [],
+   "price": 239.0,
+   "oldPrice": 239.0,
+   "variant": "103376981",
+   "orderable": true,
+   "unit": "g",
+   "size": 201,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 236,
+    "protein": 14.5,
+    "fat": 11.1,
+    "carbs": 19.6
+   }
+  },
+  {
+   "id": "268744",
+   "title": "Маэстро Бургер",
+   "cats": [
+    "Бургеры"
+   ],
+   "price": 296.0,
+   "oldPrice": 296.0,
+   "variant": "103124562",
+   "orderable": true,
+   "unit": "g",
+   "size": 208,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 234,
+    "protein": 14.8,
+    "fat": 10.1,
+    "carbs": 21.2
+   }
+  },
+  {
+   "id": "268755",
+   "title": "Маэстро Бургер",
+   "cats": [],
+   "price": 296.0,
+   "oldPrice": 296.0,
+   "variant": "103124562",
+   "orderable": true,
+   "unit": "g",
+   "size": 205,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 241,
+    "protein": 14.7,
+    "fat": 10.9,
+    "carbs": 21.2
+   }
+  },
+  {
+   "id": "268761",
+   "title": "Биг Маэстро Бургер",
+   "cats": [
+    "Бургеры"
+   ],
+   "price": 395.0,
+   "oldPrice": 395.0,
+   "variant": "103376979",
+   "orderable": true,
+   "unit": "g",
+   "size": 277,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 232,
+    "protein": 12.8,
+    "fat": 10.1,
+    "carbs": 22.5
+   }
+  },
+  {
+   "id": "268768",
+   "title": "Биг Маэстро Бургер",
+   "cats": [],
+   "price": 395.0,
+   "oldPrice": 395.0,
+   "variant": "103376979",
+   "orderable": true,
+   "unit": "g",
+   "size": 268,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 240,
+    "protein": 13.4,
+    "fat": 11.2,
+    "carbs": 21.5
+   }
+  },
+  {
+   "id": "268780",
+   "title": "Ай-Ролл",
+   "cats": [
+    "Роллы"
+   ],
+   "price": 78.0,
+   "oldPrice": 78.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 98,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 233,
+    "protein": 10,
+    "fat": 9.4,
+    "carbs": 27.1
+   }
+  },
+  {
+   "id": "268790",
+   "title": "Шефролл Джуниор",
+   "cats": [
+    "Роллы",
+    "Комбо с игрушкой"
+   ],
+   "price": 99.0,
+   "oldPrice": 158.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 130,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 251,
+    "protein": 12.5,
+    "fat": 10.7,
+    "carbs": 26.2
+   }
+  },
+  {
+   "id": "268802",
+   "title": "Шефролл",
+   "cats": [
+    "Вкусные цены",
+    "Роллы"
+   ],
+   "price": 149.0,
+   "oldPrice": 243.0,
+   "variant": "103376983",
+   "orderable": true,
+   "unit": "g",
+   "size": 184,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 231,
+    "protein": 11.6,
+    "fat": 9.7,
+    "carbs": 24.5
+   }
+  },
+  {
+   "id": "268808",
+   "title": "Шефролл",
+   "cats": [],
+   "price": 149.0,
+   "oldPrice": 243.0,
+   "variant": "103376983",
+   "orderable": true,
+   "unit": "g",
+   "size": 178,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 240,
+    "protein": 12.1,
+    "fat": 10.8,
+    "carbs": 23.7
+   }
+  },
+  {
+   "id": "268814",
+   "title": "Шефролл Де Люкс",
+   "cats": [
+    "Роллы"
+   ],
+   "price": 280.0,
+   "oldPrice": 280.0,
+   "variant": "103124565",
+   "orderable": true,
+   "unit": "g",
+   "size": 193,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 234,
+    "protein": 12.5,
+    "fat": 9.5,
+    "carbs": 24.6
+   }
+  },
+  {
+   "id": "268827",
+   "title": "Шефролл Де Люкс",
+   "cats": [],
+   "price": 280.0,
+   "oldPrice": 280.0,
+   "variant": "103376992",
+   "orderable": false,
+   "unit": "g",
+   "size": 178,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 242,
+    "protein": 13,
+    "fat": 10.5,
+    "carbs": 23.8
+   }
+  },
+  {
+   "id": "268840",
+   "title": "Ростмастер",
+   "cats": [
+    "Роллы"
+   ],
+   "price": 327.0,
+   "oldPrice": 327.0,
+   "variant": "103376984",
+   "orderable": true,
+   "unit": "g",
+   "size": 274,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 229,
+    "protein": 11.2,
+    "fat": 11.2,
+    "carbs": 20.9
+   }
+  },
+  {
+   "id": "268850",
+   "title": "Ростмастер",
+   "cats": [],
+   "price": 327.0,
+   "oldPrice": 327.0,
+   "variant": "103376984",
+   "orderable": true,
+   "unit": "g",
+   "size": 271,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 234,
+    "protein": 11,
+    "fat": 11.8,
+    "carbs": 21
+   }
+  },
+  {
+   "id": "268856",
+   "title": "Мега Ролл",
+   "cats": [
+    "Роллы"
+   ],
+   "price": 395.0,
+   "oldPrice": 395.0,
+   "variant": "103124566",
+   "orderable": true,
+   "unit": "g",
+   "size": 313,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 203,
+    "protein": 10.6,
+    "fat": 8.3,
+    "carbs": 21.4
+   }
+  },
+  {
+   "id": "268861",
+   "title": "Мега Ролл",
+   "cats": [],
+   "price": 395.0,
+   "oldPrice": 395.0,
+   "variant": "103124566",
+   "orderable": true,
+   "unit": "g",
+   "size": 304,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 210,
+    "protein": 11,
+    "fat": 9.3,
+    "carbs": 20.6
+   }
+  },
+  {
+   "id": "278957",
+   "title": "Терияки Байтсы",
+   "cats": [
+    "Сочная курица"
+   ],
+   "price": 239.0,
+   "oldPrice": 239.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 134,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 241,
+    "protein": 15.7,
+    "fat": 11,
+    "carbs": 19.8
+   }
+  },
+  {
+   "id": "303307",
+   "title": "Креветки",
+   "cats": [],
+   "price": 218.0,
+   "oldPrice": 218.0,
+   "variant": "101677396",
+   "orderable": true,
+   "unit": "g",
+   "size": 42,
+   "flavor": null,
+   "per100": {
+    "kcal": 262,
+    "protein": 12.1,
+    "fat": 14.4,
+    "carbs": 21
+   }
+  },
+  {
+   "id": "303310",
+   "title": "Креветки",
+   "cats": [
+    "Картофель и Снэки"
+   ],
+   "price": 395.0,
+   "oldPrice": 395.0,
+   "variant": "101677396",
+   "orderable": true,
+   "unit": "g",
+   "size": 84,
+   "flavor": null,
+   "per100": {
+    "kcal": 262,
+    "protein": 12.1,
+    "fat": 14.4,
+    "carbs": 21
+   }
+  },
+  {
+   "id": "303313",
+   "title": "Креветки",
+   "cats": [],
+   "price": 692.0,
+   "oldPrice": 692.0,
+   "variant": "101677396",
+   "orderable": true,
+   "unit": "g",
+   "size": 168,
+   "flavor": null,
+   "per100": {
+    "kcal": 262,
+    "protein": 12.1,
+    "fat": 14.4,
+    "carbs": 21
+   }
+  },
+  {
+   "id": "347503",
+   "title": "Бекон",
+   "cats": [],
+   "price": 0.0,
+   "oldPrice": 0.0,
+   "variant": null,
+   "orderable": false,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "349456",
+   "title": "Сыр",
+   "cats": [],
+   "price": 0.0,
+   "oldPrice": 0.0,
+   "variant": null,
+   "orderable": false,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "349460",
+   "title": "Салат",
+   "cats": [],
+   "price": 0.0,
+   "oldPrice": 0.0,
+   "variant": null,
+   "orderable": false,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "349464",
+   "title": "Помидоры",
+   "cats": [],
+   "price": 0.0,
+   "oldPrice": 0.0,
+   "variant": null,
+   "orderable": false,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "349468",
+   "title": "Огурцы",
+   "cats": [],
+   "price": 0.0,
+   "oldPrice": 0.0,
+   "variant": null,
+   "orderable": false,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "349472",
+   "title": "Лук",
+   "cats": [],
+   "price": 0.0,
+   "oldPrice": 0.0,
+   "variant": null,
+   "orderable": false,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "536699",
+   "title": "Терияки Ролл с креветками",
+   "cats": [
+    "Вкусные цены",
+    "Роллы"
+   ],
+   "price": 248.0,
+   "oldPrice": 312.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 160,
+   "flavor": null,
+   "per100": {
+    "kcal": 240,
+    "protein": 7.1,
+    "fat": 9.4,
+    "carbs": 31.7
+   }
+  },
+  {
+   "id": "538861",
+   "title": "Мороженое Ягоды Вишни",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 178.0,
+   "oldPrice": 178.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 176,
+   "flavor": null,
+   "per100": {
+    "kcal": 146,
+    "protein": 2.6,
+    "fat": 2.8,
+    "carbs": 27.5
+   }
+  },
+  {
+   "id": "581619",
+   "title": "Наггетсы",
+   "cats": [],
+   "price": 63.0,
+   "oldPrice": 63.0,
+   "variant": "101677399",
+   "orderable": true,
+   "unit": "g",
+   "size": 39,
+   "flavor": null,
+   "per100": {
+    "kcal": 246,
+    "protein": 14.1,
+    "fat": 14.1,
+    "carbs": 15.8
+   }
+  },
+  {
+   "id": "581626",
+   "title": "Наггетсы",
+   "cats": [],
+   "price": 114.0,
+   "oldPrice": 114.0,
+   "variant": "101677399",
+   "orderable": true,
+   "unit": "g",
+   "size": 78,
+   "flavor": null,
+   "per100": {
+    "kcal": 246,
+    "protein": 14.1,
+    "fat": 14.1,
+    "carbs": 15.8
+   }
+  },
+  {
+   "id": "581634",
+   "title": "Наггетсы",
+   "cats": [
+    "Сочная курица",
+    "Комбо с игрушкой"
+   ],
+   "price": 158.0,
+   "oldPrice": 158.0,
+   "variant": "101677399",
+   "orderable": true,
+   "unit": "g",
+   "size": 117,
+   "flavor": null,
+   "per100": {
+    "kcal": 246,
+    "protein": 14.1,
+    "fat": 14.1,
+    "carbs": 15.8
+   }
+  },
+  {
+   "id": "581638",
+   "title": "Наггетсы",
+   "cats": [],
+   "price": 306.0,
+   "oldPrice": 306.0,
+   "variant": "101677399",
+   "orderable": true,
+   "unit": "g",
+   "size": 234,
+   "flavor": null,
+   "per100": {
+    "kcal": 246,
+    "protein": 14.1,
+    "fat": 14.1,
+    "carbs": 15.8
+   }
+  },
+  {
+   "id": "620090",
+   "title": "Сырные палочки",
+   "cats": [],
+   "price": 126.0,
+   "oldPrice": 158.0,
+   "variant": "101677404",
+   "orderable": true,
+   "unit": "g",
+   "size": 75,
+   "flavor": null,
+   "per100": {
+    "kcal": 395,
+    "protein": 14.6,
+    "fat": 23.7,
+    "carbs": 30.7
+   }
+  },
+  {
+   "id": "620095",
+   "title": "Сырные палочки",
+   "cats": [
+    "Вкусные цены",
+    "Картофель и Снэки",
+    "Комбо с игрушкой"
+   ],
+   "price": 248.0,
+   "oldPrice": 312.0,
+   "variant": "101677404",
+   "orderable": true,
+   "unit": "g",
+   "size": 150,
+   "flavor": null,
+   "per100": {
+    "kcal": 395,
+    "protein": 14.6,
+    "fat": 23.7,
+    "carbs": 30.7
+   }
+  },
+  {
+   "id": "687747",
+   "title": "Огурцы",
+   "cats": [],
+   "price": 0.0,
+   "oldPrice": 0.0,
+   "variant": null,
+   "orderable": false,
+   "unit": "g",
+   "size": 0,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0
+   }
+  },
+  {
+   "id": "706663",
+   "title": "Эвервесс Кола Без Сахара",
+   "cats": [],
+   "price": 207.0,
+   "oldPrice": 207.0,
+   "variant": "101677371",
+   "orderable": true,
+   "unit": "ml",
+   "size": 800,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0.1
+   }
+  },
+  {
+   "id": "706673",
+   "title": "Эвервесс Кола Без Сахара",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 158.0,
+   "oldPrice": 158.0,
+   "variant": "101677371",
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0.1
+   }
+  },
+  {
+   "id": "706683",
+   "title": "Эвервесс Кола Без Сахара",
+   "cats": [],
+   "price": 147.0,
+   "oldPrice": 147.0,
+   "variant": "101677371",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0.1
+   }
+  },
+  {
+   "id": "706693",
+   "title": "Эвервесс Кола Без Сахара",
+   "cats": [],
+   "price": 125.0,
+   "oldPrice": 125.0,
+   "variant": "101677371",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 0.1
+   }
+  },
+  {
+   "id": "811989",
+   "title": "Мини-тарт карамельно-арахисовый",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 149.0,
+   "oldPrice": 149.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 40,
+   "flavor": null,
+   "per100": {
+    "kcal": 480,
+    "protein": 5.5,
+    "fat": 25,
+    "carbs": 57
+   }
+  },
+  {
+   "id": "921643",
+   "title": "Чикенбургер",
+   "cats": [
+    "Бургеры"
+   ],
+   "price": 72.0,
+   "oldPrice": 72.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 129,
+   "flavor": null,
+   "per100": {
+    "kcal": 252,
+    "protein": 8.1,
+    "fat": 12.2,
+    "carbs": 27.3
+   }
+  },
+  {
+   "id": "921657",
+   "title": "Чизбургер",
+   "cats": [
+    "Бургеры",
+    "Комбо с игрушкой"
+   ],
+   "price": 87.0,
+   "oldPrice": 87.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 132,
+   "flavor": null,
+   "per100": {
+    "kcal": 247,
+    "protein": 9.5,
+    "fat": 10.5,
+    "carbs": 28.6
+   }
+  },
+  {
+   "id": "921671",
+   "title": "Чизбургер де люкс",
+   "cats": [
+    "Бургеры",
+    "Комбо с игрушкой"
+   ],
+   "price": 144.0,
+   "oldPrice": 144.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 160,
+   "flavor": null,
+   "per100": {
+    "kcal": 209,
+    "protein": 8.1,
+    "fat": 8.8,
+    "carbs": 24.3
+   }
+  },
+  {
+   "id": "1078850",
+   "title": "Маэстро Чиз Бургер классический",
+   "cats": [
+    "Бургеры"
+   ],
+   "price": 525.0,
+   "oldPrice": 525.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 281,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 272,
+    "protein": 14.5,
+    "fat": 13.4,
+    "carbs": 23.3
+   }
+  },
+  {
+   "id": "1078873",
+   "title": "Ростмастер Чиз классический",
+   "cats": [
+    "Роллы"
+   ],
+   "price": 551.0,
+   "oldPrice": 551.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 324,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 275,
+    "protein": 14.2,
+    "fat": 15,
+    "carbs": 20.9
+   }
+  },
+  {
+   "id": "1078886",
+   "title": "Веджи Чиз Ролл классический",
+   "cats": [
+    "Роллы"
+   ],
+   "price": 233.0,
+   "oldPrice": 233.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 166,
+   "flavor": null,
+   "per100": {
+    "kcal": 294,
+    "protein": 8.1,
+    "fat": 14.2,
+    "carbs": 33.5
+   }
+  },
+  {
+   "id": "1078908",
+   "title": "Маэстро Веджи Бургер классический",
+   "cats": [
+    "Бургеры"
+   ],
+   "price": 360.0,
+   "oldPrice": 360.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 194,
+   "flavor": null,
+   "per100": {
+    "kcal": 305,
+    "protein": 10.1,
+    "fat": 15.9,
+    "carbs": 30.5
+   }
+  },
+  {
+   "id": "1109340",
+   "title": "Дабл Чикен",
+   "cats": [
+    "Бургеры",
+    "Сочная курица"
+   ],
+   "price": 338.0,
+   "oldPrice": 338.0,
+   "variant": "103124561",
+   "orderable": true,
+   "unit": "g",
+   "size": 214,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 223,
+    "protein": 20.7,
+    "fat": 11.8,
+    "carbs": 8.7
+   }
+  },
+  {
+   "id": "1109350",
+   "title": "Дабл Чикен",
+   "cats": [],
+   "price": 338.0,
+   "oldPrice": 338.0,
+   "variant": "103124561",
+   "orderable": true,
+   "unit": "g",
+   "size": 208,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 236,
+    "protein": 20.7,
+    "fat": 13.4,
+    "carbs": 8.3
+   }
+  },
+  {
+   "id": "1228196",
+   "title": "Пирожок манго-маракуйя крем-чиз",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 110.0,
+   "oldPrice": 110.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 82,
+   "flavor": null,
+   "per100": {
+    "kcal": 265,
+    "protein": 2.8,
+    "fat": 17,
+    "carbs": 25.1
+   }
+  },
+  {
+   "id": "1364466",
+   "title": "Чизкейк с солёной карамелью",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 302.0,
+   "oldPrice": 302.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 90,
+   "flavor": null,
+   "per100": {
+    "kcal": 385,
+    "protein": 5.4,
+    "fat": 21.7,
+    "carbs": 42
+   }
+  },
+  {
+   "id": "1364486",
+   "title": "Маффин со сгущёнкой",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 144.0,
+   "oldPrice": 144.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 65,
+   "flavor": null,
+   "per100": {
+    "kcal": 480,
+    "protein": 5.5,
+    "fat": 26,
+    "carbs": 55
+   }
+  },
+  {
+   "id": "1401365",
+   "title": "Чай Lipton Зеленый",
+   "cats": [],
+   "price": 125.0,
+   "oldPrice": 125.0,
+   "variant": "101677372",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 27,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "1401384",
+   "title": "Чай Lipton Зеленый",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 158.0,
+   "oldPrice": 158.0,
+   "variant": "101677372",
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 27,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "1401389",
+   "title": "Чай Lipton Зеленый",
+   "cats": [],
+   "price": 207.0,
+   "oldPrice": 207.0,
+   "variant": "101677372",
+   "orderable": true,
+   "unit": "ml",
+   "size": 800,
+   "flavor": null,
+   "per100": {
+    "kcal": 27,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "1401414",
+   "title": "Чай Lipton Лимон",
+   "cats": [],
+   "price": 125.0,
+   "oldPrice": 125.0,
+   "variant": "101677373",
+   "orderable": true,
+   "unit": "ml",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 27,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "1401421",
+   "title": "Чай Lipton Лимон",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 158.0,
+   "oldPrice": 158.0,
+   "variant": "101677373",
+   "orderable": true,
+   "unit": "ml",
+   "size": 500,
+   "flavor": null,
+   "per100": {
+    "kcal": 27,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "1401428",
+   "title": "Чай Lipton Лимон",
+   "cats": [],
+   "price": 207.0,
+   "oldPrice": 207.0,
+   "variant": "101677373",
+   "orderable": true,
+   "unit": "ml",
+   "size": 800,
+   "flavor": null,
+   "per100": {
+    "kcal": 27,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "1462264",
+   "title": "Шеф Чизбургер",
+   "cats": [
+    "Вкусные цены",
+    "Бургеры"
+   ],
+   "price": 232.0,
+   "oldPrice": 292.0,
+   "variant": "103124563",
+   "orderable": true,
+   "unit": "g",
+   "size": 207,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 216,
+    "protein": 14.9,
+    "fat": 8.2,
+    "carbs": 20.6
+   }
+  },
+  {
+   "id": "1462269",
+   "title": "Шеф Чизбургер",
+   "cats": [],
+   "price": 232.0,
+   "oldPrice": 292.0,
+   "variant": "103124563",
+   "orderable": true,
+   "unit": "g",
+   "size": 204,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 223,
+    "protein": 14.8,
+    "fat": 9,
+    "carbs": 20.6
+   }
+  },
+  {
+   "id": "1462274",
+   "title": "Шеф Сэндвич",
+   "cats": [
+    "Вкусные цены",
+    "Сэндвичи"
+   ],
+   "price": 421.0,
+   "oldPrice": 530.0,
+   "variant": "103376982",
+   "orderable": true,
+   "unit": "g",
+   "size": 296,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 206,
+    "protein": 11.9,
+    "fat": 8.6,
+    "carbs": 20.3
+   }
+  },
+  {
+   "id": "1462279",
+   "title": "Шеф Сэндвич",
+   "cats": [],
+   "price": 421.0,
+   "oldPrice": 530.0,
+   "variant": "103376982",
+   "orderable": true,
+   "unit": "g",
+   "size": 287,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 211,
+    "protein": 12.2,
+    "fat": 9.2,
+    "carbs": 19.7
+   }
+  },
+  {
+   "id": "1462284",
+   "title": "Шеф Сэндвич Лайт",
+   "cats": [
+    "Вкусные цены",
+    "Сэндвичи"
+   ],
+   "price": 326.0,
+   "oldPrice": 410.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 227,
+   "flavor": null,
+   "per100": {
+    "kcal": 201,
+    "protein": 8.6,
+    "fat": 8.1,
+    "carbs": 23.5
+   }
+  },
+  {
+   "id": "1462294",
+   "title": "Сырные палочки",
+   "cats": [],
+   "price": 621.0,
+   "oldPrice": 621.0,
+   "variant": "101677404",
+   "orderable": true,
+   "unit": "g",
+   "size": 300,
+   "flavor": null,
+   "per100": {
+    "kcal": 395,
+    "protein": 14,
+    "fat": 23,
+    "carbs": 30
+   }
+  },
+  {
+   "id": "1490021",
+   "title": "Бабл Ти Lipton Зеленый",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 260.0,
+   "oldPrice": 260.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 326,
+   "flavor": null,
+   "per100": {
+    "kcal": 31,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 7.6
+   }
+  },
+  {
+   "id": "1490026",
+   "title": "Бабл Ти Лимон",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 260.0,
+   "oldPrice": 260.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 326,
+   "flavor": null,
+   "per100": {
+    "kcal": 31,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 7.6
+   }
+  },
+  {
+   "id": "1523166",
+   "title": "Милкшейк Дыня-Арбуз",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 183.0,
+   "oldPrice": 183.0,
+   "variant": "101701053",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 93,
+    "protein": 2.5,
+    "fat": 2.1,
+    "carbs": 15.9
+   }
+  },
+  {
+   "id": "1529518",
+   "title": "Мороженое фисташка",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 178.0,
+   "oldPrice": 178.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 177,
+   "flavor": null,
+   "per100": {
+    "kcal": 261,
+    "protein": 1.8,
+    "fat": 3.3,
+    "carbs": 56.1
+   }
+  },
+  {
+   "id": "1529530",
+   "title": "Айс кофе халва",
+   "cats": [
+    "Кофе и чай"
+   ],
+   "price": 192.0,
+   "oldPrice": 192.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 238,
+   "flavor": null,
+   "per100": {
+    "kcal": 69,
+    "protein": 1.8,
+    "fat": 1,
+    "carbs": 13.4
+   }
+  },
+  {
+   "id": "1529550",
+   "title": "Милкшейк Дыня-Арбуз",
+   "cats": [],
+   "price": 121.0,
+   "oldPrice": 121.0,
+   "variant": "101701053",
+   "orderable": true,
+   "unit": "ml",
+   "size": 250,
+   "flavor": null,
+   "per100": {
+    "kcal": 99,
+    "protein": 2.9,
+    "fat": 2.3,
+    "carbs": 16.7
+   }
+  },
+  {
+   "id": "1532069",
+   "title": "Пиво Red Finch БА 0,45 л",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 233.0,
+   "oldPrice": 233.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 450,
+   "flavor": null,
+   "per100": {
+    "kcal": 15,
+    "protein": 0,
+    "fat": 0,
+    "carbs": 2.5
+   }
+  },
+  {
+   "id": "1555433",
+   "title": "Мороженое Карамельное",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 126.0,
+   "oldPrice": 126.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 140,
+   "flavor": null,
+   "per100": {
+    "kcal": 157,
+    "protein": 2.8,
+    "fat": 3.4,
+    "carbs": 28.8
+   }
+  },
+  {
+   "id": "1555440",
+   "title": "Мороженое Шоколадное",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 126.0,
+   "oldPrice": 126.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 140,
+   "flavor": null,
+   "per100": {
+    "kcal": 156,
+    "protein": 3,
+    "fat": 3.6,
+    "carbs": 28
+   }
+  },
+  {
+   "id": "1555447",
+   "title": "Мороженое Клубничное",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 126.0,
+   "oldPrice": 126.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 140,
+   "flavor": null,
+   "per100": {
+    "kcal": 152,
+    "protein": 2.8,
+    "fat": 3,
+    "carbs": 28.4
+   }
+  },
+  {
+   "id": "1555454",
+   "title": "Айс Микс Клубника",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 163.0,
+   "oldPrice": 163.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 196,
+   "flavor": null,
+   "per100": {
+    "kcal": 185,
+    "protein": 2.8,
+    "fat": 3.6,
+    "carbs": 35.1
+   }
+  },
+  {
+   "id": "1555459",
+   "title": "Айс Микс Карамель",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 163.0,
+   "oldPrice": 163.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 196,
+   "flavor": null,
+   "per100": {
+    "kcal": 193,
+    "protein": 3,
+    "fat": 4.2,
+    "carbs": 35.8
+   }
+  },
+  {
+   "id": "1555464",
+   "title": "Айс Микс Шоколад",
+   "cats": [
+    "Десерты и Мороженое"
+   ],
+   "price": 163.0,
+   "oldPrice": 163.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 196,
+   "flavor": null,
+   "per100": {
+    "kcal": 192,
+    "protein": 3.3,
+    "fat": 4.5,
+    "carbs": 34.5
+   }
+  },
+  {
+   "id": "1555469",
+   "title": "Милкшейк Ваниль",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 183.0,
+   "oldPrice": 183.0,
+   "variant": "101939110",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 86,
+    "protein": 2.5,
+    "fat": 2.1,
+    "carbs": 14.3
+   }
+  },
+  {
+   "id": "1555477",
+   "title": "Милкшейк Ваниль",
+   "cats": [],
+   "price": 121.0,
+   "oldPrice": 121.0,
+   "variant": "101939110",
+   "orderable": true,
+   "unit": "ml",
+   "size": 250,
+   "flavor": null,
+   "per100": {
+    "kcal": 92,
+    "protein": 2.8,
+    "fat": 2.3,
+    "carbs": 15.1
+   }
+  },
+  {
+   "id": "1555485",
+   "title": "Милкшейк Клубника",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 183.0,
+   "oldPrice": 183.0,
+   "variant": "101939112",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 94,
+    "protein": 2.5,
+    "fat": 2.1,
+    "carbs": 16.2
+   }
+  },
+  {
+   "id": "1555493",
+   "title": "Милкшейк Клубника",
+   "cats": [],
+   "price": 121.0,
+   "oldPrice": 121.0,
+   "variant": "101939112",
+   "orderable": true,
+   "unit": "ml",
+   "size": 250,
+   "flavor": null,
+   "per100": {
+    "kcal": 101,
+    "protein": 2.8,
+    "fat": 2.3,
+    "carbs": 17.2
+   }
+  },
+  {
+   "id": "1555501",
+   "title": "Милкшейк Шоколадно-Ореховый",
+   "cats": [
+    "Холодные Напитки и Милкшейки",
+    "Комбо с игрушкой"
+   ],
+   "price": 183.0,
+   "oldPrice": 183.0,
+   "variant": "101939114",
+   "orderable": true,
+   "unit": "ml",
+   "size": 400,
+   "flavor": null,
+   "per100": {
+    "kcal": 94,
+    "protein": 2.5,
+    "fat": 2.1,
+    "carbs": 16.2
+   }
+  },
+  {
+   "id": "1555509",
+   "title": "Милкшейк Шоколадно-Ореховый",
+   "cats": [],
+   "price": 121.0,
+   "oldPrice": 121.0,
+   "variant": "101939114",
+   "orderable": true,
+   "unit": "ml",
+   "size": 250,
+   "flavor": null,
+   "per100": {
+    "kcal": 101,
+    "protein": 2.8,
+    "fat": 2.3,
+    "carbs": 17.2
+   }
+  },
+  {
+   "id": "1565190",
+   "title": "Шефбургер",
+   "cats": [],
+   "price": 149.0,
+   "oldPrice": 249.0,
+   "variant": "103376980",
+   "orderable": true,
+   "unit": "g",
+   "size": 193,
+   "flavor": "суперострый",
+   "per100": {
+    "kcal": 217,
+    "protein": 13.7,
+    "fat": 8.9,
+    "carbs": 20.6
+   }
+  },
+  {
+   "id": "1565197",
+   "title": "Биг Маэстро Бургер",
+   "cats": [],
+   "price": 421.0,
+   "oldPrice": 421.0,
+   "variant": "103376979",
+   "orderable": true,
+   "unit": "g",
+   "size": 271,
+   "flavor": "суперострый",
+   "per100": {
+    "kcal": 237,
+    "protein": 13.1,
+    "fat": 11,
+    "carbs": 21.5
+   }
+  },
+  {
+   "id": "1565205",
+   "title": "Шефролл",
+   "cats": [],
+   "price": 149.0,
+   "oldPrice": 267.0,
+   "variant": "103376983",
+   "orderable": true,
+   "unit": "g",
+   "size": 189,
+   "flavor": "суперострый",
+   "per100": {
+    "kcal": 230,
+    "protein": 11.5,
+    "fat": 10.2,
+    "carbs": 23
+   }
+  },
+  {
+   "id": "1565212",
+   "title": "Ростмастер",
+   "cats": [],
+   "price": 351.0,
+   "oldPrice": 351.0,
+   "variant": "103376984",
+   "orderable": true,
+   "unit": "g",
+   "size": 281,
+   "flavor": "суперострый",
+   "per100": {
+    "kcal": 227,
+    "protein": 10.6,
+    "fat": 11.4,
+    "carbs": 20.6
+   }
+  },
+  {
+   "id": "1565220",
+   "title": "Шефбургер Де Люкс",
+   "cats": [],
+   "price": 267.0,
+   "oldPrice": 267.0,
+   "variant": "103376981",
+   "orderable": true,
+   "unit": "g",
+   "size": 211,
+   "flavor": "суперострый",
+   "per100": {
+    "kcal": 226,
+    "protein": 13.8,
+    "fat": 10.5,
+    "carbs": 19.1
+   }
+  },
+  {
+   "id": "1565225",
+   "title": "Шеф Сэндвич",
+   "cats": [],
+   "price": 445.0,
+   "oldPrice": 560.0,
+   "variant": "103376982",
+   "orderable": true,
+   "unit": "g",
+   "size": 297,
+   "flavor": "суперострый",
+   "per100": {
+    "kcal": 205,
+    "protein": 11.8,
+    "fat": 8.9,
+    "carbs": 19.4
+   }
+  },
+  {
+   "id": "1649422",
+   "title": "Дабл Чикен Чиз оригинальный",
+   "cats": [
+    "Новинки",
+    "Бургеры",
+    "Сочная курица"
+   ],
+   "price": 584.0,
+   "oldPrice": 584.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 305,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 258,
+    "protein": 19.9,
+    "fat": 14.1,
+    "carbs": 12.8
+   }
+  },
+  {
+   "id": "1649427",
+   "title": "Дабл Чикен Чиз острый",
+   "cats": [
+    "Новинки",
+    "Бургеры",
+    "Сочная курица"
+   ],
+   "price": 584.0,
+   "oldPrice": 584.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 297,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 267,
+    "protein": 19.7,
+    "fat": 15.3,
+    "carbs": 12.5
+   }
+  },
+  {
+   "id": "1658625",
+   "title": "Ай-ролл по-русски",
+   "cats": [
+    "Роллы"
+   ],
+   "price": 89.0,
+   "oldPrice": 89.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 86,
+   "flavor": "острый",
+   "per100": {
+    "kcal": 281,
+    "protein": 11.1,
+    "fat": 11.8,
+    "carbs": 32.5
+   }
+  },
+  {
+   "id": "1658892",
+   "title": "Пунш Облепиха-Морошка",
+   "cats": [
+    "Осеннее меню",
+    "Кофе и чай"
+   ],
+   "price": 142.0,
+   "oldPrice": 142.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 329,
+   "flavor": null,
+   "per100": {
+    "kcal": 30,
+    "protein": 0.1,
+    "fat": 0,
+    "carbs": 7.3
+   }
+  },
+  {
+   "id": "1670959",
+   "title": "Бабл Лимонад Облепиха-Морошка",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 265.0,
+   "oldPrice": 265.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 381,
+   "flavor": null,
+   "per100": {
+    "kcal": 58,
+    "protein": 0.1,
+    "fat": 0,
+    "carbs": 14.4
+   }
+  },
+  {
+   "id": "1670964",
+   "title": "Пирожок Малина-Крем-чиз",
+   "cats": [
+    "Осеннее меню",
+    "Десерты и Мороженое"
+   ],
+   "price": 114.0,
+   "oldPrice": 114.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 82,
+   "flavor": null,
+   "per100": {
+    "kcal": 291,
+    "protein": 3.4,
+    "fat": 16.1,
+    "carbs": 33.2
+   }
+  },
+  {
+   "id": "1687648",
+   "title": "Бургер с грибной булочкой",
+   "cats": [
+    "Бургеры"
+   ],
+   "price": 297.0,
+   "oldPrice": 297.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 181,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 223,
+    "protein": 14.8,
+    "fat": 7.9,
+    "carbs": 23.2
+   }
+  },
+  {
+   "id": "1702992",
+   "title": "Бургер по-русски",
+   "cats": [
+    "Новинки",
+    "Бургеры"
+   ],
+   "price": 297.0,
+   "oldPrice": 297.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 175,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 235,
+    "protein": 15.4,
+    "fat": 8.4,
+    "carbs": 24.6
+   }
+  },
+  {
+   "id": "1702997",
+   "title": "Ролл по-русски",
+   "cats": [
+    "Новинки",
+    "Роллы"
+   ],
+   "price": 272.0,
+   "oldPrice": 272.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 161,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 261,
+    "protein": 12.9,
+    "fat": 11,
+    "carbs": 27.7
+   }
+  },
+  {
+   "id": "1703002",
+   "title": "Ростмастер по-русски",
+   "cats": [
+    "Новинки",
+    "Роллы"
+   ],
+   "price": 343.0,
+   "oldPrice": 343.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 236,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 253,
+    "protein": 12.1,
+    "fat": 11.9,
+    "carbs": 24.3
+   }
+  },
+  {
+   "id": "1703007",
+   "title": "Бургер Чиз по-русски",
+   "cats": [
+    "Новинки",
+    "Бургеры"
+   ],
+   "price": 504.0,
+   "oldPrice": 504.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 264,
+   "flavor": "оригинальный",
+   "per100": {
+    "kcal": 270,
+    "protein": 16,
+    "fat": 12.3,
+    "carbs": 24
+   }
+  },
+  {
+   "id": "1703012",
+   "title": "Картофельные дольки по-русски",
+   "cats": [
+    "Новинки",
+    "Картофель и Снэки"
+   ],
+   "price": 228.0,
+   "oldPrice": 228.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 130,
+   "flavor": null,
+   "per100": {
+    "kcal": 282,
+    "protein": 2.5,
+    "fat": 20.3,
+    "carbs": 22.3
+   }
+  },
+  {
+   "id": "1703072",
+   "title": "Картофель фри по-русски",
+   "cats": [
+    "Новинки",
+    "Картофель и Снэки"
+   ],
+   "price": 232.0,
+   "oldPrice": 232.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 130,
+   "flavor": null,
+   "per100": {
+    "kcal": 302,
+    "protein": 3,
+    "fat": 22.8,
+    "carbs": 21.1
+   }
+  },
+  {
+   "id": "1703253",
+   "title": "Капучино Кленовый Пекан",
+   "cats": [],
+   "price": 192.0,
+   "oldPrice": 192.0,
+   "variant": "103376995",
+   "orderable": true,
+   "unit": "ml",
+   "size": 228,
+   "flavor": null,
+   "per100": {
+    "kcal": 60,
+    "protein": 1.9,
+    "fat": 1,
+    "carbs": 10.8
+   }
+  },
+  {
+   "id": "1703260",
+   "title": "Капучино Кленовый Пекан",
+   "cats": [
+    "Осеннее меню",
+    "Кофе и чай"
+   ],
+   "price": 218.0,
+   "oldPrice": 218.0,
+   "variant": "103376995",
+   "orderable": true,
+   "unit": "ml",
+   "size": 301,
+   "flavor": null,
+   "per100": {
+    "kcal": 62,
+    "protein": 2,
+    "fat": 1,
+    "carbs": 11.1
+   }
+  },
+  {
+   "id": "1703265",
+   "title": "Латте Кленовый Пекан",
+   "cats": [],
+   "price": 192.0,
+   "oldPrice": 192.0,
+   "variant": "103376996",
+   "orderable": true,
+   "unit": "ml",
+   "size": 298,
+   "flavor": null,
+   "per100": {
+    "kcal": 57,
+    "protein": 2.2,
+    "fat": 1.1,
+    "carbs": 9.4
+   }
+  },
+  {
+   "id": "1703270",
+   "title": "Латте Кленовый Пекан",
+   "cats": [
+    "Осеннее меню",
+    "Кофе и чай"
+   ],
+   "price": 218.0,
+   "oldPrice": 218.0,
+   "variant": "103376996",
+   "orderable": true,
+   "unit": "ml",
+   "size": 391,
+   "flavor": null,
+   "per100": {
+    "kcal": 58,
+    "protein": 2.3,
+    "fat": 1.1,
+    "carbs": 9.6
+   }
+  },
+  {
+   "id": "1703275",
+   "title": "Раф Кленовый Пекан",
+   "cats": [
+    "Осеннее меню",
+    "Кофе и чай"
+   ],
+   "price": 228.0,
+   "oldPrice": 228.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 298,
+   "flavor": null,
+   "per100": {
+    "kcal": 70,
+    "protein": 2.4,
+    "fat": 1.5,
+    "carbs": 11.6
+   }
+  },
+  {
+   "id": "1703280",
+   "title": "Пунш Малина-Ежевика",
+   "cats": [
+    "Осеннее меню",
+    "Кофе и чай"
+   ],
+   "price": 142.0,
+   "oldPrice": 142.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 328,
+   "flavor": null,
+   "per100": {
+    "kcal": 28,
+    "protein": 0,
+    "fat": 0.1,
+    "carbs": 6.7
+   }
+  },
+  {
+   "id": "1703285",
+   "title": "Бабл Лимонад Малина-Ежевика",
+   "cats": [
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 265.0,
+   "oldPrice": 265.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "ml",
+   "size": 380,
+   "flavor": null,
+   "per100": {
+    "kcal": 57,
+    "protein": 0,
+    "fat": 0.1,
+    "carbs": 13.9
+   }
+  },
+  {
+   "id": "1703290",
+   "title": "Донат солёная карамель",
+   "cats": [
+    "Осеннее меню",
+    "Десерты и Мороженое"
+   ],
+   "price": 136.0,
+   "oldPrice": 136.0,
+   "variant": null,
+   "orderable": true,
+   "unit": "g",
+   "size": 67,
+   "flavor": null,
+   "per100": {
+    "kcal": 380,
+    "protein": 4.5,
+    "fat": 20,
+    "carbs": 46
+   }
+  }
+ ],
+ "combos": [
+  {
+   "id": "130676",
+   "title": "Купон 3072",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 223.0,
+   "oldPrice": 253.0,
+   "short": "3 Стрипса + Соус",
+   "code": "3072",
+   "groups": [
+    {
+     "title": "3 Стрипса На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129570",
+       "title": "Стрипсы Оригинальные",
+       "price": 191.0
+      },
+      {
+       "id": "129577",
+       "title": "Стрипсы Острые",
+       "price": 191.0
+      }
+     ]
+    },
+    {
+     "title": "Соус Сырный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "130722",
+   "title": "Купон 5567",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 416.0,
+   "oldPrice": 503.0,
+   "short": "Ростмастер + 6 Наггетсов + Соус",
+   "code": "5567",
+   "groups": [
+    {
+     "title": "Ростмастер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268840",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "268850",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "1565212",
+       "title": "Ростмастер",
+       "price": 351.0
+      }
+     ]
+    },
+    {
+     "title": "6 Наггетсов",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "581626",
+       "title": "Наггетсы",
+       "price": 114.0
+      }
+     ]
+    },
+    {
+     "title": "Соус На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "130781",
+   "title": "Купон 5572",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 312.0,
+   "oldPrice": 325.0,
+   "short": "Шефбургер + 6 Наггетсов + Соус",
+   "code": "5572",
+   "groups": [
+    {
+     "title": "Шефбургер На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268696",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "268703",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "1565190",
+       "title": "Шефбургер",
+       "price": 149.0
+      }
+     ]
+    },
+    {
+     "title": "6 Наггетсов",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "581626",
+       "title": "Наггетсы",
+       "price": 114.0
+      }
+     ]
+    },
+    {
+     "title": "Соус На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "131896",
+   "title": "Купон 5782",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 369.0,
+   "oldPrice": 477.0,
+   "short": "Маэстро бургер + Картофель Фри средний + Соус",
+   "code": "5782",
+   "groups": [
+    {
+     "title": "Маэстро Бургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268744",
+       "title": "Маэстро Бургер",
+       "price": 296.0
+      },
+      {
+       "id": "268755",
+       "title": "Маэстро Бургер",
+       "price": 296.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      },
+      {
+       "id": "130327",
+       "title": "Картофель по-деревенски",
+       "price": 124.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "132025",
+   "title": "Купон 3841",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 291.0,
+   "oldPrice": 326.0,
+   "short": "Баскет Фри + 2 Соуса",
+   "code": "3841",
+   "groups": [
+    {
+     "title": "Баскет Фри",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129688",
+       "title": "Картофель фри",
+       "price": 202.0
+      }
+     ]
+    },
+    {
+     "title": "Соус На Выбор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "132952",
+   "title": "Пати Бокс",
+   "cats": [
+    "Картофель и Снэки"
+   ],
+   "price": 197.0,
+   "oldPrice": 278.0,
+   "short": "Байтсы + Картофель Фри малый + Соус",
+   "code": null,
+   "groups": [
+    {
+     "title": "Байтсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "286877",
+       "title": "Байтсы из куриного филе",
+       "price": 84.32
+      }
+     ]
+    },
+    {
+     "title": "Картофель Малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132976",
+       "title": "Картофель Фри Малый",
+       "price": 68.74
+      }
+     ]
+    },
+    {
+     "title": "Соус",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "132988",
+   "title": "Шеф Баскет оригинальный",
+   "cats": [
+    "Баскеты"
+   ],
+   "price": 358.0,
+   "oldPrice": 511.0,
+   "short": "Ножка + 2 Острых Крылышка + 2 Стрипса + Байтсы",
+   "code": null,
+   "groups": [
+    {
+     "title": "1 Ножка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133010",
+       "title": "1 Оригинальная Ножка",
+       "price": 85.45
+      }
+     ]
+    },
+    {
+     "title": "2 Крылышка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132465",
+       "title": "2 Острых Крылышка",
+       "price": 101.65
+      }
+     ]
+    },
+    {
+     "title": "2 Оригинальных Стрипса",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133017",
+       "title": "2 Оригинальных Стрипса",
+       "price": 89.87
+      }
+     ]
+    },
+    {
+     "title": "Байтсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132477",
+       "title": "Байтсы из куриного филе",
+       "price": 81.03
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "133480",
+   "title": "Купон 6536",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 358.0,
+   "oldPrice": 446.0,
+   "short": "Ростмастер + Картофель Фри средний",
+   "code": "6536",
+   "groups": [
+    {
+     "title": "Ростмастер На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268840",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "268850",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "1565212",
+       "title": "Ростмастер",
+       "price": 351.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "133775",
+   "title": "Купон 6540",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 615.0,
+   "oldPrice": 624.0,
+   "short": "2 Шефбургера + 2 Картофеля Фри средних + 2 Соуса",
+   "code": "6540",
+   "groups": [
+    {
+     "title": "Шефбургер На Выбор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "268696",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "268703",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "1565190",
+       "title": "Шефбургер",
+       "price": 149.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Cтандартный",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соуса На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Соуса На Выбор 2",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "133848",
+   "title": "Купон 6535",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 246.0,
+   "oldPrice": 250.0,
+   "short": "Шефролл + Картофель Фри средний",
+   "code": "6535",
+   "groups": [
+    {
+     "title": "Шефролл На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268802",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "268808",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "1565205",
+       "title": "Шефролл",
+       "price": 149.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "159422",
+   "title": "Баскет Дуэт Оригинальный",
+   "cats": [
+    "Баскеты"
+   ],
+   "price": 671.0,
+   "oldPrice": 840.0,
+   "short": "4 Стрипса + 2 Ножки + 4 Острых Крылышка + Картофель Фри малый",
+   "code": null,
+   "groups": [
+    {
+     "title": "4 Стрипса",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132819",
+       "title": "4 Оригинальных Стрипса",
+       "price": 199.47
+      }
+     ]
+    },
+    {
+     "title": "2 Ножки",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132812",
+       "title": "2 Оригинальных Ножки",
+       "price": 162.74
+      }
+     ]
+    },
+    {
+     "title": "Картофель Малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "4 Крылышка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "131524",
+       "title": "4 Острых Крылышка",
+       "price": 221.16
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "167773",
+   "title": "Купон 5907",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 169.0,
+   "oldPrice": 197.0,
+   "short": "Чикенбургер + Напиток 0,3",
+   "code": "5907",
+   "groups": [
+    {
+     "title": "Лимонад 0,3 л на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      }
+     ]
+    },
+    {
+     "title": "Чикенбургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "921643",
+       "title": "Чикенбургер",
+       "price": 72.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "186334",
+   "title": "Пара со скидкой: 2 Маэстро Бургера",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 531.0,
+   "oldPrice": 592.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Маэстро Бургер",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "268744",
+       "title": "Маэстро Бургер",
+       "price": 296.0
+      },
+      {
+       "id": "268755",
+       "title": "Маэстро Бургер",
+       "price": 296.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "186441",
+   "title": "Комбо с Шефбургером",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 374.0,
+   "oldPrice": 380.0,
+   "short": "Шефбургер + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Шефбургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268696",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "268703",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "1565190",
+       "title": "Шефбургер",
+       "price": 149.0
+      }
+     ]
+    },
+    {
+     "title": "Картошка фри стандартная",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "186454",
+   "title": "Комбо с Шефроллом",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 374.0,
+   "oldPrice": 380.0,
+   "short": "Шефролл + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Шефролл",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268802",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "268808",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "1565205",
+       "title": "Шефролл",
+       "price": 149.0
+      }
+     ]
+    },
+    {
+     "title": "Картошка фри стандартная",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "186466",
+   "title": "Комбо с Биг Маэстро",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 551.0,
+   "oldPrice": 661.0,
+   "short": "Биг Маэстро + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Биг Маэстро",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268761",
+       "title": "Биг Маэстро Бургер",
+       "price": 395.0
+      },
+      {
+       "id": "268768",
+       "title": "Биг Маэстро Бургер",
+       "price": 395.0
+      },
+      {
+       "id": "1565197",
+       "title": "Биг Маэстро Бургер",
+       "price": 421.0
+      }
+     ]
+    },
+    {
+     "title": "Картошка фри стандартная",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "187639",
+   "title": "Купон 6883",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 180.0,
+   "oldPrice": 212.0,
+   "short": "Чизбургер + Напиток 0,3",
+   "code": "6883",
+   "groups": [
+    {
+     "title": "Чизбургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "921657",
+       "title": "Чизбургер",
+       "price": 87.0
+      }
+     ]
+    },
+    {
+     "title": "Лимонад 0.3 на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "187648",
+   "title": "Купон 6884",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 634.0,
+   "oldPrice": 726.0,
+   "short": "2 Шефбургера Джуниор + Баскет Фри + 2 Напитка 0,4",
+   "code": "6884",
+   "groups": [
+    {
+     "title": "Шефбургер Джуниор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "268681",
+       "title": "Шефбургер Джуниор",
+       "price": 115.0
+      },
+      {
+       "id": "268688",
+       "title": "Шефбургер Джуниор",
+       "price": 115.0
+      }
+     ]
+    },
+    {
+     "title": "Баскет фри",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129688",
+       "title": "Картофель фри",
+       "price": 202.0
+      }
+     ]
+    },
+    {
+     "title": "Лимонад 0,4 л на выбор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "187660",
+   "title": "Купон 6885",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 452.0,
+   "oldPrice": 571.0,
+   "short": "Биг Маэстро + 6 Наггетсов + Соус",
+   "code": "6885",
+   "groups": [
+    {
+     "title": "Биг Маэстро",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268761",
+       "title": "Биг Маэстро Бургер",
+       "price": 395.0
+      },
+      {
+       "id": "268768",
+       "title": "Биг Маэстро Бургер",
+       "price": 395.0
+      },
+      {
+       "id": "1565197",
+       "title": "Биг Маэстро Бургер",
+       "price": 421.0
+      }
+     ]
+    },
+    {
+     "title": "6 Наггетсов",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "581626",
+       "title": "Наггетсы",
+       "price": 114.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "187681",
+   "title": "Купон 6887",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 615.0,
+   "oldPrice": 624.0,
+   "short": "2 Шефролла + 2 Картофеля Фри средних + 2 Соуса",
+   "code": "6887",
+   "groups": [
+    {
+     "title": "Шефролл",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "268802",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "268808",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "1565205",
+       "title": "Шефролл",
+       "price": 149.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор 2",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "187695",
+   "title": "Купон 4471",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 307.0,
+   "oldPrice": 312.0,
+   "short": "Шефбургер + Картофель Фри средний + Соус",
+   "code": "4471",
+   "groups": [
+    {
+     "title": "Шефбургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268696",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "268703",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "1565190",
+       "title": "Шефбургер",
+       "price": 149.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "214690",
+   "title": "Комбо с Ростмастером",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 520.0,
+   "oldPrice": 593.0,
+   "short": "Ростмастер + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Ростмастер На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268840",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "268850",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "1565212",
+       "title": "Ростмастер",
+       "price": 351.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор 0,4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "216271",
+   "title": "Комбо с Чизбургером Де Люкс",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 364.0,
+   "oldPrice": 375.0,
+   "short": "Чизбургер Де Люкс + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Чизбургер Де Люкс",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "921671",
+       "title": "Чизбургер де люкс",
+       "price": 144.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Фри Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0,4 на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "232417",
+   "title": "Купон 7128",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 246.0,
+   "oldPrice": 328.0,
+   "short": "Картофель Фри средний + Напиток 0,4 + Соус",
+   "code": "7128",
+   "groups": [
+    {
+     "title": "Лимонад 0,4 на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Фри Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "232476",
+   "title": "Купон 7134",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 185.0,
+   "oldPrice": 188.0,
+   "short": "Кофе 0,4 + Сироп",
+   "code": "7134",
+   "groups": [
+    {
+     "title": "Большой Кофе",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      }
+     ]
+    },
+    {
+     "title": "Сироп",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "227037",
+       "title": "Сироп со вкусом карамели",
+       "price": 57.07
+      },
+      {
+       "id": "232485",
+       "title": "Сироп со вкусом ванили",
+       "price": 57.07
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "234332",
+   "title": "Купон 7136",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 374.0,
+   "oldPrice": 407.0,
+   "short": "Ростмастер + Кофе 0,2",
+   "code": "7136",
+   "groups": [
+    {
+     "title": "Ростмастер на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268840",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "268850",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "1565212",
+       "title": "Ростмастер",
+       "price": 351.0
+      }
+     ]
+    },
+    {
+     "title": "Кофе малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "197259",
+       "title": "Кофе Американо",
+       "price": 80.0
+      },
+      {
+       "id": "197295",
+       "title": "Кофе Капучино",
+       "price": 98.0
+      },
+      {
+       "id": "197381",
+       "title": "Кофе Латте",
+       "price": 98.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "234347",
+   "title": "Кофе Дуэт",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 186.0,
+   "oldPrice": 208.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Кофе на выбор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "197374",
+       "title": "Кофе Капучино",
+       "price": 104.0
+      },
+      {
+       "id": "197386",
+       "title": "Кофе Латте",
+       "price": 104.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "234356",
+   "title": "Комбо Кофе с Чикенбургером",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 154.0,
+   "oldPrice": 156.0,
+   "short": "Чикенбургер + Кофе 0,3",
+   "code": null,
+   "groups": [
+    {
+     "title": "Чикенбургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "921643",
+       "title": "Чикенбургер",
+       "price": 72.0
+      }
+     ]
+    },
+    {
+     "title": "Кофе на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "197264",
+       "title": "Кофе Американо",
+       "price": 84.0
+      },
+      {
+       "id": "197374",
+       "title": "Кофе Капучино",
+       "price": 104.0
+      },
+      {
+       "id": "197386",
+       "title": "Кофе Латте",
+       "price": 104.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "234368",
+   "title": "Комбо Кофе с Шефроллом",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 332.0,
+   "oldPrice": 334.0,
+   "short": "Шефролл + Картофель Фри средний + Кофе 0,3",
+   "code": null,
+   "groups": [
+    {
+     "title": "Кофе средний на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "197264",
+       "title": "Кофе Американо",
+       "price": 84.0
+      },
+      {
+       "id": "197374",
+       "title": "Кофе Капучино",
+       "price": 104.0
+      },
+      {
+       "id": "197386",
+       "title": "Кофе Латте",
+       "price": 104.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Фри Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Шефролл",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268802",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "268808",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "1565205",
+       "title": "Шефролл",
+       "price": 149.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "280978",
+   "title": "Комбо с Мега Роллом",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 572.0,
+   "oldPrice": 661.0,
+   "short": "Мега Ролл + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Мега Ролл",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268856",
+       "title": "Мега Ролл",
+       "price": 395.0
+      },
+      {
+       "id": "268861",
+       "title": "Мега Ролл",
+       "price": 395.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0,4 на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "281074",
+   "title": "Пара со скидкой: 2 Мега Ролла",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 697.0,
+   "oldPrice": 790.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Мега ролл",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "268856",
+       "title": "Мега Ролл",
+       "price": 395.0
+      },
+      {
+       "id": "268861",
+       "title": "Мега Ролл",
+       "price": 395.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "538924",
+   "title": "Комбо с десертом",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 385.0,
+   "oldPrice": 454.0,
+   "short": "Чикенбургер / Шефролл Джуниор + Картофель Фри малый + Напиток 0,4 + Соус + Десерт",
+   "code": null,
+   "groups": [
+    {
+     "title": "Десерт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130215",
+       "title": "Пирожок с вишней",
+       "price": 76.0
+      },
+      {
+       "id": "1555433",
+       "title": "Мороженое Карамельное",
+       "price": 126.0
+      },
+      {
+       "id": "1555440",
+       "title": "Мороженое Шоколадное",
+       "price": 126.0
+      },
+      {
+       "id": "1555447",
+       "title": "Мороженое Клубничное",
+       "price": 126.0
+      },
+      {
+       "id": "1670964",
+       "title": "Пирожок Малина-Крем-чиз",
+       "price": 114.0
+      }
+     ]
+    },
+    {
+     "title": "Чикенбургер / Шефролл Джуниор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268790",
+       "title": "Шефролл Джуниор",
+       "price": 99.0
+      },
+      {
+       "id": "921643",
+       "title": "Чикенбургер",
+       "price": 72.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "584146",
+   "title": "Наггетс Бокс",
+   "cats": [
+    "Сочная курица",
+    "Комбо с игрушкой"
+   ],
+   "price": 164.0,
+   "oldPrice": 195.0,
+   "short": "5 Наггетсов + Картофель Фри малый",
+   "code": null,
+   "groups": [
+    {
+     "title": "5 Наггетсов",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "584162",
+       "title": "Наггетсы 5 шт.",
+       "price": 82.42
+      }
+     ]
+    },
+    {
+     "title": "Картофель Фри",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132923",
+       "title": "Картофель Фри Малый",
+       "price": 81.58
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "584206",
+   "title": "Шеф Баскет с наггетсами",
+   "cats": [
+    "Баскеты"
+   ],
+   "price": 358.0,
+   "oldPrice": 444.0,
+   "short": "Ножка + 2 Острых Крылышка + 3 Наггетса + Байтсы",
+   "code": null,
+   "groups": [
+    {
+     "title": "2 Крылышка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132465",
+       "title": "2 Острых Крылышка",
+       "price": 117.07
+      }
+     ]
+    },
+    {
+     "title": "1 Ножка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133010",
+       "title": "1 Оригинальная Ножка",
+       "price": 98.41
+      }
+     ]
+    },
+    {
+     "title": "3 Наггетса",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "584234",
+       "title": "Наггетсы 3 шт.",
+       "price": 49.2
+      }
+     ]
+    },
+    {
+     "title": "Байтсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132477",
+       "title": "Байтсы из куриного филе",
+       "price": 93.32
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "584258",
+   "title": "Домашний Баскет",
+   "cats": [
+    "Баскеты"
+   ],
+   "price": 1046.0,
+   "oldPrice": 1256.0,
+   "short": "6 Стрипсов + 8 Острых Крылышек + 4 Ножки + 4 Наггетса",
+   "code": null,
+   "groups": [
+    {
+     "title": "6 Стрипсов",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132854",
+       "title": "6 Оригинальных Стрипсов",
+       "price": 306.11
+      }
+     ]
+    },
+    {
+     "title": "8 Острых Крылышек",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1237333",
+       "title": "8 Острых крылышек",
+       "price": 367.83
+      }
+     ]
+    },
+    {
+     "title": "4 Ножки",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "160038",
+       "title": "4 Оригинальных Ножки",
+       "price": 306.95
+      }
+     ]
+    },
+    {
+     "title": "4 Наггетса",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "584293",
+       "title": "Наггетсы 4 шт.",
+       "price": 65.11
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "748864",
+   "title": "Купон 8353",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 244.0,
+   "oldPrice": 294.0,
+   "short": "Чикенбургер + Картофель Фри малый + Напиток 0,3",
+   "code": "8353",
+   "groups": [
+    {
+     "title": "Чикенбургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "921643",
+       "title": "Чикенбургер",
+       "price": 72.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.3 на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "751113",
+   "title": "Купон 8355",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 224.0,
+   "oldPrice": 300.0,
+   "short": "Ай-Ролл + Картофель Фри малый + Напиток 0,3",
+   "code": "8355",
+   "groups": [
+    {
+     "title": "Ай-Ролл",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268780",
+       "title": "Ай-Ролл",
+       "price": 78.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.3 на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "755502",
+   "title": "Купон 8356",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 344.0,
+   "oldPrice": 349.0,
+   "short": "Терияки Ролл с креветками + Картофель Фри средний",
+   "code": "8356",
+   "groups": [
+    {
+     "title": "Терияки ролл с креветками",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "536699",
+       "title": "Терияки Ролл с креветками",
+       "price": 248.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "755609",
+   "title": "Купон 8357",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 489.0,
+   "oldPrice": 576.0,
+   "short": "Мега Ролл + Картофель Фри средний + Соус",
+   "code": "8357",
+   "groups": [
+    {
+     "title": "Мега Ролл",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268856",
+       "title": "Мега Ролл",
+       "price": 395.0
+      },
+      {
+       "id": "268861",
+       "title": "Мега Ролл",
+       "price": 395.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соус На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "758025",
+   "title": "Купон 8358",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 291.0,
+   "oldPrice": 353.0,
+   "short": "Чизбургер + Картофель Фри средний + Напиток 0,4",
+   "code": "8358",
+   "groups": [
+    {
+     "title": "Чизбургер с луком",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "921657",
+       "title": "Чизбургер",
+       "price": 87.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "760375",
+   "title": "Купон 8359",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 514.0,
+   "oldPrice": 664.0,
+   "short": "2 Крылышка + Ножка + 3 Наггетса / 2 Стрипса + Байтсы + Соус + Напиток 0,5",
+   "code": "8359",
+   "groups": [
+    {
+     "title": "Байтсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132477",
+       "title": "Байтсы из куриного филе",
+       "price": 85.13
+      }
+     ]
+    },
+    {
+     "title": "1 Ножка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133010",
+       "title": "1 Оригинальная Ножка",
+       "price": 82.27
+      }
+     ]
+    },
+    {
+     "title": "2 Крылышка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132465",
+       "title": "2 Острых Крылышка",
+       "price": 105.16
+      }
+     ]
+    },
+    {
+     "title": "Наггетсы/Стрипсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133017",
+       "title": "2 Оригинальных Стрипса",
+       "price": 69.03
+      },
+      {
+       "id": "584234",
+       "title": "Наггетсы 3 шт.",
+       "price": 69.03
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.5",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148228",
+       "title": "Эвервесс Кола",
+       "price": 158.0
+      },
+      {
+       "id": "167476",
+       "title": "Фрустайл Апельсин",
+       "price": 158.0
+      },
+      {
+       "id": "167491",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 158.0
+      },
+      {
+       "id": "706673",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 158.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "760538",
+   "title": "Купон 8360",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 739.0,
+   "oldPrice": 834.0,
+   "short": "12 Крылышек + Соус + Напиток 0,5",
+   "code": "8360",
+   "groups": [
+    {
+     "title": "Баскет S",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129673",
+       "title": "Баскет S 12 Острых крылышек",
+       "price": 614.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.5",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148228",
+       "title": "Эвервесс Кола",
+       "price": 158.0
+      },
+      {
+       "id": "167476",
+       "title": "Фрустайл Апельсин",
+       "price": 158.0
+      },
+      {
+       "id": "167491",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 158.0
+      },
+      {
+       "id": "706673",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 158.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "760753",
+   "title": "Купон 8361",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 218.0,
+   "oldPrice": 273.0,
+   "short": "6 Наггетсов + Картофель Фри малый + Соус",
+   "code": "8361",
+   "groups": [
+    {
+     "title": "Картофель Фри малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Наггетсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "581626",
+       "title": "Наггетсы",
+       "price": 114.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "760894",
+   "title": "Купон 8362",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 369.0,
+   "oldPrice": 429.0,
+   "short": "3 Ножки + Картофель Фри малый + Соус",
+   "code": "8362",
+   "groups": [
+    {
+     "title": "Картофель Фри малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "3 Ножки",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129556",
+       "title": "Ножки Оригинальные",
+       "price": 270.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "761035",
+   "title": "Купон 8363",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 379.0,
+   "oldPrice": 471.0,
+   "short": "5 Крылышек + Картофель Фри малый + Соус",
+   "code": "8363",
+   "groups": [
+    {
+     "title": "Картофель Фри малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "5 Крылышек",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129584",
+       "title": "Острые Крылышки",
+       "price": 312.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "761176",
+   "title": "Купон 8365",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 306.0,
+   "oldPrice": 398.0,
+   "short": "Байтсы + Картофель Фри малый + Соус",
+   "code": "8365",
+   "groups": [
+    {
+     "title": "Картофель Фри малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Байтсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129659",
+       "title": "Байтсы",
+       "price": 190.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "774769",
+   "title": "Кофе с пирожком",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 135.0,
+   "oldPrice": 175.0,
+   "short": "Пирожок с вишней + Кофе 0,2",
+   "code": null,
+   "groups": [
+    {
+     "title": "Кофе малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "197259",
+       "title": "Кофе Американо",
+       "price": 80.0
+      },
+      {
+       "id": "197295",
+       "title": "Кофе Капучино",
+       "price": 98.0
+      },
+      {
+       "id": "197381",
+       "title": "Кофе Латте",
+       "price": 98.0
+      }
+     ]
+    },
+    {
+     "title": "Пирожок с вишней",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130215",
+       "title": "Пирожок с вишней",
+       "price": 76.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1058934",
+   "title": "Купон 8376",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 89.0,
+   "oldPrice": 124.0,
+   "short": "",
+   "code": "8376",
+   "groups": [
+    {
+     "title": "Мороженое рожок",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "128797",
+       "title": "Мороженое Рожок",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1092280",
+   "title": "Пара со скидкой: 2 Ростмастера",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 588.0,
+   "oldPrice": 654.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Ростмастер",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "268840",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "268850",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "1565212",
+       "title": "Ростмастер",
+       "price": 351.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1092437",
+   "title": "Комбо с Креветками",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 588.0,
+   "oldPrice": 661.0,
+   "short": "6 Креветок + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "6 Креветок",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "303310",
+       "title": "Креветки",
+       "price": 395.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1092508",
+   "title": "Комбо с Сырными палочками",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 489.0,
+   "oldPrice": 496.0,
+   "short": "6 Сырных палочек + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Сырные Палочки 6 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "620095",
+       "title": "Сырные палочки",
+       "price": 248.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1092665",
+   "title": "Комбо 6 Наггетсов",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 343.0,
+   "oldPrice": 380.0,
+   "short": "6 Наггетсов + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Наггетсы 6 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "581626",
+       "title": "Наггетсы",
+       "price": 114.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1092802",
+   "title": "Комбо 9 Наггетсов",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 390.0,
+   "oldPrice": 435.0,
+   "short": "9 Наггетсов + Картофель Фри средний + Напиток 0,5",
+   "code": null,
+   "groups": [
+    {
+     "title": "Наггетсы 9 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "581634",
+       "title": "Наггетсы",
+       "price": 158.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.5",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148228",
+       "title": "Эвервесс Кола",
+       "price": 158.0
+      },
+      {
+       "id": "167476",
+       "title": "Фрустайл Апельсин",
+       "price": 158.0
+      },
+      {
+       "id": "167491",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 158.0
+      },
+      {
+       "id": "706673",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 158.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1095262",
+   "title": "Комбо 5 Крыльев",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 520.0,
+   "oldPrice": 578.0,
+   "short": "5 Крылышек + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "5 Крыльев",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129584",
+       "title": "Острые Крылышки",
+       "price": 312.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1095411",
+   "title": "Комбо 8 Крыльев",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 645.0,
+   "oldPrice": 729.0,
+   "short": "8 Крылышек + Картофель Фри средний + Напиток 0,5",
+   "code": null,
+   "groups": [
+    {
+     "title": "8 Крыльев",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129605",
+       "title": "Острые Крылышки",
+       "price": 452.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.5",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148228",
+       "title": "Эвервесс Кола",
+       "price": 158.0
+      },
+      {
+       "id": "167476",
+       "title": "Фрустайл Апельсин",
+       "price": 158.0
+      },
+      {
+       "id": "167491",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 158.0
+      },
+      {
+       "id": "706673",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 158.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1095561",
+   "title": "Комбо с Байтсами",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 431.0,
+   "oldPrice": 438.0,
+   "short": "Байтсы + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Байтсы средние",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129659",
+       "title": "Байтсы",
+       "price": 190.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1095709",
+   "title": "Купон 8592",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 494.0,
+   "oldPrice": 576.0,
+   "short": "6 Креветок + Картофель Фри средний + Соус",
+   "code": "8592",
+   "groups": [
+    {
+     "title": "6 Креветок",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "303310",
+       "title": "Креветки",
+       "price": 395.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соус На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1095807",
+   "title": "Купон 8593",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 405.0,
+   "oldPrice": 411.0,
+   "short": "6 Сырных палочек + Картофель Фри стандартный + Соус",
+   "code": "8593",
+   "groups": [
+    {
+     "title": "6 Сырных палочек",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "620095",
+       "title": "Сырные палочки",
+       "price": 248.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель Стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соус На Выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1095963",
+   "title": "Купон 8594",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 884.0,
+   "oldPrice": 1016.0,
+   "short": "2 Ростмастера + 2 Картофеля Фри средних + 2 Соуса",
+   "code": "8594",
+   "groups": [
+    {
+     "title": "Ростмастер 1",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268840",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "268850",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "1565212",
+       "title": "Ростмастер",
+       "price": 351.0
+      }
+     ]
+    },
+    {
+     "title": "Ростмастер 2",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268840",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "268850",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "1565212",
+       "title": "Ростмастер",
+       "price": 351.0
+      }
+     ]
+    },
+    {
+     "title": "Стандартный Картофель фри",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1098681",
+   "title": "Купон 8595",
+   "cats": [
+    "Купоны"
+   ],
+   "price": 999.0,
+   "oldPrice": 1152.0,
+   "short": "2 Биг Маэстро + 2 Картофеля Фри средних + 2 Соуса",
+   "code": "8595",
+   "groups": [
+    {
+     "title": "Биг Маэстро 1",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268768",
+       "title": "Биг Маэстро Бургер",
+       "price": 395.0
+      },
+      {
+       "id": "268761",
+       "title": "Биг Маэстро Бургер",
+       "price": 395.0
+      },
+      {
+       "id": "1565197",
+       "title": "Биг Маэстро Бургер",
+       "price": 421.0
+      }
+     ]
+    },
+    {
+     "title": "Биг Маэстро 2",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268768",
+       "title": "Биг Маэстро Бургер",
+       "price": 395.0
+      },
+      {
+       "id": "268761",
+       "title": "Биг Маэстро Бургер",
+       "price": 395.0
+      },
+      {
+       "id": "1565197",
+       "title": "Биг Маэстро Бургер",
+       "price": 421.0
+      }
+     ]
+    },
+    {
+     "title": "Стандартный Картофель фри",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Соус на выбор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1098810",
+   "title": "Комбо 5 Стрипсов",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 480.0,
+   "oldPrice": 487.0,
+   "short": "5 Стрипсов + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Стрипсы 5 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129591",
+       "title": "Стрипсы Оригинальные",
+       "price": 239.0
+      },
+      {
+       "id": "129598",
+       "title": "Стрипсы Острые",
+       "price": 239.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток 0.4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1109297",
+   "title": "Айс Микс Дуэт",
+   "cats": [
+    "Комбо и Ланчи",
+    "Десерты и Мороженое"
+   ],
+   "price": 276.0,
+   "oldPrice": 326.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Мороженое на выбор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "1555454",
+       "title": "Айс Микс Клубника",
+       "price": 163.0
+      },
+      {
+       "id": "1555459",
+       "title": "Айс Микс Карамель",
+       "price": 163.0
+      },
+      {
+       "id": "1555464",
+       "title": "Айс Микс Шоколад",
+       "price": 163.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1174194",
+   "title": "2 Молочных Милкшейка",
+   "cats": [
+    "Комбо и Ланчи",
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 296.0,
+   "oldPrice": 366.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Молочный Милкшейк",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "1555485",
+       "title": "Милкшейк Клубника",
+       "price": 183.0
+      },
+      {
+       "id": "1555469",
+       "title": "Милкшейк Ваниль",
+       "price": 183.0
+      },
+      {
+       "id": "1555501",
+       "title": "Милкшейк Шоколадно-Ореховый",
+       "price": 183.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1234001",
+   "title": "Мой Баскет с оригинальными ножками",
+   "cats": [
+    "Вкусные цены",
+    "Баскеты"
+   ],
+   "price": 199.0,
+   "oldPrice": 294.0,
+   "short": "2 Ножки + Картофель Фри средний",
+   "code": null,
+   "groups": [
+    {
+     "title": "Куриные ножки 2 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133992",
+       "title": "2 Оригинальных Ножки",
+       "price": 131.08
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133970",
+       "title": "Картофель Фри Стандартный",
+       "price": 67.92
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1234035",
+   "title": "Мой Баскет со стрипсами",
+   "cats": [
+    "Вкусные цены",
+    "Баскеты"
+   ],
+   "price": 199.0,
+   "oldPrice": 292.0,
+   "short": "3 Стрипса + Картофель Фри средний",
+   "code": null,
+   "groups": [
+    {
+     "title": "3 Стрипса оригинальных",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "134043",
+       "title": "3 Оригинальных Стрипса",
+       "price": 129.66
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133970",
+       "title": "Картофель Фри Стандартный",
+       "price": 69.34
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1234069",
+   "title": "Мой Баскет со стрипсами острыми",
+   "cats": [
+    "Вкусные цены",
+    "Баскеты"
+   ],
+   "price": 199.0,
+   "oldPrice": 292.0,
+   "short": "3 Стрипса + Картофель Фри средний",
+   "code": null,
+   "groups": [
+    {
+     "title": "3 стрипса острые",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "134081",
+       "title": "3 Острых Стрипса",
+       "price": 129.66
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133970",
+       "title": "Картофель Фри Стандартный",
+       "price": 69.34
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1234103",
+   "title": "Мой Баскет с байтсами",
+   "cats": [
+    "Вкусные цены",
+    "Баскеты"
+   ],
+   "price": 199.0,
+   "oldPrice": 280.0,
+   "short": "Байтсы + Картофель Фри средний",
+   "code": null,
+   "groups": [
+    {
+     "title": "Байтсы из куриного филе",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "134016",
+       "title": "Байтсы из куриного филе",
+       "price": 126.64
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133970",
+       "title": "Картофель Фри Стандартный",
+       "price": 72.36
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1234137",
+   "title": "Мой Баскет с крылышками",
+   "cats": [
+    "Вкусные цены",
+    "Баскеты"
+   ],
+   "price": 199.0,
+   "oldPrice": 324.0,
+   "short": "3 Острых Крылышка + Картофель Фри средний",
+   "code": null,
+   "groups": [
+    {
+     "title": "3 Острых Крылышка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1233821",
+       "title": "3 Острых крылышка",
+       "price": 135.42
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133970",
+       "title": "Картофель Фри Стандартный",
+       "price": 63.58
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1237394",
+   "title": "Баскет 11 Крылышек + 11 Наггетсов",
+   "cats": [
+    "Баскеты"
+   ],
+   "price": 771.0,
+   "oldPrice": 780.0,
+   "short": "11 Острых Крылышек + 11 Наггетсов",
+   "code": null,
+   "groups": [
+    {
+     "title": "11 Крылышек",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1237367",
+       "title": "11 Острых крылышек",
+       "price": 581.22
+      }
+     ]
+    },
+    {
+     "title": "11 Наггетсов",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1237384",
+       "title": "Наггетсы 11 шт.",
+       "price": 189.78
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1237421",
+   "title": "ЛанчБаскет 5 за 250",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 250.0,
+   "oldPrice": 384.0,
+   "short": "Ай-Ролл + 2 Наггетса + Картофель малый + Напиток 0,3 + Мини-маффин",
+   "code": null,
+   "groups": [
+    {
+     "title": "Ай-ролл",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268780",
+       "title": "Ай-Ролл",
+       "price": 78.0
+      }
+     ]
+    },
+    {
+     "title": "Наггетсы 2 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "596518",
+       "title": "Наггетсы 2 шт.",
+       "price": 24.11
+      }
+     ]
+    },
+    {
+     "title": "Картофель малый на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128745",
+       "title": "Картофель по-деревенски",
+       "price": 101.0
+      },
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Десерт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "809910",
+       "title": "Мини-Маффин",
+       "price": 40.18
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      },
+      {
+       "id": "197444",
+       "title": "Чай Зеленый",
+       "price": 108.0
+      },
+      {
+       "id": "197452",
+       "title": "Чай Черный",
+       "price": 108.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1237502",
+   "title": "ЛанчБаскет 5 за 300",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 300.0,
+   "oldPrice": 430.0,
+   "short": "Шефролл Джуниор + 3 Наггетса + Картофель малый + Напиток 0,3 + Мини-маффин",
+   "code": null,
+   "groups": [
+    {
+     "title": "Шефролл Джуниор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268790",
+       "title": "Шефролл Джуниор",
+       "price": 99.0
+      }
+     ]
+    },
+    {
+     "title": "Наггетсы 3 шт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "581619",
+       "title": "Наггетсы",
+       "price": 63.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель малый на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128745",
+       "title": "Картофель по-деревенски",
+       "price": 101.0
+      },
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Десерт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "809910",
+       "title": "Мини-Маффин",
+       "price": 36.91
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      },
+      {
+       "id": "197444",
+       "title": "Чай Зеленый",
+       "price": 108.0
+      },
+      {
+       "id": "197452",
+       "title": "Чай Черный",
+       "price": 108.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1237578",
+   "title": "ЛанчБаскет 5 за 350",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 350.0,
+   "oldPrice": 493.0,
+   "short": "Шефбургер/Шефролл + 4 Наггетса + Картофель малый + Напиток 0,3 + Мини-маффин",
+   "code": null,
+   "groups": [
+    {
+     "title": "Шефролл/Шефбургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268696",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "268703",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "1565190",
+       "title": "Шефбургер",
+       "price": 149.0
+      },
+      {
+       "id": "268802",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "268808",
+       "title": "Шефролл",
+       "price": 149.0
+      },
+      {
+       "id": "1565205",
+       "title": "Шефролл",
+       "price": 149.0
+      }
+     ]
+    },
+    {
+     "title": "4 Наггетса",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1364498",
+       "title": "Наггетсы 4 шт.",
+       "price": 44.87
+      }
+     ]
+    },
+    {
+     "title": "Картофель малый на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128745",
+       "title": "Картофель по-деревенски",
+       "price": 101.0
+      },
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Десерт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "809910",
+       "title": "Мини-Маффин",
+       "price": 36.3
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      },
+      {
+       "id": "197444",
+       "title": "Чай Зеленый",
+       "price": 108.0
+      },
+      {
+       "id": "197452",
+       "title": "Чай Черный",
+       "price": 108.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1237678",
+   "title": "ЛанчБаскет 5 за 400",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 400.0,
+   "oldPrice": 640.0,
+   "short": "Маэстро Бургер + 4 Наггетса + Картофель малый + Напиток 0,3 + Мини-маффин",
+   "code": null,
+   "groups": [
+    {
+     "title": "Маэстро Бургер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268744",
+       "title": "Маэстро Бургер",
+       "price": 296.0
+      },
+      {
+       "id": "268755",
+       "title": "Маэстро Бургер",
+       "price": 296.0
+      }
+     ]
+    },
+    {
+     "title": "4 Наггетса",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1364498",
+       "title": "Наггетсы 4 шт.",
+       "price": 46.6
+      }
+     ]
+    },
+    {
+     "title": "Картофель малый на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128745",
+       "title": "Картофель по-деревенски",
+       "price": 101.0
+      },
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Десерт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "809910",
+       "title": "Мини-Маффин",
+       "price": 39.3
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      },
+      {
+       "id": "197444",
+       "title": "Чай Зеленый",
+       "price": 108.0
+      },
+      {
+       "id": "197452",
+       "title": "Чай Черный",
+       "price": 108.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1237774",
+   "title": "ЛанчБаскет 5 за 450",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 450.0,
+   "oldPrice": 709.0,
+   "short": "Ростмастер + 6 Наггетсов + Картофель малый + Напиток 0,3 + Мини-маффин",
+   "code": null,
+   "groups": [
+    {
+     "title": "6 Наггетсов",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1364515",
+       "title": "Наггетсы 6 шт.",
+       "price": 70.3
+      }
+     ]
+    },
+    {
+     "title": "Картофель малый",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128745",
+       "title": "Картофель по-деревенски",
+       "price": 101.0
+      },
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Десерт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "809910",
+       "title": "Мини-Маффин",
+       "price": 39.37
+      }
+     ]
+    },
+    {
+     "title": "Ростмастер",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268840",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "268850",
+       "title": "Ростмастер",
+       "price": 327.0
+      },
+      {
+       "id": "1565212",
+       "title": "Ростмастер",
+       "price": 351.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "197444",
+       "title": "Чай Зеленый",
+       "price": 108.0
+      },
+      {
+       "id": "197452",
+       "title": "Чай Черный",
+       "price": 108.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1283062",
+   "title": "Шеф комбо с Наггетсами",
+   "cats": [
+    "Комбо и Ланчи",
+    "Баскеты"
+   ],
+   "price": 632.0,
+   "oldPrice": 812.0,
+   "short": "2 Крылышка + Ножка + 3 Наггетса + Байтсы + Картофель фри малый + Напиток 0,4 + 2 Соуса",
+   "code": null,
+   "groups": [
+    {
+     "title": "2 Острых Крылышка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132465",
+       "title": "2 Острых Крылышка",
+       "price": 109.96
+      }
+     ]
+    },
+    {
+     "title": "Куриная ножка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133010",
+       "title": "1 Оригинальная Ножка",
+       "price": 86.01
+      }
+     ]
+    },
+    {
+     "title": "Байтсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132477",
+       "title": "Байтсы из куриного филе",
+       "price": 89.0
+      }
+     ]
+    },
+    {
+     "title": "Наггетсы 3 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "584234",
+       "title": "Наггетсы 3 шт.",
+       "price": 47.12
+      }
+     ]
+    },
+    {
+     "title": "Малый Картофель фри",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Соус",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Лимонад 0,4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1283587",
+   "title": "Чикен Микс",
+   "cats": [
+    "Комбо и Ланчи",
+    "Баскеты"
+   ],
+   "price": 1259.0,
+   "oldPrice": 1499.0,
+   "short": "11 Крылышек + 11 Наггетсов + Баскет Фри Дуэт + 2 Напитка 0,4 + 3 Соуса",
+   "code": null,
+   "groups": [
+    {
+     "title": "11 Острых крылышек",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1237367",
+       "title": "11 Острых крылышек",
+       "price": 472.43
+      }
+     ]
+    },
+    {
+     "title": "Наггетсы 11 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1237384",
+       "title": "Наггетсы 11 шт.",
+       "price": 154.26
+      }
+     ]
+    },
+    {
+     "title": "Баскет Фри Дуэт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "167448",
+       "title": "Баскет Фри Дуэт",
+       "price": 202.0
+      }
+     ]
+    },
+    {
+     "title": "Соус",
+     "min": 3,
+     "max": 3,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Лимонад 0,4",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1283844",
+   "title": "Большой Чикен Микс",
+   "cats": [
+    "Комбо и Ланчи",
+    "Баскеты"
+   ],
+   "price": 1463.0,
+   "oldPrice": 1738.0,
+   "short": "11 Крылышек + 11 Наггетсов + Байтсы + Баскет Фри Дуэт + 2 Напитка 0,4 + 3 Соуса",
+   "code": null,
+   "groups": [
+    {
+     "title": "11 Острых Крылышка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1237367",
+       "title": "11 Острых крылышек",
+       "price": 470.35
+      }
+     ]
+    },
+    {
+     "title": "Наггетсы 11 шт.",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1237384",
+       "title": "Наггетсы 11 шт.",
+       "price": 153.58
+      }
+     ]
+    },
+    {
+     "title": "Байтсы средние",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129659",
+       "title": "Байтсы",
+       "price": 190.0
+      }
+     ]
+    },
+    {
+     "title": "Баскет Фри Дуэт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "167448",
+       "title": "Баскет Фри Дуэт",
+       "price": 202.0
+      }
+     ]
+    },
+    {
+     "title": "Соус",
+     "min": 3,
+     "max": 3,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Лимонад 0,4",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1347536",
+   "title": "Шеф комбо со Стрипсами Grand Mobile",
+   "cats": [
+    "Комбо и Ланчи",
+    "Баскеты"
+   ],
+   "price": 632.0,
+   "oldPrice": 879.0,
+   "short": "2 Крылышка + 1 Ножка + 2 Стрипса + Байтсы + Картофель Фри малый + Напиток 0,4 + 2 Соуса",
+   "code": null,
+   "groups": [
+    {
+     "title": "2 Острых Крылышка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132465",
+       "title": "2 Острых Крылышка",
+       "price": 101.87
+      }
+     ]
+    },
+    {
+     "title": "Куриная ножка",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133010",
+       "title": "1 Оригинальная Ножка",
+       "price": 79.7
+      }
+     ]
+    },
+    {
+     "title": "Байтсы",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "132477",
+       "title": "Байтсы из куриного филе",
+       "price": 82.46
+      }
+     ]
+    },
+    {
+     "title": "2 стрипса оригинальных",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "133017",
+       "title": "2 Оригинальных Стрипса",
+       "price": 90.09
+      }
+     ]
+    },
+    {
+     "title": "Малый Картофель фри",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      }
+     ]
+    },
+    {
+     "title": "Соус",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1492856",
+   "title": "3 соуса по цене 2-х",
+   "cats": [
+    "Комбо и Ланчи",
+    "Соусы"
+   ],
+   "price": 124.0,
+   "oldPrice": 186.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Выбери 3-ий соус",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    },
+    {
+     "title": "Выбери соус",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "129716",
+       "title": "Кетчуп Томатный",
+       "price": 62.0
+      },
+      {
+       "id": "130293",
+       "title": "Соус Барбекю",
+       "price": 62.0
+      },
+      {
+       "id": "130299",
+       "title": "Соус Кисло-Сладкий Чили",
+       "price": 62.0
+      },
+      {
+       "id": "130309",
+       "title": "Соус Сырный",
+       "price": 62.0
+      },
+      {
+       "id": "130315",
+       "title": "Соус Терияки",
+       "price": 62.0
+      },
+      {
+       "id": "130321",
+       "title": "Соус Чесночный",
+       "price": 62.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1520238",
+   "title": "Купон 9853",
+   "cats": [
+    "Купоны",
+    "Купоны"
+   ],
+   "price": 188.0,
+   "oldPrice": 252.0,
+   "short": "2 Мороженых с топпингом",
+   "code": "9853",
+   "groups": [
+    {
+     "title": "Мороженое на выбор",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "1555433",
+       "title": "Мороженое Карамельное",
+       "price": 126.0
+      },
+      {
+       "id": "1555440",
+       "title": "Мороженое Шоколадное",
+       "price": 126.0
+      },
+      {
+       "id": "1555447",
+       "title": "Мороженое Клубничное",
+       "price": 126.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1520283",
+   "title": "Мороженое Дуэт",
+   "cats": [
+    "Комбо и Ланчи",
+    "Десерты и Мороженое"
+   ],
+   "price": 285.0,
+   "oldPrice": 356.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Мороженое",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "538861",
+       "title": "Мороженое Ягоды Вишни",
+       "price": 178.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1521586",
+   "title": "2 Ростмастера Чиз классических",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 957.0,
+   "oldPrice": 1102.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Ростмастер Чиз",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "1078873",
+       "title": "Ростмастер Чиз классический",
+       "price": 551.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1544683",
+   "title": "Пиво Red Finch 2+1 б/а",
+   "cats": [
+    "Комбо и Ланчи",
+    "Холодные Напитки и Милкшейки"
+   ],
+   "price": 466.0,
+   "oldPrice": 699.0,
+   "short": "3 Пива Red Finch б/а",
+   "code": null,
+   "groups": [
+    {
+     "title": "Пиво",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1532069",
+       "title": "Пиво Red Finch БА 0,45 л",
+       "price": 233.0
+      }
+     ]
+    },
+    {
+     "title": "Пиво",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "1532069",
+       "title": "Пиво Red Finch БА 0,45 л",
+       "price": 233.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1559390",
+   "title": "Комбо с Шеф Сэндвичем",
+   "cats": [
+    "Сэндвичи",
+    "Комбо и Ланчи"
+   ],
+   "price": 642.0,
+   "oldPrice": 652.0,
+   "short": "Шеф Сэндвич + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Шеф Сэндвич",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1462274",
+       "title": "Шеф Сэндвич",
+       "price": 421.0
+      },
+      {
+       "id": "1462279",
+       "title": "Шеф Сэндвич",
+       "price": 421.0
+      },
+      {
+       "id": "1565225",
+       "title": "Шеф Сэндвич",
+       "price": 445.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор 0,4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1559461",
+   "title": "Комбо с Шеф Сэндвичем Лайт",
+   "cats": [
+    "Сэндвичи",
+    "Комбо и Ланчи"
+   ],
+   "price": 549.0,
+   "oldPrice": 557.0,
+   "short": "Шеф Сэндвич лайт + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Шеф Сэндвич Лайт",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1462284",
+       "title": "Шеф Сэндвич Лайт",
+       "price": 326.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор 0,4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1559522",
+   "title": "Комбо с Дабл Чикен",
+   "cats": [
+    "Комбо и Ланчи"
+   ],
+   "price": 560.0,
+   "oldPrice": 569.0,
+   "short": "Дабл Чикен + Картофель Фри средний + Напиток 0,4",
+   "code": null,
+   "groups": [
+    {
+     "title": "Шеф Сэндвич",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1109340",
+       "title": "Дабл Чикен",
+       "price": 338.0
+      },
+      {
+       "id": "1109350",
+       "title": "Дабл Чикен",
+       "price": 338.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри стандартный",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор 0,4",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "197306",
+       "title": "Кофе Капучино",
+       "price": 130.0
+      },
+      {
+       "id": "197391",
+       "title": "Кофе Латте",
+       "price": 130.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1658492",
+   "title": "Чикен комбо",
+   "cats": [
+    "Новинки",
+    "Комбо и Ланчи"
+   ],
+   "price": 179.0,
+   "oldPrice": 275.0,
+   "short": "Чикенбургер / Ай-ролл + Картофель малый + Напиток",
+   "code": null,
+   "groups": [
+    {
+     "title": "Выбор 1",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "921643",
+       "title": "Чикенбургер",
+       "price": 72.0
+      },
+      {
+       "id": "268780",
+       "title": "Ай-Ролл",
+       "price": 78.0
+      }
+     ]
+    },
+    {
+     "title": "Выбор 2",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "128752",
+       "title": "Картофель фри",
+       "price": 97.0
+      },
+      {
+       "id": "128745",
+       "title": "Картофель по-деревенски",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Выбор 3",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "197264",
+       "title": "Кофе Американо",
+       "price": 84.0
+      },
+      {
+       "id": "197374",
+       "title": "Кофе Капучино",
+       "price": 104.0
+      },
+      {
+       "id": "197444",
+       "title": "Чай Зеленый",
+       "price": 108.0
+      },
+      {
+       "id": "197452",
+       "title": "Чай Черный",
+       "price": 108.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1703077",
+   "title": "Комбо Мимимишки",
+   "cats": [
+    "Новинки",
+    "Комбо с игрушкой"
+   ],
+   "price": 389.0,
+   "oldPrice": 467.0,
+   "short": "Бургер / Ролл + Картофель фри + Напиток + Игрушка",
+   "code": null,
+   "groups": [
+    {
+     "title": "Выбор 1",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "268780",
+       "title": "Ай-Ролл",
+       "price": 78.0
+      },
+      {
+       "id": "581619",
+       "title": "Наггетсы",
+       "price": 63.0
+      },
+      {
+       "id": "921643",
+       "title": "Чикенбургер",
+       "price": 72.0
+      },
+      {
+       "id": "921657",
+       "title": "Чизбургер",
+       "price": 87.0
+      }
+     ]
+    },
+    {
+     "title": "Выбор 2",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1703170",
+       "title": "Картофель фри малый + Игрушка",
+       "price": 234.32
+      }
+     ]
+    },
+    {
+     "title": "Выбор 3",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "129633",
+       "title": "Аква Минерале Актив Цитрус 0,5 л",
+       "price": 153.0
+      },
+      {
+       "id": "129702",
+       "title": "Аква Минерале без газа 0,5 л",
+       "price": 153.0
+      },
+      {
+       "id": "129709",
+       "title": "Аква Минерале с газом 0,5 л",
+       "price": 153.0
+      },
+      {
+       "id": "130287",
+       "title": "Сок J7 яблочный 0,2 л",
+       "price": 108.0
+      },
+      {
+       "id": "148216",
+       "title": "Эвервесс Кола",
+       "price": 125.0
+      },
+      {
+       "id": "167454",
+       "title": "Фрустайл Апельсин",
+       "price": 125.0
+      },
+      {
+       "id": "167485",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 125.0
+      },
+      {
+       "id": "197444",
+       "title": "Чай Зеленый",
+       "price": 108.0
+      },
+      {
+       "id": "197452",
+       "title": "Чай Черный",
+       "price": 108.0
+      },
+      {
+       "id": "706693",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 125.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1705115",
+   "title": "Пара со скидкой: 2 Ролла по-русски",
+   "cats": [
+    "Новинки",
+    "Комбо и Ланчи"
+   ],
+   "price": 484.0,
+   "oldPrice": 544.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Ролл по-русски",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "1702997",
+       "title": "Ролл по-русски",
+       "price": 272.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1705162",
+   "title": "Пара со скидкой: 2 Бургера по-русски",
+   "cats": [
+    "Новинки",
+    "Комбо и Ланчи"
+   ],
+   "price": 536.0,
+   "oldPrice": 594.0,
+   "short": "",
+   "code": null,
+   "groups": [
+    {
+     "title": "Бургер по-русски",
+     "min": 2,
+     "max": 2,
+     "options": [
+      {
+       "id": "1702992",
+       "title": "Бургер по-русски",
+       "price": 297.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1705224",
+   "title": "Русское комбо с бургером",
+   "cats": [
+    "Новинки",
+    "Комбо и Ланчи"
+   ],
+   "price": 480.0,
+   "oldPrice": 502.0,
+   "short": "Бургер по-русски + Картофель фри средний + Напиток и кокошник в подарок",
+   "code": null,
+   "groups": [
+    {
+     "title": "Бургер по-русски",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1702992",
+       "title": "Бургер по-русски",
+       "price": 297.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "197374",
+       "title": "Кофе Капучино",
+       "price": 104.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "1658892",
+       "title": "Пунш Облепиха-Морошка",
+       "price": 142.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1705355",
+   "title": "Русское комбо с роллом",
+   "cats": [
+    "Новинки",
+    "Комбо и Ланчи"
+   ],
+   "price": 456.0,
+   "oldPrice": 477.0,
+   "short": "Ролл по-русски + Картофель фри средний + Напиток и кокошник в подарок",
+   "code": null,
+   "groups": [
+    {
+     "title": "Ролл по-русски",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "1702997",
+       "title": "Ролл по-русски",
+       "price": 272.0
+      }
+     ]
+    },
+    {
+     "title": "Картофель фри средний",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "130334",
+       "title": "Картофель фри",
+       "price": 101.0
+      }
+     ]
+    },
+    {
+     "title": "Напиток на выбор",
+     "min": 1,
+     "max": 1,
+     "options": [
+      {
+       "id": "148222",
+       "title": "Эвервесс Кола",
+       "price": 147.0
+      },
+      {
+       "id": "167473",
+       "title": "Фрустайл Апельсин",
+       "price": 147.0
+      },
+      {
+       "id": "167488",
+       "title": "Фрустайл Лимон-Лайм",
+       "price": 147.0
+      },
+      {
+       "id": "197374",
+       "title": "Кофе Капучино",
+       "price": 104.0
+      },
+      {
+       "id": "706683",
+       "title": "Эвервесс Кола Без Сахара",
+       "price": 147.0
+      },
+      {
+       "id": "1658892",
+       "title": "Пунш Облепиха-Морошка",
+       "price": 142.0
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

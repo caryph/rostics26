@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rostic's Min-Maxer</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;800;900&display=swap">
+<style>
+  /* Layout: one phone-width column. Bucket stripes on top, sticky tabs,
+     price-tag rows with a value meter along the bottom edge. */
+  :root {
+    --bg: #ffffff;        /* receipt paper */
+    --surface: #f5f2ee;   /* row fill */
+    --ink: #1b1511;       /* warm black */
+    --muted: #7a6d62;
+    --line: #e6dfd6;
+    --red: #d2121b;       /* bucket red */
+    --red-soft: #fde4e3;
+    --gold: #ffb800;      /* price-tag yellow */
+    --on-gold: #1b1511;
+    --good: #12804a;
+    --good-soft: #dcf3e6;
+    --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+    --body: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15100c; --surface: #221a14; --ink: #f8f2eb; --muted: #ab9d8f; --line: #362c24;
+      --red: #ff4a4f; --red-soft: #3e1a1a; --gold: #ffc233; --on-gold: #1b1511;
+      --good: #52d18d; --good-soft: #153322; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15100c; --surface: #221a14; --ink: #f8f2eb; --muted: #ab9d8f; --line: #362c24;
+    --red: #ff4a4f; --red-soft: #3e1a1a; --gold: #ffc233; --on-gold: #1b1511;
+    --good: #52d18d; --good-soft: #153322; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 15px/1.45 var(--body); -webkit-font-smoothing: antialiased; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+  button, input, select { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  .stripes { height: 14px; background: repeating-linear-gradient(90deg, var(--red) 0 22px, var(--bg) 22px 44px); }
+  main { max-width: 720px; margin: 0 auto; padding-block: 18px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .brand { min-width: 0; }
+  .kicker { font: 700 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+  h1 { font: 900 clamp(30px, 9vw, 46px)/0.95 var(--display); letter-spacing: -0.03em; margin: 6px 0 8px; text-transform: uppercase; text-wrap: balance; }
+  .tagline { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* segmented controls */
+  .seg { display: flex; gap: 4px; padding: 4px; background: var(--surface); border-radius: 999px; }
+  .seg button { flex: 1; border: 0; background: none; border-radius: 999px; padding: 8px 12px; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  #lang { flex: none; }
+  #lang button { padding: 6px 10px; font: 800 11px/1 var(--display); letter-spacing: .04em; }
+
+  nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding-block: 14px 12px; margin-top: 14px; }
+  nav button { border: 2px solid var(--ink); background: var(--bg); border-radius: 12px; padding: 11px 4px; font: 800 12px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; cursor: pointer; }
+  nav button[aria-selected="true"] { background: var(--red); border-color: var(--red); color: #fff; }
+
+  .controls { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .search { width: 100%; border: 2px solid var(--line); background: var(--bg); border-radius: 12px; padding: 10px 14px; }
+  .search:focus { border-color: var(--ink); outline: none; }
+
+  /* ranking rows */
+  .list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .row { position: relative; overflow: hidden; display: grid; grid-template-columns: 2em minmax(0, 1fr) auto; column-gap: 10px; align-items: center; background: var(--surface); border-radius: 14px; padding: 12px 14px 15px; }
+  .rank { font: 800 14px/1 var(--display); color: var(--muted); font-variant-numeric: tabular-nums; }
+  #rank-list .row:nth-child(-n+3) .rank { color: var(--red); }
+  .body { min-width: 0; }
+  .name { font-weight: 700; font-size: 16px; line-height: 1.25; overflow-wrap: anywhere; }
+  .label { font-weight: 500; color: var(--muted); }
+  .sub { color: var(--muted); font-size: 13px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .sub b { color: var(--ink); font-weight: 700; }
+  .old { text-decoration: line-through; margin-right: 3px; }
+  .v { text-align: right; font: 800 19px/1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .v small { display: block; font: 500 11px/1.2 var(--body); color: var(--muted); margin-top: 5px; }
+  .meter { position: absolute; left: 0; bottom: 0; height: 4px; background: var(--gold); border-radius: 0 4px 4px 0; }
+  .tag { display: inline-block; font: 700 11px/1 var(--body); padding: 3px 6px; border-radius: 6px; margin-left: 5px; vertical-align: 2px; white-space: nowrap; }
+  .tag.promo { background: var(--red-soft); color: var(--red); }
+  .tag.bonus { background: var(--good-soft); color: var(--good); }
+
+  /* combo cards */
+  .toggle { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; cursor: pointer; padding-left: 4px; }
+  .toggle input { width: 18px; height: 18px; accent-color: var(--red); margin: 0; }
+  .card { background: var(--surface); border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .card-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: start; }
+  .card .name { font-size: 17px; }
+  .desc { color: var(--muted); font-size: 13px; margin-top: 3px; }
+  .price { font: 800 20px/1 var(--display); white-space: nowrap; text-align: right; }
+  .price .old { display: block; font: 500 12px/1 var(--body); color: var(--muted); margin: 0 0 5px; }
+  .coupon { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--on-gold); border-radius: 10px; padding: 6px 10px 6px 8px; font: 900 22px/1 var(--display); letter-spacing: .04em; }
+  .coupon small { font: 700 10px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); }
+  .deal { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 14px; color: var(--muted); }
+  .chip { font-weight: 700; padding: 5px 9px; border-radius: 8px; font-size: 13px; white-space: nowrap; }
+  .chip.good { background: var(--good-soft); color: var(--good); }
+  .chip.bad { background: var(--red-soft); color: var(--red); }
+  .picks { list-style: none; margin: 0; padding: 10px 0 0; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+  .picks li { display: flex; flex-wrap: wrap; gap: 0 6px; }
+  .picks span { color: var(--muted); }
+  .picks b { font-weight: 600; }
+  .note { color: var(--muted); font-size: 13px; }
+
+  /* budget */
+  .money { display: flex; align-items: baseline; gap: 8px; border-bottom: 3px solid var(--ink); padding-bottom: 6px; margin-bottom: 14px; }
+  .money label { font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .money input { flex: 1; min-width: 0; border: 0; background: none; font: 900 40px/1.1 var(--display); text-align: right; padding: 0; -moz-appearance: textfield; }
+  .money input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .money input:focus { outline: none; }
+  .money span { font: 900 32px/1 var(--display); }
+  .opts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 12px 0 4px; }
+  .stepper { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+  .stepper input { width: 56px; border: 2px solid var(--line); background: var(--bg); border-radius: 10px; padding: 6px 8px; text-align: center; font-weight: 700; }
+  .totals { display: grid; grid-template-columns: repeat(auto-fit, minmax(76px, 1fr)); gap: 8px; margin: 16px 0 12px; }
+  .totals div { background: var(--ink); color: var(--bg); border-radius: 14px; padding: 12px 8px; text-align: center; }
+  .totals div:first-child { background: var(--red); color: #fff; }
+  .totals b { display: block; font: 800 18px/1.1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .totals span { font-size: 12px; opacity: .75; }
+  #b-list .row { grid-template-columns: 2.4em minmax(0, 1fr) auto; padding-bottom: 12px; }
+
+  .empty { color: var(--muted); text-align: center; padding: 36px 0; }
+  footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; display: flex; flex-direction: column; gap: 6px; max-width: 62ch; }
+  footer p { margin: 0; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .meter { transition: width .25s ease; }
+    nav button, .seg button { transition: background-color .15s, color .15s; }
+  }
+</style>
+</head>
+<body>
+<div class="stripes" aria-hidden="true"></div>
+<main>
+  <header>
+    <div class="brand">
+      <div class="kicker">Rostic's</div>
+      <h1>Min-Maxer</h1>
+      <p class="tagline" data-i18n="tagline"></p>
+    </div>
+    <div class="seg" id="lang" role="group" aria-label="Language"></div>
+  </header>
+
+  <nav>
+    <button type="button" data-tab="rank" aria-selected="true" data-i18n="tab_rank"></button>
+    <button type="button" data-tab="combos" aria-selected="false" data-i18n="tab_combos"></button>
+    <button type="button" data-tab="budget" aria-selected="false" data-i18n="tab_budget"></button>
+  </nav>
+
+  <section id="tab-rank">
+    <div class="controls">
+      <div class="seg" id="metric"></div>
+      <div class="seg" id="scope"></div>
+      <input type="search" id="q" class="search" data-i18n-ph="search">
+    </div>
+    <ol class="list" id="rank-list"></ol>
+  </section>
+
+  <section id="tab-combos" hidden>
+    <div class="controls">
+      <div class="seg" id="combo-sort"></div>
+      <label class="toggle"><input type="checkbox" id="coupons-only"> <span data-i18n="coupons_only"></span></label>
+    </div>
+    <div class="list" id="combo-list"></div>
+  </section>
+
+  <section id="tab-budget" hidden>
+    <div class="money">
+      <label for="b-money" data-i18n="budget"></label>
+      <input type="number" id="b-money" value="500" min="50" max="5000" step="10" inputmode="numeric">
+      <span>₽</span>
+    </div>
+    <div class="seg" id="b-metric"></div>
+    <div class="opts">
+      <label class="toggle"><input type="checkbox" id="b-drink" checked> <span data-i18n="with_drink"></span></label>
+      <label class="toggle"><input type="checkbox" id="b-combos" checked> <span data-i18n="allow_combos"></span></label>
+      <label class="stepper"><span data-i18n="max_each"></span> <input type="number" id="b-copies" value="2" min="1" max="5" inputmode="numeric"></label>
+    </div>
+    <div class="totals" id="b-totals"></div>
+    <ul class="list" id="b-list"></ul>
+  </section>
+
+  <footer>
+    <p data-i18n="foot_bonus"></p>
+    <p data-i18n="foot_combo"></p>
+    <p id="foot-date"></p>
+  </footer>
+</main>
+
+<script>const DATA = /*DATA*/null;</script>
+<script>
+const T = {
+  en: {
+    tagline: "The most food for your rubles.",
+    tab_rank: "Rankings", tab_combos: "Combos", tab_budget: "Budget",
+    m_kcal: "Calories", m_protein: "Protein", m_grams: "Weight",
+    u_kcal: "kcal", u_protein: "g protein", u_grams: "g food",
+    s_food: "Food", s_drinks: "Drinks", s_all: "All",
+    search: "Search the menu", per100: "per 100 ₽",
+    g: "g", ml: "ml", kcal: "kcal", protein: "g protein",
+    bonus_hint: "Average serving is this much heavier than the listed weight",
+    sort_rub: "Most ₽ saved", sort_pct: "Biggest %", coupons_only: "Coupons only",
+    coupon: "Coupon", separately: "separately", save: "save", lose: "overpay",
+    picks: "Best picks", unpriced: "Some parts aren't sold on their own, so there's nothing to compare.",
+    toy: "Includes a toy. Its price isn't counted.",
+    budget: "Budget", with_drink: "With a drink", allow_combos: "Combos & coupons", max_each: "Max of each",
+    spent: "spent", left: "left", drink: "drink", code: "code",
+    nothing: "Nothing matches.", no_order: "Can't build an order for this budget. Try a bigger one.",
+    foot_bonus: "Menu weights are the guaranteed minimum. The official nutrition sheet gives the average serving, and the green +N% is the difference. All numbers here use the average.",
+    foot_combo: "“Separately” is what a combo's parts cost à la carte. If a part isn't sold alone (like 2 wings), it's the cheapest packs that cover it.",
+    foot_date: d => `Prices from ${d}. Unofficial, not affiliated with Rostic's.`,
+  },
+  ru: {
+    tagline: "Максимум еды за ваши рубли.",
+    tab_rank: "Рейтинг", tab_combos: "Комбо", tab_budget: "Бюджет",
+    m_kcal: "Калории", m_protein: "Белок", m_grams: "Вес",
+    u_kcal: "ккал", u_protein: "г белка", u_grams: "г еды",
+    s_food: "Еда", s_drinks: "Напитки", s_all: "Всё",
+    search: "Поиск по меню", per100: "на 100 ₽",
+    g: "г", ml: "мл", kcal: "ккал", protein: "г белка",
+    bonus_hint: "Средняя порция тяжелее заявленного веса на столько",
+    sort_rub: "Больше ₽", sort_pct: "Больше %", coupons_only: "Только купоны",
+    coupon: "Купон", separately: "по отдельности", save: "выгода", lose: "переплата",
+    picks: "Что выбрать", unpriced: "Часть позиций отдельно не продаётся, сравнить не с чем.",
+    toy: "Внутри игрушка, её цена не учтена.",
+    budget: "Бюджет", with_drink: "С напитком", allow_combos: "Комбо и купоны", max_each: "Не больше",
+    spent: "потрачено", left: "осталось", drink: "напиток", code: "код",
+    nothing: "Ничего не нашлось.", no_order: "На такой бюджет заказ не собрать. Попробуйте больше.",
+    foot_bonus: "В меню указан минимальный вес. В официальной таблице КБЖУ указана средняя порция, и зелёный +N% показывает разницу. Все расчёты здесь по средней порции.",
+    foot_combo: "«По отдельности» значит сумму цен всех частей комбо. Если часть не продаётся отдельно (например, 2 крылышка), берётся самый дешёвый набор, который её покрывает.",
+    foot_date: d => `Цены от ${d}. Неофициальный проект, не связан с Rostic's.`,
+  },
+};
+
+const METRICS = {
+  kcal:    { get: x => x.kcal,    digits: 0 },
+  protein: { get: x => x.protein, digits: 1 },
+  grams:   { get: x => x.grams,   digits: 0 },
+};
+const state = { lang: "ru", metric: "kcal", scope: "food", q: "", comboSort: "rub", couponsOnly: false, bMetric: "kcal" };
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const t = k => T[state.lang][k];
+const locale = () => state.lang === "ru" ? "ru-RU" : "en-GB";
+const num = (v, digits = 0) => new Intl.NumberFormat(locale(), { minimumFractionDigits: digits, maximumFractionDigits: digits }).format(v);
+const rub = v => `${num(Math.round(v))} ₽`;
+const isDrink = it => it.unit === "ml";
+const nameHtml = it => `${esc(it.name)}${it.label ? ` <span class="label">${esc(it.label)}</span>` : ""}`;
+const fmtMetric = (metric, v) => num(v, METRICS[metric].digits);
+
+/* ---------- segmented controls ---------- */
+const metricOpts = { kcal: "m_kcal", protein: "m_protein", grams: "m_grams" };
+const SEGS = [
+  { el: "lang", key: "lang", opts: { ru: "RU", en: "EN" }, raw: true, on: () => applyLang() },
+  { el: "metric", key: "metric", opts: metricOpts, on: () => renderRank() },
+  { el: "scope", key: "scope", opts: { food: "s_food", drinks: "s_drinks", all: "s_all" }, on: () => renderRank() },
+  { el: "combo-sort", key: "comboSort", opts: { rub: "sort_rub", pct: "sort_pct" }, on: () => renderCombos() },
+  { el: "b-metric", key: "bMetric", opts: metricOpts, on: () => renderBudget() },
+];
+function drawSeg(s) {
+  $(s.el).innerHTML = Object.entries(s.opts).map(([k, label]) =>
+    `<button type="button" data-k="${k}" aria-pressed="${state[s.key] === k}">${s.raw ? label : esc(t(label))}</button>`).join("");
+}
+for (const s of SEGS) {
+  $(s.el).addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b || state[s.key] === b.dataset.k) return;
+    state[s.key] = b.dataset.k;
+    drawSeg(s);
+    s.on();
+  });
+}
+
+/* ---------- rankings ---------- */
+function renderRank() {
+  const m = METRICS[state.metric];
+  const q = state.q.trim().toLowerCase();
+  const rows = DATA.items
+    .filter(it => it.known && m.get(it) > 0)
+    .filter(it => state.scope === "all" || (state.scope === "drinks") === isDrink(it))
+    .filter(it => !q || it.name.toLowerCase().includes(q))
+    .map(it => ({ it, v: m.get(it) / it.price * 100 }))
+    .sort((a, b) => b.v - a.v);
+  const max = rows.length ? rows[0].v : 1;
+  $("rank-list").innerHTML = rows.map(({ it, v }, i) => {
+    const promo = it.oldPrice > it.price ? `<span class="tag promo">−${Math.round((1 - it.price / it.oldPrice) * 100)}%</span>` : "";
+    const bonus = it.bonus >= 1.1 ? `<span class="tag bonus" title="${esc(t("bonus_hint"))}">+${Math.round((it.bonus - 1) * 100)}%</span>` : "";
+    const size = it.grams ? `${num(it.grams)} ${t("g")}` : `${num(it.ml)} ${t("ml")}`;
+    return `<li class="row">
+      <span class="rank">${i + 1}</span>
+      <div class="body">
+        <div class="name">${nameHtml(it)}${promo}${bonus}</div>
+        <div class="sub">${it.oldPrice > it.price ? `<span class="old">${num(it.oldPrice)}</span>` : ""}<b>${rub(it.price)}</b> · ${num(it.kcal)} ${t("kcal")} · ${num(it.protein, 1)} ${t("protein")} · ${size}</div>
+      </div>
+      <div class="v">${fmtMetric(state.metric, v)}<small>${t("u_" + state.metric)} ${t("per100")}</small></div>
+      <span class="meter" style="width:${(v / max * 100).toFixed(1)}%"></span>
+    </li>`;
+  }).join("") || `<li class="empty">${t("nothing")}</li>`;
+}
+
+/* ---------- combos ---------- */
+// Pick `g.pick` options per slot, best first by `score`.
+function choose(combo, score) {
+  return combo.groups.map(g => {
+    const opts = [...g.options].sort((a, b) => score(b) - score(a) || (b.standalone ?? 0) - (a.standalone ?? 0));
+    return { group: g, chosen: opts.slice(0, g.pick) };
+  });
+}
+
+function comboDeal(c) {
+  const picks = choose(c, o => o.standalone ?? -1);
+  const parts = picks.flatMap(p => p.chosen);
+  const priced = parts.every(o => o.standalone != null);
+  const separately = parts.reduce((s, o) => s + (o.standalone ?? 0), 0);
+  return { picks, priced, separately, save: separately - c.price };
+}
+
+function renderCombos() {
+  const rows = DATA.combos
+    .filter(c => !state.couponsOnly || c.code)
+    .map(c => ({ c, d: comboDeal(c) }))
+    .sort((a, b) => (b.d.priced - a.d.priced) ||
+      (state.comboSort === "rub" ? b.d.save - a.d.save : b.d.save / b.d.separately - a.d.save / a.d.separately));
+  $("combo-list").innerHTML = rows.map(({ c, d }) => {
+    const pct = Math.round(Math.abs(d.save) / d.separately * 100);
+    const choices = d.picks.filter(p => p.group.options.length > p.group.pick);
+    const title = c.code
+      ? `<span class="coupon"><small>${esc(t("coupon"))}</small>${esc(c.code)}</span>`
+      : `<div class="name">${esc(c.name)}</div>`;
+    const deal = d.priced
+      ? `<span>${t("separately")} ${rub(d.separately)}</span><span class="chip ${d.save >= 0 ? "good" : "bad"}">${t(d.save >= 0 ? "save" : "lose")} ${rub(Math.abs(d.save))} · ${pct}%</span>`
+      : `<span class="note">${t("unpriced")}</span>`;
+    return `<article class="card">
+      <div class="card-head">
+        <div class="body">${title}<div class="desc">${esc(c.short)}</div></div>
+        <div class="price">${c.oldPrice > c.price ? `<span class="old">${num(c.oldPrice)} ₽</span>` : ""}${rub(c.price)}</div>
+      </div>
+      <div class="deal">${deal}</div>
+      ${choices.length ? `<ul class="picks">${choices.map(p => `<li><span>${esc(p.group.title)}</span><b>${p.chosen.map(o => esc(o.name)).join(" + ")}</b></li>`).join("")}</ul>` : ""}
+      ${c.cats.includes("Комбо с игрушкой") ? `<div class="note">${t("toy")}</div>` : ""}
+    </article>`;
+  }).join("") || `<div class="empty">${t("nothing")}</div>`;
+}
+
+/* ---------- budget optimiser (0/1 knapsack over copies, with a has-drink flag) ---------- */
+function candidates(metric, allowCombos) {
+  const m = METRICS[metric];
+  const out = DATA.items
+    .filter(it => it.known && it.price > 0)
+    .map(it => ({ name: it.name, label: it.label, price: Math.ceil(it.price), value: m.get(it), drink: isDrink(it), picks: null, code: null }));
+  if (allowCombos) {
+    for (const c of DATA.combos) {
+      const picks = choose(c, o => m.get(o));
+      const parts = picks.flatMap(p => p.chosen);
+      out.push({
+        name: c.name, label: "", code: c.code, price: Math.ceil(c.price),
+        value: parts.reduce((s, o) => s + m.get(o), 0),
+        drink: parts.some(o => o.ml > 0),
+        picks: picks.filter(p => p.group.options.length > p.group.pick),
+      });
+    }
+  }
+  return out.filter(x => x.value > 0 || x.drink);
+}
+
+function optimise(budget, metric, copies, needDrink, allowCombos) {
+  const items = candidates(metric, allowCombos).flatMap(x => Array.from({ length: copies }, () => x));
+  const B = budget, W = B + 1, n = items.length;
+  // dp[f*W + b] = best value with spend <= b; f = 1 once a drink is in the order
+  let dp = new Float64Array(2 * W).fill(-Infinity);
+  for (let b = 0; b <= B; b++) dp[b] = 0;
+  const take = new Uint8Array(n * 2 * W);
+  for (let i = 0; i < n; i++) {
+    const { price, value, drink } = items[i];
+    const next = dp.slice();
+    for (let f = 0; f < 2; f++) {
+      const nf = drink ? 1 : f;
+      for (let b = price; b <= B; b++) {
+        const cand = dp[f * W + b - price] + value;
+        if (cand > next[nf * W + b]) { next[nf * W + b] = cand; take[i * 2 * W + nf * W + b] = 1 + f; }
+      }
+    }
+    dp = next;
+  }
+  // walk back from the best end state
+  let f = needDrink ? 1 : (dp[W + B] > dp[B] ? 1 : 0), b = B;
+  if (dp[f * W + b] === -Infinity) return null;
+  const chosen = [];
+  for (let i = n - 1; i >= 0; i--) {
+    const tk = take[i * 2 * W + f * W + b];
+    if (tk) { chosen.push(items[i]); b -= items[i].price; f = tk - 1; }
+  }
+  return chosen;
+}
+
+function renderBudget() {
+  const budget = Math.min(5000, Math.max(0, Math.floor(+$("b-money").value || 0)));
+  const metric = state.bMetric;
+  const copies = Math.min(5, Math.max(1, Math.floor(+$("b-copies").value || 1)));
+  const chosen = optimise(budget, metric, copies, $("b-drink").checked, $("b-combos").checked);
+  if (!chosen || !chosen.length) {
+    $("b-totals").innerHTML = "";
+    $("b-list").innerHTML = `<li class="empty">${t("no_order")}</li>`;
+    return;
+  }
+  const groups = new Map();
+  for (const x of chosen) {
+    const g = groups.get(x) || { x, n: 0 };
+    g.n++; groups.set(x, g);
+  }
+  const spent = chosen.reduce((s, x) => s + x.price, 0);
+  const total = chosen.reduce((s, x) => s + x.value, 0);
+  $("b-totals").innerHTML = `
+    <div><b>${rub(spent)}</b><span>${t("spent")}</span></div>
+    <div><b>${rub(budget - spent)}</b><span>${t("left")}</span></div>
+    <div><b>${fmtMetric(metric, total)}</b><span>${t("u_" + metric)}</span></div>
+    <div><b>${fmtMetric(metric, total / spent * 100)}</b><span>${t("per100")}</span></div>`;
+  $("b-list").innerHTML = [...groups.values()].sort((a, b) => b.x.price * b.n - a.x.price * a.n).map(({ x, n }) => {
+    const detail = x.picks && x.picks.length
+      ? x.picks.map(p => esc(p.chosen.map(o => o.name).join(" + "))).join(" · ")
+      : x.drink ? t("drink") : "";
+    return `<li class="row">
+      <span class="rank">${n}×</span>
+      <div class="body">
+        <div class="name">${x.code ? `${esc(t("coupon"))} ${esc(x.code)}` : nameHtml(x)}</div>
+        <div class="sub"><b>${rub(x.price * n)}</b>${detail ? ` · ${detail}` : ""}</div>
+      </div>
+      <div class="v">${fmtMetric(metric, x.value * n)}<small>${t("u_" + metric)}</small></div>
+    </li>`;
+  }).join("");
+}
+
+/* ---------- language, tabs, wiring ---------- */
+function applyLang() {
+  document.documentElement.lang = state.lang;
+  try { localStorage.setItem("rmm-lang", state.lang); } catch (e) {}
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  const date = new Intl.DateTimeFormat(locale(), { day: "numeric", month: "long", year: "numeric" }).format(new Date(DATA.captured));
+  $("foot-date").textContent = t("foot_date")(date);
+  SEGS.forEach(drawSeg);
+  renderRank();
+  renderCombos();
+  if (!$("tab-budget").hidden) renderBudget();
+}
+
+function openTab(tab) {
+  document.querySelectorAll("nav button").forEach(x => x.setAttribute("aria-selected", x.dataset.tab === tab));
+  ["rank", "combos", "budget"].forEach(id => $(`tab-${id}`).hidden = id !== tab);
+  if (tab === "budget") renderBudget();
+}
+document.querySelector("nav").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  history.replaceState(null, "", `#${b.dataset.tab}`);
+  openTab(b.dataset.tab);
+});
+$("q").addEventListener("input", e => { state.q = e.target.value; renderRank(); });
+$("coupons-only").addEventListener("change", e => { state.couponsOnly = e.target.checked; renderCombos(); });
+["b-money", "b-copies", "b-drink", "b-combos"].forEach(id => $(id).addEventListener("input", renderBudget));
+
+let saved = null;
+try { saved = localStorage.getItem("rmm-lang"); } catch (e) {}
+state.lang = saved in T ? saved : (navigator.language || "").toLowerCase().startsWith("ru") ? "ru" : "en";
+applyLang();
+if (["combos", "budget"].includes(location.hash.slice(1))) openTab(location.hash.slice(1));
+</script>
+</body>
+</html>

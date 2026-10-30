@@ -1,0 +1,814 @@
+{
+  "version": 4,
+  "tool": {
+    "name": "claude-code",
+    "version": "2.1.314",
+    "plugins": []
+  },
+  "model": {
+    "name": "claude-opus-5-5",
+    "runtime": "anthropic"
+  },
+  "price_usd": 0,
+  "subscription": "pro",
+  "comment": "analysis+website",
+  "description": "",
+  "stats": {
+    "turns": 63,
+    "tokens_in": 322335,
+    "tokens_out": 93466,
+    "cache_read": 5939574
+  },
+  "transcript": [
+    {
+      "role": "user",
+      "text": "hellooooo claude i have the stupidest frickin project idea of all time"
+    },
+    {
+      "role": "assistant",
+      "text": "Hellooo! Stupid project ideas are often the best ones. Let's hear it.\n\n(I see the folder's called `rostics26`. Is fried chicken involved? 🍗)"
+    },
+    {
+      "role": "user",
+      "text": "well rostics is a fast food chain that started a little after the soviet union collapse, eastern equivalent of kfc. its mostly extinct by now but i get a chance to visit it, rarely and consistently. nothing special about it just that the name's funny lol\nthe menu is full of various items, some priced at x3 compared to others. ive been observing it for a while and its hella consistent, but i think we can still find a way to cheat it. are you getting it yet?"
+    },
+    {
+      "role": "assistant",
+      "text": "Ohhh, I think I get it. You want to min-max the menu: find the order that gets you the most food for the fewest rubles.\n\nIf the pricing is that consistent, the cheats are probably hiding in a few places:\n\n- **Value outliers:** rank every item by kcal, grams, or protein per ruble. The item that costs 3x might give you 4x the chicken, or the cheap one might be a trap.\n- **Combo arbitrage:** check whether a combo is ever worse than buying the same items separately. Chains get this wrong more often than you'd think, especially with drink sizes and sauces.\n- **Budget optimizer:** you say \"I have 500₽ and I'm starving,\" and a knapsack/linear programming solver works out the best possible order, maybe with constraints like \"at least one drink\" or \"no more than 3 of the same thing.\"\n- **Promos and app deals:** coupons and app-only prices can break the consistency, if you want to go that deep.\n\n(Side note: I thought Rostic's got revived in 2023 when KFC left Russia and its locations were rebranded. But you've been there more recently than my training data, so maybe it's faded again.)\n\nDid I get it right? And what's your source for the menu: their website or app, photos of the menu board, or numbers you've already written down? That tells me whether we start with a scraper or a spreadsheet."
+    },
+    {
+      "role": "user",
+      "text": "well ive got the menu downloaded from their website, its a huge pdf with all product info i think? but no prices. so yeah we could use that and scrape their website no problem lool"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "No PDF tools installed, but I can read it directly. Let me peek at the first few pages."
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "I'll set up a project venv with pdfplumber (it's good at pulling tables out of PDFs)."
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "Very regular: 247 product rows, each one `TYPE Name ТТК <code> mass | per-100g P/F/C/kcal/kJ | per-serving P/F/C/kcal`. Let me write a parser and look at whichever rows don't fit."
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "parse_menu.py",
+      "content": "\"\"\"Parse the Rostic's nutrition appendix PDF into data/menu.csv.\"\"\"\n\nimport csv\nimport re\nimport sys\n\nimport pdfplumber\n\nPDF = \"rostics-menu.pdf\"\nOUT = \"data/menu.csv\"\n\nNUM = r\"(\\d+(?:,\\d+)?)\"\nROW = re.compile(\n    rf\"^(?P<head>.+?) ТТК (?P<ttk>\\S+) (?P<mass>{NUM}) \"\n    rf\"{NUM} {NUM} {NUM} {NUM} {NUM} \"  # per 100 g: protein, fat, carbs, kcal, kJ\n    rf\"{NUM} {NUM} {NUM} {NUM}$\"  # per serving: protein, fat, carbs, kcal\n)\nKINDS = (\"БЛЮДО\", \"НАПИТОК\", \"СИРОП\", \"ПИВО\")\nSECTION = re.compile(r\"^[А-ЯЁ ,\\\"-]{12,}$\")\n\n\ndef num(s):\n    return float(s.replace(\",\", \".\"))\n\n\ndef parse(lines):\n    section = None\n    rows, rejects = [], []\n    prev = \"\"\n    for line in lines:\n        line = line.strip()\n        if SECTION.match(line):\n            section = line\n        elif \"ТТК\" in line:\n            m = ROW.match(line)\n            if not m:\n                rejects.append(line)\n            else:\n                head = m[\"head\"]\n                # Name wrapped onto the previous line: \"ТТК 123 ...\" with no head.\n                if head.startswith(\"ТТК\"):\n                    head = prev\n                kind, _, name = head.partition(\" \")\n                if kind not in KINDS:\n                    kind, name = \"\", head\n                g = [num(x) for x in m.groups()[3:]]\n                rows.append({\n                    \"section\": section,\n                    \"kind\": kind,\n                    \"name\": name.strip(),\n                    \"ttk\": m[\"ttk\"],\n                    \"mass_g\": g[0],\n                    \"protein_100g\": g[1], \"fat_100g\": g[2], \"carbs_100g\": g[3],\n                    \"kcal_100g\": g[4], \"kj_100g\": g[5],\n                    \"protein\": g[6], \"fat\": g[7], \"carbs\": g[8], \"kcal\": g[9],\n                })\n        prev = line\n    return rows, rejects\n\n\ndef main():\n    with pdfplumber.open(PDF) as pdf:\n        lines = [l for p in pdf.pages for l in (p.extract_text() or \"\").splitlines()]\n    rows, rejects = parse(lines)\n    with open(OUT, \"w\", newline=\"\") as f:\n        w = csv.DictWriter(f, fieldnames=rows[0].keys())\n        w.writeheader()\n        w.writerows(rows)\n    print(f\"{len(rows)} rows -> {OUT}\")\n    if rejects:\n        print(f\"{len(rejects)} unparsed:\", file=sys.stderr)\n        for r in rejects:\n            print(\"  \", r, file=sys.stderr)\n\n\nif __name__ == \"__main__\":\n    main()\n"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "Two fixable cases. Baskets/combos list only per-serving numbers (no per-100g columns), and the maple pecan coffees have their names wrapped across lines. Let me check how those wrap."
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "Name sits on the line above, size word on the line below. I'll handle that with a lookahead and make the per-100g block optional for baskets."
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "parse_menu.py",
+      "diff": [
+        "--- parse_menu.py",
+        "+++ parse_menu.py",
+        "@@ edit 1 @@",
+        "-ROW = re.compile(",
+        "-    rf\"^(?P<head>.+?) ТТК (?P<ttk>\\S+) (?P<mass>{NUM}) \"",
+        "-    rf\"{NUM} {NUM} {NUM} {NUM} {NUM} \"  # per 100 g: protein, fat, carbs, kcal, kJ",
+        "-    rf\"{NUM} {NUM} {NUM} {NUM}$\"  # per serving: protein, fat, carbs, kcal",
+        "-)",
+        "+ROW = re.compile(",
+        "+    rf\"^(?P<head>.*?) ?ТТК (?P<ttk>\\S+) (?P<mass>{NUM}) \"",
+        "+    # per 100 g: protein, fat, carbs, kcal, kJ (missing for baskets/combos)",
+        "+    rf\"(?:(?P<p100>{NUM}) (?P<f100>{NUM}) (?P<c100>{NUM}) (?P<kcal100>{NUM}) (?P<kj100>{NUM}) )?\"",
+        "+    rf\"(?P<p>{NUM}) (?P<f>{NUM}) (?P<c>{NUM}) (?P<kcal>{NUM})$\"  # per serving",
+        "+)"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "parse_menu.py",
+      "diff": [
+        "--- parse_menu.py",
+        "+++ parse_menu.py",
+        "@@ edit 1 @@",
+        "-def num(s):",
+        "-    return float(s.replace(\",\", \".\"))",
+        "-",
+        "-",
+        "-def parse(lines):",
+        "-    section = None",
+        "-    rows, rejects = [], []",
+        "-    prev = \"\"",
+        "-    for line in lines:",
+        "-        line = line.strip()",
+        "-        if SECTION.match(line):",
+        "-            section = line",
+        "-        elif \"ТТК\" in line:",
+        "-            m = ROW.match(line)",
+        "-            if not m:",
+        "-                rejects.append(line)",
+        "-            else:",
+        "-                head = m[\"head\"]",
+        "-                # Name wrapped onto the previous line: \"ТТК 123 ...\" with no head.",
+        "-                if head.startswith(\"ТТК\"):",
+        "-                    head = prev",
+        "-                kind, _, name = head.partition(\" \")",
+        "-                if kind not in KINDS:",
+        "-                    kind, name = \"\", head",
+        "-                g = [num(x) for x in m.groups()[3:]]",
+        "-                rows.append({",
+        "-                    \"section\": section,",
+        "-                    \"kind\": kind,",
+        "-                    \"name\": name.strip(),",
+        "-                    \"ttk\": m[\"ttk\"],",
+        "-                    \"mass_g\": g[0],",
+        "-                    \"protein_100g\": g[1], \"fat_100g\": g[2], \"carbs_100g\": g[3],",
+        "-                    \"kcal_100g\": g[4], \"kj_100g\": g[5],",
+        "-                    \"protein\": g[6], \"fat\": g[7], \"carbs\": g[8], \"kcal\": g[9],",
+        "-                })",
+        "-        prev = line",
+        "-    return rows, rejects",
+        "+def num(s):",
+        "+    return float(s.replace(\",\", \".\")) if s else None",
+        "+",
+        "+",
+        "+def parse(lines):",
+        "+    lines = [l.strip() for l in lines]",
+        "+    section = None",
+        "+    rows, rejects = [], []",
+        "+    for i, line in enumerate(lines):",
+        "+        if SECTION.match(line):",
+        "+            section = line",
+        "+            continue",
+        "+        if \"ТТК\" not in line:",
+        "+            continue",
+        "+        m = ROW.match(line)",
+        "+        if not m:",
+        "+            rejects.append(line)",
+        "+            continue",
+        "+        head = m[\"head\"]",
+        "+        if not head:",
+        "+            # Wrapped cell: name on the line above, \"НАПИТОК <size>\" on the line below.",
+        "+            head = f\"{lines[i + 1]} {lines[i - 1]}\"",
+        "+            kind, _, size = lines[i + 1].partition(\" \")",
+        "+            head = f\"{kind} {lines[i - 1]} {size}\"",
+        "+        kind, _, name = head.partition(\" \")",
+        "+        if kind not in KINDS:",
+        "+            kind, name = \"НАПИТОК\" if section.startswith(\"НАПИТКИ\") else \"\", head",
+        "+        rows.append({",
+        "+            \"section\": section,",
+        "+            \"kind\": kind,",
+        "+            \"name\": name.strip(),",
+        "+            \"ttk\": m[\"ttk\"],",
+        "+            \"mass_g\": num(m[\"mass\"]),",
+        "+            \"protein_100g\": num(m[\"p100\"]), \"fat_100g\": num(m[\"f100\"]),",
+        "+            \"carbs_100g\": num(m[\"c100\"]), \"kcal_100g\": num(m[\"kcal100\"]),",
+        "+            \"kj_100g\": num(m[\"kj100\"]),",
+        "+            \"protein\": num(m[\"p\"]), \"fat\": num(m[\"f\"]),",
+        "+            \"carbs\": num(m[\"c\"]), \"kcal\": num(m[\"kcal\"]),",
+        "+        })",
+        "+    return rows, rejects"
+      ]
+    },
+    {
+      "role": "assistant",
+      "text": "Leftover dead line in there, removing it:"
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "parse_menu.py",
+      "diff": [
+        "--- parse_menu.py",
+        "+++ parse_menu.py",
+        "@@ edit 1 @@",
+        "-            head = f\"{lines[i + 1]} {lines[i - 1]}\"",
+        "-            kind, _, size",
+        "+            kind, _, size"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "~/.claude/projects/-Users-user-rostics26/memory/rostics-value-optimizer.md",
+      "content": "---\nname: rostics-value-optimizer\ndescription: Goal of the rostics26 project (rank Rostic's menu by value per ruble, find combo arbitrage, budget optimizer) and the price-source blocker\nmetadata:\n  type: project\n---\n\nrostics26 is a joke-but-real project: \"cheat\" the Rostic's (Russian fast food chain) menu by finding the best food-per-ruble order. Nutrition comes from the official PDF appendix (parsed by parse_menu.py → data/menu.csv). Prices are NOT in the PDF and must come from rostics.ru.\n\nAs of 2026-10-30, rostics.ru returns 403 \"Access is suspended\" to this machine (traffic exits via Frankfurt, DE): it geo-blocks non-Russian IPs. The user visits Russia occasionally.\n\n**Why:** prices are the missing half of the value metric.\n**How to apply:** don't retry scraping blindly; check where the user's traffic exits first, or use another price source (delivery aggregators, menu photos, manual entry). Prices may vary by city.\n"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "~/.claude/projects/-Users-user-rostics26/memory/MEMORY.md",
+      "content": "- [Rostic's value optimizer](rostics-value-optimizer.md) — project goal, data sources, rostics.ru geo-blocks non-RU IPs\n"
+    },
+    {
+      "role": "assistant",
+      "text": "Nutrition half is done. Prices are blocked for now.\n\n**Done:**\n- `parse_menu.py` turns the 45-page PDF into `data/menu.csv`. All 247 items parsed: weight, protein, fat, carbs and kcal, per 100g and per serving, grouped by menu section. The baskets and combos are in too, though the PDF gives only per-serving numbers for those. I set up a `.venv` with pdfplumber to read the PDF.\n- The kcal check didn't match for fried items because the PDF's footnote says **the listed weight is the guaranteed minimum** and the nutrition numbers are for the **average** serving. I'll use the averages for value, since that's what you actually get.\n\n**First cheat, before we even have prices:** wings come in about **60% heavier** than the listed weight on average (3 wings: 75g promised, about 120g typical). Shrimp and strips are about 28% heavier. Anything priced by its listed weight is quietly cheaper than it looks.\n\n**Blocker:** rostics.ru returns 403 \"Access is suspended\" from here. This machine's traffic exits from Frankfurt, and the site seems to block non-Russian IPs. Some ways around it:\n\n1. **Russian exit:** if you have a VPN with a Russian server, switch it on and I'll write the scraper against the live site. Prices probably vary by city, so tell me which one.\n2. **Yandex Eda:** they list Rostic's with prices, and they may not block foreign IPs. I can test it with one request.\n3. **Manual entry:** photos or app screenshots of the menu next time you're there, and I'll read the prices off them. It's the most reliable, just slower.\n\nI'd try 2 now and fall back to 1. Want me to go ahead?"
+    },
+    {
+      "role": "user",
+      "text": "ah wait try that rostics.ru again"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "Different result this time: you're now exiting from Sweden, and the geo-block is gone. Instead there's a 503 with a JavaScript challenge. Let me see what it says."
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "The geo-block is gone, but now the site serves a bot check: \"Ваш браузер не смог пройти проверку…\" (\"your browser failed the check, enable JavaScript\"). It's DDoS protection that only lets real browsers through. I won't reverse-engineer that challenge script, since that means deliberately defeating their bot protection. A real browser gets through it normally, though, so you can grab the data from yours.\n\n**Easiest way (about 2 minutes):**\n1. Open rostics.ru in your browser and pick your city or restaurant, since prices probably depend on it.\n2. Open DevTools (Cmd+Opt+I), go to the **Network** tab and filter by **Fetch/XHR**.\n3. Open the menu page, or reload it if you're already there.\n4. Look for a request whose response is a big JSON blob of products with prices. Click through a few; it's usually obvious.\n5. Right-click it, choose **Save response as…** (or copy the response), and save it as `data/prices.json` in this folder.\n\nThen I'll write the parser, match products to `data/menu.csv` by name, and we get the first value-per-ruble ranking. If the menu loads in several requests (one per category, say), right-click any request and pick **Save all as HAR**, and I'll pull everything out of that.\n\nThe other option is Claude in Chrome: with the extension set up, I can drive your browser myself. Saving the JSON is less setup, though."
+    },
+    {
+      "role": "user",
+      "text": "'/var/folders/ff/52ypv0w95vl96p6m6xqccll80000gn/T/TemporaryItems/NSIRD_screencaptureui_Q8dDrp/Screenshot 2026-10-30 at 11.47.26.png' the menu is here but i cant' seem to find any network packets travelling"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "assistant",
+      "text": "The empty list is your filter: there's `f.price` typed in the Network filter box, and no request URL contains that, so everything is hidden. Two smaller things too: this is the homepage, not the menu, and Firefox only logs requests made while DevTools is open.\n\n1. Clear the filter by clicking the ⊗ next to `f.price`.\n2. In DevTools settings (⚙️ top right), turn on **Persist Logs** so the list survives page changes.\n3. Click **Посмотреть меню ресторана** and pick the restaurant you usually go to.\n4. Requests should show up now. Click the 🔍 (search) icon in the Network toolbar and search for **Шефбургер**. That searches response bodies, so it points straight at whichever request carries the menu.\n5. Right-click any request and choose **Save All As HAR**, then save it as `data/rostics.har` in the project folder.\n\nA HAR file captures everything, so you don't have to work out which request is the right one. I'll find it.\n\nAlso, that banner is already handing us data: Шефбургер and Шефролл are 149₽ on promo (normally from 185 and 209), and Мой Баскет is 199₽. That's exactly the kind of price wobble we're hunting for. Once we have the regular prices, the promos go in as a separate layer."
+    },
+    {
+      "role": "user",
+      "text": "ah no its fine homepage has all the available products already! '/var/folders/ff/52ypv0w95vl96p6m6xqccll80000gn/T/TemporaryItems/NSIRD_screencaptureui_e2Bip4/Screenshot 2026-10-30 at 11.48.58.png'"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "assistant",
+      "text": "That's it: the `clickcollect?requ…` row, 883 kB of JSON, which is about the size a full menu with prices should be.\n\n1. Right-click that row and choose **Save Response As**. Save it as `data/clickcollect.json` in the project folder, `./data/clickcollect.json`.\n2. Right-click again, choose **Copy Value → Copy URL**, and paste it here. The query string probably includes a restaurant or city ID, and I want to know which location these prices belong to.\n\nIf your Firefox doesn't have **Save Response As**, use **Copy Value → Copy Response**, paste it into a new file with that name, and save."
+    },
+    {
+      "role": "user",
+      "text": "got a HAR out of it, never worked with this filetype previously, admittedly, but it looks similar to json in structure, should be parsable, i believe"
+    },
+    {
+      "role": "assistant",
+      "text": "HAR is JSON. It's every request and response from the page in one file, so we're good. Let me find where it landed."
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "load_store.py",
+      "content": "\"\"\"Extract one store's menu (prices, sizes, nutrition, combos) from a HAR capture of rostics.ru.\n\nIn the browser: DevTools → Network, open the menu, right-click the\ngetMenuPassport request → Save All As HAR. Then:\n\n    python load_store.py clickcollect.har   ->  data/store.json\n\"\"\"\n\nimport json\nimport sys\n\nOUT = \"data/store.json\"\n\n\ndef first(d):\n    \"\"\"Site stores values as single-key dicts: {\"gr\": 84}, {\"ccal\": 229}.\"\"\"\n    return next(iter(d.values()), None) if isinstance(d, dict) else None\n\n\ndef rub(kopecks):\n    return kopecks / 100\n\n\ndef find_menu(har):\n    for e in har[\"log\"][\"entries\"]:\n        if \"/api/menu/getMenuPassport/\" in e[\"request\"][\"url\"]:\n            return e[\"startedDateTime\"], json.loads(e[\"response\"][\"content\"][\"text\"])[\"value\"]\n    sys.exit(\"no getMenuPassport response in this HAR\")\n\n\ndef main(path):\n    captured, v = find_menu(json.load(open(path)))\n    products = v[\"products\"]\n\n    cats = {}\n    for c in v[\"categories\"][\"main\"] + v[\"categories\"][\"coupons\"]:\n        for pid in c[\"products\"]:\n            cats.setdefault(str(pid), []).append(c[\"title\"] or \"Купоны\")\n\n    # A dish is orderable on its own if it's listed in a category, or is a size\n    # variant of something that is (sizes are picked on the listed product's card).\n    variant_of = {str(p): str(g[\"id\"]) for g in v[\"variants\"].values() for p in g[\"products\"]}\n    listed_variants = {variant_of[p] for p in cats if p in variant_of}\n\n    dishes, combos = [], []\n    for pid, p in products.items():\n        if p[\"type\"] == \"Modifier\" or p.get(\"stopList\") or not p.get(\"clickCollect\"):\n            continue\n        base = {\n            \"id\": pid,\n            \"title\": p[\"title\"].strip().lstrip(\"﻿\"),\n            \"cats\": cats.get(pid, []),\n            \"price\": rub(p[\"price\"]),\n            \"oldPrice\": rub(p.get(\"oldPrice\", p[\"price\"])),\n        }\n        if p[\"type\"] == \"Dish\":\n            size = first(p.get(\"volume\")) or 0\n            variant = variant_of.get(pid)\n            dishes.append(base | {\n                \"variant\": variant,\n                \"orderable\": pid in cats or variant in listed_variants,\n                \"unit\": \"ml\" if \"ml\" in (p.get(\"volume\") or {}) else \"g\",\n                \"size\": size,\n                # per 100 g/ml; zeros mean \"not published\" (sauces, toppings)\n                \"per100\": {\n                    \"kcal\": first(p.get(\"energy\")) or 0,\n                    \"protein\": first(p.get(\"proteins\")) or 0,\n                    \"fat\": first(p.get(\"fats\")) or 0,\n                    \"carbs\": first(p.get(\"carbs\")) or 0,\n                },\n            })\n        elif p[\"type\"] == \"Combo\":\n            combos.append(base | {\n                \"short\": p.get(\"short\") or p.get(\"spec\") or \"\",\n                \"code\": p.get(\"code\"),\n                \"groups\": [\n                    {\n                        \"title\": g[\"title\"].strip(),\n                        \"min\": g[\"downLimit\"] or 0,\n                        \"max\": g[\"upLimit\"],\n                        \"options\": [\n                            {\"id\": str(m[\"productId\"]), \"title\": m[\"title\"][\"ru\"].strip(), \"price\": rub(m[\"price\"])}\n                            for m in g[\"modifiers\"]\n                            if not m.get(\"stopList\")\n                        ],\n                    }\n                    for g in p[\"modifierGroups\"]\n                ],\n            })\n\n    store = {\"storeId\": v[\"storeId\"], \"captured\": captured, \"currency\": v[\"currency\"],\n             \"dishes\": dishes, \"combos\": combos}\n    with open(OUT, \"w\") as f:\n        json.dump(store, f, ensure_ascii=False, indent=1)\n    print(f\"store {v['storeId']} @ {captured}: {len(dishes)} dishes \"\n          f\"({sum(d['orderable'] for d in dishes)} orderable), {len(combos)} combos -> {OUT}\")\n\n\nif __name__ == \"__main__\":\n    main(sys.argv[1] if len(sys.argv) > 1 else \"clickcollect.har\")\n"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "Group limits are simple: exactly 1, 2 or 3 picks per slot (sauce choices are \"pick 2 of 6\"). Writing the build script:"
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "build_site.py",
+      "content": "\"\"\"Join store prices (data/store.json) with PDF nutrition (data/menu.csv) and build site/index.html.\"\"\"\n\nimport csv\nimport json\nimport re\n\nTEMPLATE = \"site/template.html\"\nOUT = \"site/index.html\"\n\n\ndef stems(text):\n    return {w[:5] for w in re.findall(r\"[а-яa-z]+\", text.lower().replace(\"ё\", \"е\")) if len(w) > 2}\n\n\ndef load_pdf():\n    rows = []\n    for r in csv.DictReader(open(\"data/menu.csv\")):\n        if r[\"kcal_100g\"] and float(r[\"kcal_100g\"]) > 0:\n            mass, k100 = float(r[\"mass_g\"]), float(r[\"kcal_100g\"])\n            pieces = re.search(r\"(\\d+)\\s*шт\", r[\"name\"])\n            rows.append({\n                \"name\": r[\"name\"], \"mass\": mass, \"kcal100\": k100,\n                # PDF footnotes: mass is the guaranteed minimum, per-serving values\n                # are for the average real serving. The ratio is how much extra you get.\n                \"bonus\": min(max(float(r[\"kcal\"]) / (k100 * mass / 100), 1.0), 2.0),\n                \"pieces\": int(pieces[1]) if pieces else None,\n            })\n    return rows\n\n\ndef match_pdf(dish, pdf):\n    \"\"\"Closest PDF row by kcal/100g and weight (both within 10%), tie-broken by shared name stems.\"\"\"\n    k, m = dish[\"per100\"][\"kcal\"], dish[\"size\"]\n    if not k or not m:\n        return None\n    best, best_score = None, 0\n    for r in pdf:\n        if abs(r[\"kcal100\"] - k) / k > 0.1 or abs(r[\"mass\"] - m) / m > 0.1:\n            continue\n        overlap = len(stems(dish[\"title\"]) & stems(r[\"name\"]))\n        score = overlap - abs(r[\"mass\"] - m) / m - abs(r[\"kcal100\"] - k) / k\n        if overlap and score > best_score:\n            best, best_score = r, score\n    return best\n\n\ndef size_label(d):\n    if d[\"unit\"] == \"ml\":\n        return f\"{d['size'] / 1000:g} л\".replace(\".\", \",\")\n    return f\"{d['size']:g} г\"\n\n\ndef build_items(store, pdf):\n    items = {}\n    for d in store[\"dishes\"]:\n        r = match_pdf(d, pdf)\n        bonus = r[\"bonus\"] if r else 1.0\n        serving = d[\"size\"] / 100 * bonus\n        items[d[\"id\"]] = {\n            \"id\": d[\"id\"],\n            \"name\": d[\"title\"],\n            \"pieces\": r[\"pieces\"] if r else None,\n            \"size\": size_label(d),\n            \"unit\": d[\"unit\"],\n            \"cats\": list(dict.fromkeys(d[\"cats\"])),\n            \"variant\": d[\"variant\"],\n            \"orderable\": d[\"orderable\"],\n            \"price\": d[\"price\"],\n            \"oldPrice\": d[\"oldPrice\"],\n            \"bonus\": round(bonus, 3),\n            \"grams\": round(d[\"size\"] * bonus) if d[\"unit\"] == \"g\" else 0,\n            \"ml\": d[\"size\"] if d[\"unit\"] == \"ml\" else 0,\n            \"kcal\": round(d[\"per100\"][\"kcal\"] * serving),\n            \"protein\": round(d[\"per100\"][\"protein\"] * serving, 1),\n            \"fat\": round(d[\"per100\"][\"fat\"] * serving, 1),\n            \"carbs\": round(d[\"per100\"][\"carbs\"] * serving, 1),\n            \"known\": d[\"per100\"][\"kcal\"] > 0,\n        }\n    # Name sizes within a variant group: \"3 шт\" when pieces are known, else the weight/volume.\n    for it in items.values():\n        it[\"label\"] = f\"{it['pieces']} шт\" if it[\"pieces\"] else it[\"size\"]\n    return items\n\n\n# Combo slots that point at modifier-only products (\"2 Оригинальных Ножки\") carry the\n# combo price split across its parts, not a real price. Resolve them to real packs.\nPIECE_FAMILIES = [\n    (r\"(\\d+)\\s+оригинальн\\w*\\s+ножк\", \"Ножки Оригинальные\"),\n    (r\"(\\d+)\\s+остр\\w*\\s+крылыш\", \"Острые Крылышки\"),\n    (r\"(\\d+)\\s+оригинальн\\w*\\s+стрипс\", \"Стрипсы Оригинальные\"),\n    (r\"(\\d+)\\s+остр\\w*\\s+стрипс\", \"Стрипсы Острые\"),\n    (r\"наггетсы\\s+(\\d+)\", \"Наггетсы\"),\n]\n# title fragment -> (dish title, which size: 0 = smallest)\nFIXED = [\n    (\"картофель фри малый\", (\"Картофель фри\", 0)),\n    (\"картофель фри стандартный\", (\"Картофель фри\", 1)),\n    (\"байтсы из куриного филе\", (\"Байтсы\", 0)),\n]\n\n\ndef cheapest_cover(packs, n):\n    \"\"\"Cheapest way to buy at least n pieces from (pieces, price) packs, any number of each.\"\"\"\n    top = n + max(p for p, _ in packs)\n    best = [0.0] + [float(\"inf\")] * top\n    for i in range(1, top + 1):\n        for pieces, price in packs:\n            best[i] = min(best[i], best[max(i - pieces, 0)] + price)\n    return min(best[n:])\n\n\ndef resolve_option(opt, items):\n    nutrition = (\"kcal\", \"protein\", \"fat\", \"carbs\", \"grams\", \"ml\")\n    if opt[\"id\"] in items:\n        it = items[opt[\"id\"]]\n        label = f\" · {it['label']}\" if it[\"variant\"] else \"\"\n        return {\"name\": it[\"name\"] + label, \"standalone\": it[\"price\"], \"approx\": False,\n                **{k: it[k] for k in nutrition}, \"known\": it[\"known\"]}\n\n    title = opt[\"title\"].lower().replace(\"ё\", \"е\")\n    orderable = [it for it in items.values() if it[\"orderable\"]]\n    for pattern, family in PIECE_FAMILIES:\n        m = re.search(pattern, title)\n        if m:\n            n = int(m[1])\n            packs = sorted((it for it in orderable if it[\"name\"] == family and it[\"pieces\"]),\n                           key=lambda it: it[\"pieces\"])\n            unit = packs[0]\n            per = {k: unit[k] / unit[\"pieces\"] for k in nutrition}\n            return {\"name\": opt[\"title\"], \"standalone\": cheapest_cover([(p[\"pieces\"], p[\"price\"]) for p in packs], n),\n                    \"approx\": False, **{k: round(per[k] * n, 1) for k in nutrition}, \"known\": True}\n    for fragment, (family, rank) in FIXED:\n        if fragment in title:\n            sizes = sorted((it for it in orderable if it[\"name\"] == family), key=lambda it: it[\"grams\"])\n            it = sizes[min(rank, len(sizes) - 1)]\n            return {\"name\": opt[\"title\"], \"standalone\": it[\"price\"], \"approx\": True,\n                    **{k: it[k] for k in nutrition}, \"known\": True}\n    # Mini muffins, syrups: no standalone equivalent on the menu.\n    return {\"name\": opt[\"title\"], \"standalone\": None, \"approx\": True,\n            **{k: 0 for k in nutrition}, \"known\": False}\n\n\ndef build_combos(store, items):\n    combos = []\n    for c in store[\"combos\"]:\n        cats = list(dict.fromkeys(c[\"cats\"]))\n        combos.append({\n            \"id\": c[\"id\"],\n            \"name\": c[\"title\"],\n            \"short\": c[\"short\"],\n            \"code\": c[\"code\"] if c[\"title\"].startswith(\"Купон\") else None,\n            \"cats\": cats,\n            \"price\": c[\"price\"],\n            \"oldPrice\": c[\"oldPrice\"],\n            \"groups\": [\n                {\"title\": g[\"title\"], \"pick\": g[\"max\"],\n                 \"options\": [resolve_option(o, items) for o in g[\"options\"]]}\n                for g in c[\"groups\"]\n            ],\n        })\n    return combos\n\n\ndef main():\n    store = json.load(open(\"data/store.json\"))\n    pdf = load_pdf()\n    items = build_items(store, pdf)\n    combos = build_combos(store, items)\n    data = {\n        \"storeId\": store[\"storeId\"],\n        \"captured\": store[\"captured\"],\n        \"items\": [it for it in items.values() if it[\"orderable\"]],\n        \"combos\": combos,\n    }\n    html = open(TEMPLATE).read().replace(\"/*DATA*/null\", json.dumps(data, ensure_ascii=False))\n    open(OUT, \"w\").write(html)\n    print(f\"{len(data['items'])} items, {len(combos)} combos -> {OUT}\")\n\n\nif __name__ == \"__main__\":\n    main()\n"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "build_site.py",
+      "diff": [
+        "--- build_site.py",
+        "+++ build_site.py",
+        "@@ edit 1 @@",
+        "-            pieces = re.search(r\"(\\d+)\\s*шт\", r[\"name\"])",
+        "-            rows.append({",
+        "-                \"name\": r[\"name\"], \"mass\": mass, \"kcal100\": k100,",
+        "+            pieces = re.search(r\"(\\d+)\\s*шт\", r[\"name\"])",
+        "+            flavor = re.search(r\"суперостр|остр|оригинал\", r[\"name\"].lower())",
+        "+            rows.append({",
+        "+                \"name\": r[\"name\"], \"mass\": mass, \"kcal100\": k100,",
+        "+                \"drink\": r[\"section\"].startswith((\"НАПИТКИ\", \"КОКТЕЙЛИ\", \"СЛАБОАЛКОГОЛЬНЫЕ\")),",
+        "+                \"flavor\": {\"суперостр\": \"суперострый\", \"остр\": \"острый\", \"оригинал\": \"оригинальный\"}[flavor[0]] if flavor else None,"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "build_site.py",
+      "diff": [
+        "--- build_site.py",
+        "+++ build_site.py",
+        "@@ edit 1 @@",
+        "-def size_label(d):",
+        "-    if d[\"unit\"] == \"ml\":",
+        "-        return f\"{d['size'] / 1000:g} л\".replace(\".\", \",\")",
+        "-    return f\"{d['size']:g} г\"",
+        "-",
+        "-",
+        "-def build_items(store, pdf):",
+        "-    items = {}",
+        "-    for d in store[\"dishes\"]:",
+        "-        r = match_pdf(d, pdf)",
+        "-        bonus = r[\"bonus\"] if r else 1.0",
+        "-        serving = d[\"size\"] / 100 * bonus",
+        "-        items[d[\"id\"]] = {",
+        "-            \"id\": d[\"id\"],",
+        "-            \"name\": d[\"title\"],",
+        "-            \"pieces\": r[\"pieces\"] if r else None,",
+        "-            \"size\": size_label(d),",
+        "-            \"unit\": d[\"unit\"],",
+        "+def size_label(size, unit):",
+        "+    if unit == \"ml\":",
+        "+        return f\"{size / 1000:g} л\".replace(\".\", \",\")",
+        "+    return f\"{size:g} г\"",
+        "+",
+        "+",
+        "+def build_items(store, pdf):",
+        "+    items = {}",
+        "+    for d in store[\"dishes\"]:",
+        "+        r = match_pdf(d, pdf)",
+        "+        bonus = r[\"bonus\"] if r else 1.0",
+        "+        serving = d[\"size\"] / 100 * bonus",
+        "+        # Some drinks are listed in grams on the site; the PDF section knows better.",
+        "+        unit = \"ml\" if d[\"unit\"] == \"ml\" or (r and r[\"drink\"]) else \"g\"",
+        "+        items[d[\"id\"]] = {",
+        "+            \"id\": d[\"id\"],",
+        "+            \"name\": d[\"title\"],",
+        "+            \"pieces\": r[\"pieces\"] if r else None,",
+        "+            \"flavor\": r[\"flavor\"] if r else None,",
+        "+            \"size\": size_label(d[\"size\"], unit),",
+        "+            \"unit\": unit,"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "build_site.py",
+      "diff": [
+        "--- build_site.py",
+        "+++ build_site.py",
+        "@@ edit 1 @@",
+        "-            \"grams\": round(d[\"size\"] * bonus) if d[\"unit\"] == \"g\" else 0,",
+        "-            \"ml\": d[\"size\"] if d[\"unit\"] == \"ml\" else 0,",
+        "+            \"grams\": round(d[\"size\"] * bonus) if unit == \"g\" else 0,",
+        "+            \"ml\": d[\"size\"] if unit == \"ml\" else 0,"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "build_site.py",
+      "diff": [
+        "--- build_site.py",
+        "+++ build_site.py",
+        "@@ edit 1 @@",
+        "-    # Name sizes within a variant group: \"3 шт\" when pieces are known, else the weight/volume.",
+        "-    for it in items.values():",
+        "-        it[\"label\"] = f\"{it['pieces']} шт\" if it[\"pieces\"] else it[\"size\"]",
+        "-    return items",
+        "+    # Tell same-titled products apart: \"3 шт\" for packs, flavor for burgers/rolls",
+        "+    # (the site titles original and spicy identically), else the weight/volume.",
+        "+    titles = {}",
+        "+    for it in items.values():",
+        "+        titles.setdefault(it[\"name\"], []).append(it)",
+        "+    for it in items.values():",
+        "+        twins = len(titles[it[\"name\"]]) > 1",
+        "+        flavor = it[\"flavor\"] if it[\"flavor\"] and it[\"flavor\"][:4] not in it[\"name\"].lower() else None",
+        "+        it[\"label\"] = (f\"{it['pieces']} шт\" if it[\"pieces\"]",
+        "+                       else flavor if twins and flavor",
+        "+                       else it[\"size\"] if twins else \"\")",
+        "+    return items"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "load_store.py",
+      "diff": [
+        "--- load_store.py",
+        "+++ load_store.py",
+        "@@ edit 1 @@",
+        "-def main(path):",
+        "-    captured, v = find_menu(json.load(open(path)))",
+        "-    products = v[\"products\"]",
+        "+def flavor(ingredients):",
+        "+    \"\"\"Site titles original and spicy versions identically; the chicken ingredient tells them apart.\"\"\"",
+        "+    text = \" \".join(ingredients).lower()",
+        "+    if \"соус кулинарный острый\" in text:",
+        "+        return \"суперострый\"",
+        "+    if re.search(r\"(филе|стрипсы)[^,]*остр\", text):",
+        "+        return \"острый\"",
+        "+    if re.search(r\"(филе|стрипсы)[^,]*оригинал\", text):",
+        "+        return \"оригинальный\"",
+        "+    return None",
+        "+",
+        "+",
+        "+def main(path):",
+        "+    captured, v = find_menu(json.load(open(path)))",
+        "+    products = v[\"products\"]",
+        "+    ingredient_names = {i[\"id\"]: i[\"title\"].get(\"ru\", \"\") for i in v[\"ingredients\"]}"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "load_store.py",
+      "diff": [
+        "--- load_store.py",
+        "+++ load_store.py",
+        "@@ edit 1 @@",
+        "-                \"unit\": \"ml\" if \"ml\" in (p.get(\"volume\") or {}) else \"g\",",
+        "-                \"size\": size,",
+        "+                \"unit\": \"ml\" if \"ml\" in (p.get(\"volume\") or {}) else \"g\",",
+        "+                \"size\": size,",
+        "+                \"flavor\": flavor(ingredient_names.get(i, \"\") for i in p[\"ingredients\"]),"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "load_store.py",
+      "diff": [
+        "--- load_store.py",
+        "+++ load_store.py",
+        "@@ edit 1 @@",
+        "-import json",
+        "-import sys",
+        "+import json",
+        "+import re",
+        "+import sys"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "build_site.py",
+      "diff": [
+        "--- build_site.py",
+        "+++ build_site.py",
+        "@@ edit 1 @@",
+        "-            pieces = re.search(r\"(\\d+)\\s*шт\", r[\"name\"])",
+        "-            flavor = re.search(r\"суперостр|остр|оригинал\", r[\"name\"].lower())",
+        "-            rows.append({",
+        "-                \"name\": r[\"name\"], \"mass\": mass, \"kcal100\": k100,",
+        "-                \"drink\": r[\"section\"].startswith((\"НАПИТКИ\", \"КОКТЕЙЛИ\", \"СЛАБОАЛКОГОЛЬНЫЕ\")),",
+        "-                \"flavor\": {\"суперостр\": \"суперострый\", \"остр\": \"острый\", \"оригинал\": \"оригинальный\"}[flavor[0]] if flavor else None,",
+        "+            pieces = re.search(r\"(\\d+)\\s*шт\", r[\"name\"])",
+        "+            rows.append({",
+        "+                \"name\": r[\"name\"], \"mass\": mass, \"kcal100\": k100,",
+        "+                \"drink\": r[\"section\"].startswith((\"НАПИТКИ\", \"КОКТЕЙЛИ\", \"СЛАБОАЛКОГОЛЬНЫЕ\")),"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "build_site.py",
+      "diff": [
+        "--- build_site.py",
+        "+++ build_site.py",
+        "@@ edit 1 @@",
+        "-            \"flavor\": r[\"flavor\"] if r else None,",
+        "+            \"flavor\": d[\"flavor\"],"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "Байтсы are spicy in every size, so flavor doesn't tell them apart. Rule fix: use flavor only when it's unique within the group, otherwise fall back to size."
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "build_site.py",
+      "diff": [
+        "--- build_site.py",
+        "+++ build_site.py",
+        "@@ edit 1 @@",
+        "-    for it in items.values():",
+        "-        twins = len(titles[it[\"name\"]]) > 1",
+        "-        flavor = it[\"flavor\"] if it[\"flavor\"] and it[\"flavor\"][:4] not in it[\"name\"].lower() else None",
+        "-        it[\"label\"] = (f\"{it['pieces']} шт\" if it[\"pieces\"]",
+        "-                       else flavor if twins and flavor",
+        "-                       else it[\"size\"] if twins else \"\")",
+        "-    return items",
+        "+    for twins in titles.values():",
+        "+        flavors = [it[\"flavor\"] for it in twins]",
+        "+        by_flavor = all(flavors) and len(set(flavors)) == len(flavors)",
+        "+        for it in twins:",
+        "+            it[\"label\"] = (f\"{it['pieces']} шт\" if it[\"pieces\"]",
+        "+                           else it[\"flavor\"] if len(twins) > 1 and by_flavor",
+        "+                           else it[\"size\"] if len(twins) > 1 else \"\")",
+        "+    return items"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "site/template.html",
+      "content": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Rostic's Min-Maxer</title>\n<style>\n  :root {\n    --bg: #faf7f2; --card: #ffffff; --ink: #1d1a17; --muted: #6f675e; --line: #e8e1d6;\n    --accent: #c8102e; --accent-soft: #fbe3e6; --good: #1f7a4d; --good-soft: #dcf1e5; --bar: #f1c9cf;\n  }\n  @media (prefers-color-scheme: dark) {\n    :root:not([data-theme=\"light\"]) {\n      --bg: #141210; --card: #1e1b18; --ink: #f2ede6; --muted: #a39a8f; --line: #312c27;\n      --accent: #ff5468; --accent-soft: #3a1c21; --good: #5fd39a; --good-soft: #17301f; --bar: #4a2128;\n    }\n  }\n  :root[data-theme=\"dark\"] {\n    --bg: #141210; --card: #1e1b18; --ink: #f2ede6; --muted: #a39a8f; --line: #312c27;\n    --accent: #ff5468; --accent-soft: #3a1c21; --good: #5fd39a; --good-soft: #17301f; --bar: #4a2128;\n  }\n  * { box-sizing: border-box; }\n  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n  main { max-width: 760px; margin: 0 auto; padding: 20px 16px 60px; }\n  h1 { font-size: 26px; margin: 0; letter-spacing: -0.02em; }\n  h1 span { color: var(--accent); }\n  .sub { color: var(--muted); font-size: 13px; margin: 4px 0 16px; }\n  nav { display: flex; gap: 6px; position: sticky; top: 0; background: var(--bg); padding: 8px 0; z-index: 2; border-bottom: 1px solid var(--line); margin-bottom: 14px; }\n  nav button, .seg button { flex: 1; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 10px; padding: 8px 6px; font: inherit; font-weight: 600; cursor: pointer; }\n  nav button[aria-selected=\"true\"], .seg button[aria-pressed=\"true\"] { background: var(--accent); border-color: var(--accent); color: #fff; }\n  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }\n  .seg { display: flex; gap: 4px; flex: 1 1 260px; }\n  .seg button { font-weight: 500; font-size: 14px; padding: 6px; }\n  input[type=search], input[type=number], select { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; }\n  input[type=search] { flex: 1 1 100%; }\n  label.check { display: flex; align-items: center; gap: 6px; font-size: 14px; }\n  .list { display: flex; flex-direction: column; gap: 6px; }\n  .row { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; overflow: hidden; }\n  .row .bar { position: absolute; inset: 0 auto 0 0; background: var(--bar); opacity: .45; z-index: 0; }\n  .row > *:not(.bar) { position: relative; z-index: 1; }\n  .top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }\n  .name { font-weight: 600; }\n  .label { color: var(--muted); font-weight: 400; }\n  .price { white-space: nowrap; font-weight: 600; }\n  .old { color: var(--muted); text-decoration: line-through; font-weight: 400; font-size: 13px; margin-right: 4px; }\n  .meta { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 13px; margin-top: 2px; }\n  .val { color: var(--ink); font-weight: 700; white-space: nowrap; }\n  .rank { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 6px; font-weight: 400; }\n  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 6px; margin-left: 4px; vertical-align: 1px; }\n  .tag.promo { background: var(--accent-soft); color: var(--accent); }\n  .tag.bonus { background: var(--good-soft); color: var(--good); }\n  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }\n  .card h3 { margin: 0; font-size: 16px; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }\n  .code { font: 700 20px/1 ui-monospace, Menlo, monospace; color: var(--accent); background: var(--accent-soft); padding: 4px 8px; border-radius: 8px; letter-spacing: .05em; white-space: nowrap; }\n  .short { color: var(--muted); font-size: 13px; margin: 2px 0 8px; }\n  .deal { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 14px; }\n  .save { color: var(--good); font-weight: 700; }\n  .loss { color: var(--accent); font-weight: 700; }\n  .picks { margin: 8px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--muted); }\n  .picks li { padding: 2px 0; }\n  .picks b { color: var(--ink); font-weight: 600; }\n  .note { color: var(--muted); font-size: 12px; margin-top: 6px; }\n  .budget { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }\n  .budget label { display: flex; flex-direction: column; font-size: 13px; color: var(--muted); gap: 4px; }\n  .budget .wide { grid-column: 1 / -1; }\n  .totals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 12px 0; }\n  .totals div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px; text-align: center; }\n  .totals b { display: block; font-size: 18px; }\n  .totals span { font-size: 12px; color: var(--muted); }\n  .empty { color: var(--muted); text-align: center; padding: 30px 0; }\n  footer { color: var(--muted); font-size: 12px; margin-top: 30px; border-top: 1px solid var(--line); padding-top: 12px; }\n  footer p { margin: 6px 0; }\n  [hidden] { display: none !important; }\n</style>\n</head>\n<body>\n<main>\n  <h1>Rostic's <span>Min-Maxer</span></h1>\n  <p class=\"sub\" id=\"sub\"></p>\n\n  <nav>\n    <button data-tab=\"rank\" aria-selected=\"true\">Rankings</button>\n    <button data-tab=\"combos\" aria-selected=\"false\">Combos</button>\n    <button data-tab=\"budget\" aria-selected=\"false\">Budget</button>\n  </nav>\n\n  <section id=\"rank\">\n    <div class=\"controls\">\n      <div class=\"seg\" id=\"metric\"></div>\n      <div class=\"seg\" id=\"scope\"></div>\n      <input type=\"search\" id=\"q\" placeholder=\"Search…\">\n    </div>\n    <div class=\"list\" id=\"rank-list\"></div>\n  </section>\n\n  <section id=\"combos\" hidden>\n    <div class=\"controls\">\n      <div class=\"seg\" id=\"combo-sort\"></div>\n      <label class=\"check\"><input type=\"checkbox\" id=\"coupons-only\"> Coupons only</label>\n    </div>\n    <div class=\"list\" id=\"combo-list\"></div>\n  </section>\n\n  <section id=\"budget\" hidden>\n    <div class=\"budget\">\n      <label>Budget, ₽ <input type=\"number\" id=\"b-money\" value=\"500\" min=\"50\" max=\"5000\" step=\"10\"></label>\n      <label>Maximise\n        <select id=\"b-metric\"></select>\n      </label>\n      <label>Max of each item <input type=\"number\" id=\"b-copies\" value=\"2\" min=\"1\" max=\"5\"></label>\n      <label>&nbsp;\n        <span class=\"check\"><input type=\"checkbox\" id=\"b-drink\" checked> Include a drink</span>\n      </label>\n      <label class=\"wide\"><span class=\"check\"><input type=\"checkbox\" id=\"b-combos\" checked> Allow combos &amp; coupons</span></label>\n    </div>\n    <div class=\"totals\" id=\"b-totals\"></div>\n    <div class=\"list\" id=\"b-list\"></div>\n  </section>\n\n  <footer>\n    <p><b>How the numbers work.</b> Nutrition comes from the official nutrition appendix. Its footnotes say the listed weight is the <i>guaranteed minimum</i>, while the per-serving numbers are for the <i>average</i> real serving. The green \"+N%\" tag is that gap (wings are about 60% heavier than listed). All values here use the average serving.</p>\n    <p>Combo \"separately\" prices use the real à-la-carte price of every part. Where a part isn't sold on its own (e.g. 2 wings), it uses the cheapest set of packs that covers it, so you'd get a few extra pieces for that price. Kids' combos include a toy, which has no price.</p>\n    <p id=\"foot-data\"></p>\n    <p>Unofficial fan project. Not affiliated with Rostic's.</p>\n  </footer>\n</main>\n\n<script>const DATA = /*DATA*/null;</script>\n<script>\nconst METRICS = {\n  kcal:    { label: \"kcal\",    unit: \"kcal\", get: x => x.kcal,    fmt: v => Math.round(v) },\n  protein: { label: \"protein\", unit: \"g protein\", get: x => x.protein, fmt: v => v.toFixed(1) },\n  grams:   { label: \"grams\",   unit: \"g food\", get: x => x.grams,   fmt: v => Math.round(v) },\n};\nconst SCOPES = { food: \"Food\", drinks: \"Drinks\", all: \"All\" };\nconst state = { metric: \"kcal\", scope: \"food\", q: \"\", comboSort: \"rub\", couponsOnly: false };\n\nconst $ = id => document.getElementById(id);\nconst esc = s => String(s).replace(/[&<>\"]/g, c => ({ \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\", '\"': \"&quot;\" })[c]);\nconst rub = v => `${Math.round(v)} ₽`;\nconst isDrink = it => it.unit === \"ml\";\nconst fullName = it => `<span class=\"name\">${esc(it.name)}</span>${it.label ? ` <span class=\"label\">${esc(it.label)}</span>` : \"\"}`;\n\nfunction seg(el, options, key, onChange) {\n  el.innerHTML = Object.entries(options).map(([k, v]) =>\n    `<button data-k=\"${k}\" aria-pressed=\"${state[key] === k}\">${v}</button>`).join(\"\");\n  el.onclick = e => {\n    const b = e.target.closest(\"button\"); if (!b) return;\n    state[key] = b.dataset.k;\n    el.querySelectorAll(\"button\").forEach(x => x.setAttribute(\"aria-pressed\", x === b));\n    onChange();\n  };\n}\n\nfunction priceHtml(price, oldPrice) {\n  return `<span class=\"price\">${oldPrice > price ? `<span class=\"old\">${Math.round(oldPrice)}</span>` : \"\"}${rub(price)}</span>`;\n}\n\n/* ---------- rankings ---------- */\nfunction renderRank() {\n  const m = METRICS[state.metric];\n  const q = state.q.trim().toLowerCase();\n  const rows = DATA.items\n    .filter(it => it.known && m.get(it) > 0)\n    .filter(it => state.scope === \"all\" || (state.scope === \"drinks\") === isDrink(it))\n    .filter(it => !q || it.name.toLowerCase().includes(q))\n    .map(it => ({ it, v: m.get(it) / it.price * 100 }))\n    .sort((a, b) => b.v - a.v);\n  const max = rows.length ? rows[0].v : 1;\n  $(\"rank-list\").innerHTML = rows.map(({ it, v }, i) => `\n    <div class=\"row\">\n      <div class=\"bar\" style=\"width:${(v / max * 100).toFixed(1)}%\"></div>\n      <div class=\"top\">\n        <div><span class=\"rank\">${i + 1}</span>${fullName(it)}${it.oldPrice > it.price ? `<span class=\"tag promo\">−${Math.round((1 - it.price / it.oldPrice) * 100)}%</span>` : \"\"}${it.bonus >= 1.1 ? `<span class=\"tag bonus\">+${Math.round((it.bonus - 1) * 100)}%</span>` : \"\"}</div>\n        ${priceHtml(it.price, it.oldPrice)}\n      </div>\n      <div class=\"meta\">\n        <span>${Math.round(it.kcal)} kcal · ${it.protein} g protein · ${it.grams ? `${it.grams} g` : it.size}</span>\n        <span class=\"val\">${m.fmt(v)} ${m.unit} / 100 ₽</span>\n      </div>\n    </div>`).join(\"\") || `<div class=\"empty\">Nothing matches.</div>`;\n}\n\n/* ---------- combos ---------- */\n// Pick `g.pick` options per slot, best first by `score`.\nfunction choose(combo, score) {\n  return combo.groups.map(g => {\n    const opts = [...g.options].sort((a, b) => score(b) - score(a) || (b.standalone ?? 0) - (a.standalone ?? 0));\n    return { group: g, chosen: opts.slice(0, g.pick) };\n  });\n}\n\nfunction comboDeal(c) {\n  const picks = choose(c, o => o.standalone ?? -1);\n  const parts = picks.flatMap(p => p.chosen);\n  const priced = parts.every(o => o.standalone != null);\n  const separately = parts.reduce((s, o) => s + (o.standalone ?? 0), 0);\n  return { picks, priced, separately, save: separately - c.price };\n}\n\nfunction renderCombos() {\n  const rows = DATA.combos\n    .filter(c => !state.couponsOnly || c.code)\n    .map(c => ({ c, d: comboDeal(c) }))\n    .sort((a, b) => (b.d.priced - a.d.priced) ||\n      (state.comboSort === \"rub\" ? b.d.save - a.d.save : b.d.save / b.d.separately - a.d.save / a.d.separately));\n  $(\"combo-list\").innerHTML = rows.map(({ c, d }) => {\n    const pct = Math.round(d.save / d.separately * 100);\n    const choices = d.picks.filter(p => p.group.options.length > p.group.pick);\n    const kids = c.cats.includes(\"Комбо с игрушкой\");\n    return `<div class=\"card\">\n      <h3><span>${esc(c.name)}</span>${c.code ? `<span class=\"code\">${esc(c.code)}</span>` : priceHtml(c.price, c.oldPrice)}</h3>\n      <div class=\"short\">${esc(c.short)}</div>\n      <div class=\"deal\">\n        ${c.code ? `<span>${priceHtml(c.price, c.oldPrice)}</span>` : \"\"}\n        ${d.priced\n          ? `<span>separately ${rub(d.separately)}</span><span class=\"${d.save >= 0 ? \"save\" : \"loss\"}\">${d.save >= 0 ? \"save\" : \"lose\"} ${rub(Math.abs(d.save))} (${Math.abs(pct)}%)</span>`\n          : `<span class=\"note\">some parts aren't sold separately, so no comparison</span>`}\n      </div>\n      ${choices.length ? `<ul class=\"picks\">${choices.map(p => `<li>${esc(p.group.title)}: pick <b>${p.chosen.map(o => esc(o.name)).join(\" + \")}</b></li>`).join(\"\")}</ul>` : \"\"}\n      ${kids ? `<div class=\"note\">Includes a toy, which isn't counted.</div>` : \"\"}\n    </div>`;\n  }).join(\"\") || `<div class=\"empty\">Nothing here.</div>`;\n}\n\n/* ---------- budget optimiser (0/1 knapsack over copies, with a has-drink flag) ---------- */\nfunction candidates(metric, allowCombos) {\n  const m = METRICS[metric];\n  const out = DATA.items\n    .filter(it => it.known && it.price > 0)\n    .map(it => ({ name: it.name, label: it.label, price: Math.ceil(it.price), value: m.get(it), drink: isDrink(it), picks: null }));\n  if (allowCombos) {\n    for (const c of DATA.combos) {\n      const picks = choose(c, o => m.get(o));\n      const parts = picks.flatMap(p => p.chosen);\n      out.push({\n        name: c.name, label: c.code ? `code ${c.code}` : \"\", price: Math.ceil(c.price),\n        value: parts.reduce((s, o) => s + m.get(o), 0),\n        drink: parts.some(o => o.ml > 0),\n        picks: picks.filter(p => p.group.options.length > p.group.pick),\n      });\n    }\n  }\n  return out.filter(x => x.value > 0 || x.drink);\n}\n\nfunction optimise(budget, metric, copies, needDrink, allowCombos) {\n  const items = candidates(metric, allowCombos).flatMap(x => Array.from({ length: copies }, () => x));\n  const B = budget, W = B + 1, n = items.length;\n  // dp[f*W + b] = best value with spend <= b; f = 1 once a drink is in the order\n  let dp = new Float64Array(2 * W).fill(-Infinity);\n  for (let b = 0; b <= B; b++) dp[b] = 0;\n  const take = new Uint8Array(n * 2 * W);\n  for (let i = 0; i < n; i++) {\n    const { price, value, drink } = items[i];\n    const next = dp.slice();\n    for (let f = 0; f < 2; f++) {\n      const nf = drink ? 1 : f;\n      for (let b = price; b <= B; b++) {\n        const cand = dp[f * W + b - price] + value;\n        if (cand > next[nf * W + b]) { next[nf * W + b] = cand; take[i * 2 * W + nf * W + b] = 1 + f; }\n      }\n    }\n    dp = next;\n  }\n  // walk back from the best end state\n  let f = needDrink ? 1 : (dp[W + B] > dp[B] ? 1 : 0), b = B;\n  if (dp[f * W + b] === -Infinity) return null;\n  const chosen = [];\n  for (let i = n - 1; i >= 0; i--) {\n    const t = take[i * 2 * W + f * W + b];\n    if (t) { chosen.push(items[i]); b -= items[i].price; f = t - 1; }\n  }\n  return chosen;\n}\n\nfunction renderBudget() {\n  const budget = Math.min(5000, Math.max(0, Math.floor(+$(\"b-money\").value || 0)));\n  const metric = $(\"b-metric\").value, m = METRICS[metric];\n  const copies = Math.min(5, Math.max(1, Math.floor(+$(\"b-copies\").value || 1)));\n  const chosen = optimise(budget, metric, copies, $(\"b-drink\").checked, $(\"b-combos\").checked);\n  if (!chosen || !chosen.length) {\n    $(\"b-totals\").innerHTML = \"\";\n    $(\"b-list\").innerHTML = `<div class=\"empty\">Can't build an order for that budget.</div>`;\n    return;\n  }\n  const groups = new Map();\n  for (const x of chosen) {\n    const g = groups.get(x) || { x, n: 0 };\n    g.n++; groups.set(x, g);\n  }\n  const spent = chosen.reduce((s, x) => s + x.price, 0);\n  const total = chosen.reduce((s, x) => s + x.value, 0);\n  $(\"b-totals\").innerHTML = `\n    <div><b>${spent} ₽</b><span>spent</span></div>\n    <div><b>${budget - spent} ₽</b><span>left</span></div>\n    <div><b>${m.fmt(total)}</b><span>${m.unit}</span></div>\n    <div><b>${m.fmt(total / spent * 100)}</b><span>per 100 ₽</span></div>`;\n  $(\"b-list\").innerHTML = [...groups.values()].sort((a, b) => b.x.price * b.n - a.x.price * a.n).map(({ x, n }) => `\n    <div class=\"row\">\n      <div class=\"top\">\n        <div>${n > 1 ? `<span class=\"rank\">${n}×</span>` : \"\"}${fullName(x)}</div>\n        <span class=\"price\">${rub(x.price * n)}</span>\n      </div>\n      <div class=\"meta\"><span>${x.picks && x.picks.length ? x.picks.map(p => esc(p.chosen.map(o => o.name).join(\" + \"))).join(\" · \") : (x.drink ? \"drink\" : \"\")}</span>\n      <span class=\"val\">${m.fmt(x.value * n)} ${m.unit}</span></div>\n    </div>`).join(\"\");\n}\n\n/* ---------- wiring ---------- */\nconst captured = new Date(DATA.captured);\n$(\"sub\").textContent = `Value per ruble for every item, combo and coupon · store ${DATA.storeId} · prices from ${captured.toLocaleDateString(\"en-GB\", { day: \"numeric\", month: \"short\", year: \"numeric\" })}`;\n$(\"foot-data\").textContent = `${DATA.items.length} items and ${DATA.combos.length} combos/coupons. Sauces and toppings have no published nutrition, so they're left out of the rankings.`;\n\ndocument.querySelector(\"nav\").onclick = e => {\n  const b = e.target.closest(\"button\"); if (!b) return;\n  document.querySelectorAll(\"nav button\").forEach(x => x.setAttribute(\"aria-selected\", x === b));\n  [\"rank\", \"combos\", \"budget\"].forEach(id => $(id).hidden = id !== b.dataset.tab);\n  if (b.dataset.tab === \"budget\") renderBudget();\n};\nseg($(\"metric\"), Object.fromEntries(Object.entries(METRICS).map(([k, v]) => [k, v.label])), \"metric\", renderRank);\nseg($(\"scope\"), SCOPES, \"scope\", renderRank);\nseg($(\"combo-sort\"), { rub: \"Most ₽ saved\", pct: \"Biggest %\" }, \"comboSort\", renderCombos);\n$(\"q\").oninput = e => { state.q = e.target.value; renderRank(); };\n$(\"coupons-only\").onchange = e => { state.couponsOnly = e.target.checked; renderCombos(); };\n$(\"b-metric\").innerHTML = Object.entries(METRICS).map(([k, v]) => `<option value=\"${k}\">${v.label}</option>`).join(\"\");\n[\"b-money\", \"b-metric\", \"b-copies\", \"b-drink\", \"b-combos\"].forEach(id => $(id).addEventListener(\"input\", renderBudget));\n\nrenderRank();\nrenderCombos();\n</script>\n</body>\n</html>\n"
+    },
+    {
+      "role": "assistant",
+      "text": "Built. Let me check which tools I have for testing it."
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "site/template.html",
+      "diff": [
+        "--- site/template.html",
+        "+++ site/template.html",
+        "@@ edit 1 @@",
+        "-document.querySelector(\"nav\").onclick = e => {",
+        "-  const b = e.target.closest(\"button\"); if (!b) return;",
+        "-  document.querySelectorAll(\"nav button\").forEach(x => x.setAttribute(\"aria-selected\", x === b));",
+        "-  [\"rank\", \"combos\", \"budget\"].forEach(id => $(id).hidden = id !== b.dataset.tab);",
+        "-  if (b.dataset.tab === \"budget\") renderBudget();",
+        "-};",
+        "+function openTab(tab) {",
+        "+  document.querySelectorAll(\"nav button\").forEach(x => x.setAttribute(\"aria-selected\", x.dataset.tab === tab));",
+        "+  [\"rank\", \"combos\", \"budget\"].forEach(id => $(id).hidden = id !== tab);",
+        "+  if (tab === \"budget\") renderBudget();",
+        "+}",
+        "+document.querySelector(\"nav\").onclick = e => {",
+        "+  const b = e.target.closest(\"button\"); if (!b) return;",
+        "+  history.replaceState(null, \"\", `#${b.dataset.tab}`);",
+        "+  openTab(b.dataset.tab);",
+        "+};"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "edit",
+      "path": "site/template.html",
+      "diff": [
+        "--- site/template.html",
+        "+++ site/template.html",
+        "@@ edit 1 @@",
+        "-renderRank();",
+        "-renderCombos();",
+        "-</script>",
+        "+renderRank();",
+        "+renderCombos();",
+        "+if ([\"combos\", \"budget\"].includes(location.hash.slice(1))) openTab(location.hash.slice(1));",
+        "+</script>"
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "assistant",
+      "text": "The shell stayed in `site/` after the sed. Rerunning from the project root:"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "~/.claude/projects/-Users-user-rostics26/memory/rostics-value-optimizer.md",
+      "content": "---\nname: rostics-value-optimizer\ndescription: Goal of the rostics26 project (static \"min-maxer\" site ranking Rostic's menu by value per ruble) and how prices are obtained\nmetadata:\n  type: project\n---\n\nrostics26 is a joke-but-real project: \"cheat\" the Rostic's (Russian fast food chain) menu by finding the best food-per-ruble order. End goal (user's request, 2026-10-30): a static website the user checks on their phone before ordering.\n\nPrices can't be scraped headlessly: rostics.ru geo-blocks non-RU IPs and, past that, serves a JS bot challenge (503). Agreed approach: the user opens the site in their own browser and saves a HAR of the `getMenuPassport/<storeId>` request; don't try to defeat the challenge. Prices are per store (first capture: store STORE_ID, location not yet confirmed by user).\n\n**Why:** prices are the half the PDF doesn't have, and the bot protection is deliberate.\n**How to apply:** to refresh prices, ask the user for a new HAR rather than scraping.\n"
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "~/.claude/projects/-Users-user-rostics26/memory/MEMORY.md",
+      "content": "- [Rostic's value optimizer](rostics-value-optimizer.md) — project goal (static min-maxer site), prices come from a user-saved HAR, not scraping\n"
+    },
+    {
+      "role": "assistant",
+      "text": "The site is built: `site/index.html` is one self-contained 240 KB file. Run `open site/index.html` to see it. I checked all three tabs in headless Chrome at phone width (390px), and the budget optimizer gives sensible orders. Prices are for store `STORE_ID`, captured today.\n\n**What it does:**\n- **Rankings:** every item by kcal, protein or grams per 100₽, with promo discounts and the extra-weight bonus tagged.\n- **Combos:** every combo and coupon compared with buying its parts separately, which option to pick in each slot to save the most, and coupon codes shown big so you can read them out at the counter.\n- **Budget:** you enter how many rubles you have, and it picks the order with the most kcal, protein or food. You can require a drink, cap how many of the same item it picks, and allow or exclude combos.\n\n**The cheats it found:**\n- **Чикенбургер (72₽)** is the cheapest way to get calories: 465 kcal per 100₽.\n- **Шеф Баскет оригинальный is 358₽**, while the same food bought separately is 708₽. That's partly because you can't buy 2 wings or 2 strips on their own; the smallest pack is 3.\n- **Coupon 8359 is 514₽**, and its parts cost 928₽ separately.\n- **In combos, always pick the most expensive option in each slot.** The combo price stays the same, so you save more.\n- **Wings come out about 60% heavier than listed** on average, and nuggets, strips and shrimp about 27–29%. This comes from the PDF's footnotes: the listed weight is the guaranteed minimum.\n- **Fries: 60g costs 97₽ and 100g costs 101₽.**\n- **Shrimp is the worst value on the menu** (65 kcal per 100₽), and the kids' combo costs 52₽ more than its parts because you're paying for the toy.\n- **With 500₽** you get Чикен комбо + 2 Чизбургер + 2 Чикенбургер: 2033 kcal with 3₽ left over.\n\n**How it fits together:** `parse_menu.py` reads the PDF into `data/menu.csv`, `load_store.py` reads your HAR into `data/store.json`, and `build_site.py` joins them into `site/index.html`. To refresh prices, save a new HAR the same way and run the last two scripts. A headless scraper is out: the site's bot check blocks it, and getting around that would mean defeating their protection on purpose.\n\n**Rough edges:**\n- 16 combos have parts that aren't sold alone (mini muffins, syrups), so they show no savings figure.\n- \"Байтсы\" inside baskets are assumed to be the smallest portion.\n- Sauces publish no nutrition, so they're left out of the rankings.\n\nWhich restaurant is store `STORE_ID`? Prices differ by location, so the page should say where they come from. To get the page on your phone, the simplest route is free static hosting like GitHub Pages; I can also publish it as a private claude.ai page."
+    },
+    {
+      "role": "user",
+      "text": "dude hshahsahsh this is amazing. ur the goat\n\ncould we have some design improvements on the website, maybe ru/eng language switcher? make the design bolder and cleaner - use a skill for webdev ig, and remove unnecessary info like store id, etc. nothing else needed"
+    },
+    {
+      "role": "assistant",
+      "text": "Glad you like it! Let me load the design skill first."
+    },
+    {
+      "role": "tool",
+      "name": "skill"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "write",
+      "path": "site/template.html",
+      "content": "<!doctype html>\n<html lang=\"ru\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n<title>Rostic's Min-Maxer</title>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;800;900&display=swap\">\n<style>\n  /* Layout: one phone-width column. Bucket stripes on top, sticky tabs,\n     price-tag rows with a value meter along the bottom edge. */\n  :root {\n    --bg: #ffffff;        /* receipt paper */\n    --surface: #f5f2ee;   /* row fill */\n    --ink: #1b1511;       /* warm black */\n    --muted: #7a6d62;\n    --line: #e6dfd6;\n    --red: #d2121b;       /* bucket red */\n    --red-soft: #fde4e3;\n    --gold: #ffb800;      /* price-tag yellow */\n    --on-gold: #1b1511;\n    --good: #12804a;\n    --good-soft: #dcf3e6;\n    --display: \"Unbounded\", \"Arial Black\", system-ui, sans-serif;\n    --body: \"Onest\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif;\n  }\n  @media (prefers-color-scheme: dark) {\n    :root:not([data-theme=\"light\"]) {\n      --bg: #15100c; --surface: #221a14; --ink: #f8f2eb; --muted: #ab9d8f; --line: #362c24;\n      --red: #ff4a4f; --red-soft: #3e1a1a; --gold: #ffc233; --on-gold: #1b1511;\n      --good: #52d18d; --good-soft: #153322; color-scheme: dark;\n    }\n  }\n  :root[data-theme=\"dark\"] {\n    --bg: #15100c; --surface: #221a14; --ink: #f8f2eb; --muted: #ab9d8f; --line: #362c24;\n    --red: #ff4a4f; --red-soft: #3e1a1a; --gold: #ffc233; --on-gold: #1b1511;\n    --good: #52d18d; --good-soft: #153322; color-scheme: dark;\n  }\n\n  * { box-sizing: border-box; }\n  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 15px/1.45 var(--body); -webkit-font-smoothing: antialiased; }\n  body::before { content: \"\"; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }\n  button, input, select { font: inherit; color: inherit; }\n  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }\n\n  .stripes { height: 14px; background: repeating-linear-gradient(90deg, var(--red) 0 22px, var(--bg) 22px 44px); }\n  main { max-width: 720px; margin: 0 auto; padding-block: 18px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }\n\n  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }\n  .brand { min-width: 0; }\n  .kicker { font: 700 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--red); }\n  h1 { font: 900 clamp(30px, 9vw, 46px)/0.95 var(--display); letter-spacing: -0.03em; margin: 6px 0 8px; text-transform: uppercase; text-wrap: balance; }\n  .tagline { margin: 0; color: var(--muted); font-size: 15px; }\n\n  /* segmented controls */\n  .seg { display: flex; gap: 4px; padding: 4px; background: var(--surface); border-radius: 999px; }\n  .seg button { flex: 1; border: 0; background: none; border-radius: 999px; padding: 8px 12px; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; }\n  .seg button[aria-pressed=\"true\"] { background: var(--ink); color: var(--bg); }\n  #lang { flex: none; }\n  #lang button { padding: 6px 10px; font: 800 11px/1 var(--display); letter-spacing: .04em; }\n\n  nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding-block: 14px 12px; margin-top: 14px; }\n  nav button { border: 2px solid var(--ink); background: var(--bg); border-radius: 12px; padding: 11px 4px; font: 800 12px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; cursor: pointer; }\n  nav button[aria-selected=\"true\"] { background: var(--red); border-color: var(--red); color: #fff; }\n\n  .controls { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }\n  .search { width: 100%; border: 2px solid var(--line); background: var(--bg); border-radius: 12px; padding: 10px 14px; }\n  .search:focus { border-color: var(--ink); outline: none; }\n\n  /* ranking rows */\n  .list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }\n  .row { position: relative; overflow: hidden; display: grid; grid-template-columns: 2em minmax(0, 1fr) auto; column-gap: 10px; align-items: center; background: var(--surface); border-radius: 14px; padding: 12px 14px 15px; }\n  .rank { font: 800 14px/1 var(--display); color: var(--muted); font-variant-numeric: tabular-nums; }\n  #rank-list .row:nth-child(-n+3) .rank { color: var(--red); }\n  .body { min-width: 0; }\n  .name { font-weight: 700; font-size: 16px; line-height: 1.25; overflow-wrap: anywhere; }\n  .label { font-weight: 500; color: var(--muted); }\n  .sub { color: var(--muted); font-size: 13px; margin-top: 3px; font-variant-numeric: tabular-nums; }\n  .sub b { color: var(--ink); font-weight: 700; }\n  .old { text-decoration: line-through; margin-right: 3px; }\n  .v { text-align: right; font: 800 19px/1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }\n  .v small { display: block; font: 500 11px/1.2 var(--body); color: var(--muted); margin-top: 5px; }\n  .meter { position: absolute; left: 0; bottom: 0; height: 4px; background: var(--gold); border-radius: 0 4px 4px 0; }\n  .tag { display: inline-block; font: 700 11px/1 var(--body); padding: 3px 6px; border-radius: 6px; margin-left: 5px; vertical-align: 2px; white-space: nowrap; }\n  .tag.promo { background: var(--red-soft); color: var(--red); }\n  .tag.bonus { background: var(--good-soft); color: var(--good); }\n\n  /* combo cards */\n  .toggle { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; cursor: pointer; padding-left: 4px; }\n  .toggle input { width: 18px; height: 18px; accent-color: var(--red); margin: 0; }\n  .card { background: var(--surface); border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }\n  .card-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: start; }\n  .card .name { font-size: 17px; }\n  .desc { color: var(--muted); font-size: 13px; margin-top: 3px; }\n  .price { font: 800 20px/1 var(--display); white-space: nowrap; text-align: right; }\n  .price .old { display: block; font: 500 12px/1 var(--body); color: var(--muted); margin: 0 0 5px; }\n  .coupon { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--on-gold); border-radius: 10px; padding: 6px 10px 6px 8px; font: 900 22px/1 var(--display); letter-spacing: .04em; }\n  .coupon small { font: 700 10px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); }\n  .deal { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 14px; color: var(--muted); }\n  .chip { font-weight: 700; padding: 5px 9px; border-radius: 8px; font-size: 13px; white-space: nowrap; }\n  .chip.good { background: var(--good-soft); color: var(--good); }\n  .chip.bad { background: var(--red-soft); color: var(--red); }\n  .picks { list-style: none; margin: 0; padding: 10px 0 0; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 4px; font-size: 13px; }\n  .picks li { display: flex; flex-wrap: wrap; gap: 0 6px; }\n  .picks span { color: var(--muted); }\n  .picks b { font-weight: 600; }\n  .note { color: var(--muted); font-size: 13px; }\n\n  /* budget */\n  .money { display: flex; align-items: baseline; gap: 8px; border-bottom: 3px solid var(--ink); padding-bottom: 6px; margin-bottom: 14px; }\n  .money label { font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }\n  .money input { flex: 1; min-width: 0; border: 0; background: none; font: 900 40px/1.1 var(--display); text-align: right; padding: 0; -moz-appearance: textfield; }\n  .money input::-webkit-inner-spin-button { -webkit-appearance: none; }\n  .money input:focus { outline: none; }\n  .money span { font: 900 32px/1 var(--display); }\n  .opts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 12px 0 4px; }\n  .stepper { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }\n  .stepper input { width: 56px; border: 2px solid var(--line); background: var(--bg); border-radius: 10px; padding: 6px 8px; text-align: center; font-weight: 700; }\n  .totals { display: grid; grid-template-columns: repeat(auto-fit, minmax(76px, 1fr)); gap: 8px; margin: 16px 0 12px; }\n  .totals div { background: var(--ink); color: var(--bg); border-radius: 14px; padding: 12px 8px; text-align: center; }\n  .totals div:first-child { background: var(--red); color: #fff; }\n  .totals b { display: block; font: 800 18px/1.1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }\n  .totals span { font-size: 12px; opacity: .75; }\n  #b-list .row { grid-template-columns: 2.4em minmax(0, 1fr) auto; padding-bottom: 12px; }\n\n  .empty { color: var(--muted); text-align: center; padding: 36px 0; }\n  footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; display: flex; flex-direction: column; gap: 6px; max-width: 62ch; }\n  footer p { margin: 0; }\n\n  @media (prefers-reduced-motion: no-preference) {\n    .meter { transition: width .25s ease; }\n    nav button, .seg button { transition: background-color .15s, color .15s; }\n  }\n</style>\n</head>\n<body>\n<div class=\"stripes\" aria-hidden=\"true\"></div>\n<main>\n  <header>\n    <div class=\"brand\">\n      <div class=\"kicker\">Rostic's</div>\n      <h1>Min-Maxer</h1>\n      <p class=\"tagline\" data-i18n=\"tagline\"></p>\n    </div>\n    <div class=\"seg\" id=\"lang\" role=\"group\" aria-label=\"Language\"></div>\n  </header>\n\n  <nav>\n    <button type=\"button\" data-tab=\"rank\" aria-selected=\"true\" data-i18n=\"tab_rank\"></button>\n    <button type=\"button\" data-tab=\"combos\" aria-selected=\"false\" data-i18n=\"tab_combos\"></button>\n    <button type=\"button\" data-tab=\"budget\" aria-selected=\"false\" data-i18n=\"tab_budget\"></button>\n  </nav>\n\n  <section id=\"tab-rank\">\n    <div class=\"controls\">\n      <div class=\"seg\" id=\"metric\"></div>\n      <div class=\"seg\" id=\"scope\"></div>\n      <input type=\"search\" id=\"q\" class=\"search\" data-i18n-ph=\"search\">\n    </div>\n    <ol class=\"list\" id=\"rank-list\"></ol>\n  </section>\n\n  <section id=\"tab-combos\" hidden>\n    <div class=\"controls\">\n      <div class=\"seg\" id=\"combo-sort\"></div>\n      <label class=\"toggle\"><input type=\"checkbox\" id=\"coupons-only\"> <span data-i18n=\"coupons_only\"></span></label>\n    </div>\n    <div class=\"list\" id=\"combo-list\"></div>\n  </section>\n\n  <section id=\"tab-budget\" hidden>\n    <div class=\"money\">\n      <label for=\"b-money\" data-i18n=\"budget\"></label>\n      <input type=\"number\" id=\"b-money\" value=\"500\" min=\"50\" max=\"5000\" step=\"10\" inputmode=\"numeric\">\n      <span>₽</span>\n    </div>\n    <div class=\"seg\" id=\"b-metric\"></div>\n    <div class=\"opts\">\n      <label class=\"toggle\"><input type=\"checkbox\" id=\"b-drink\" checked> <span data-i18n=\"with_drink\"></span></label>\n      <label class=\"toggle\"><input type=\"checkbox\" id=\"b-combos\" checked> <span data-i18n=\"allow_combos\"></span></label>\n      <label class=\"stepper\"><span data-i18n=\"max_each\"></span> <input type=\"number\" id=\"b-copies\" value=\"2\" min=\"1\" max=\"5\" inputmode=\"numeric\"></label>\n    </div>\n    <div class=\"totals\" id=\"b-totals\"></div>\n    <ul class=\"list\" id=\"b-list\"></ul>\n  </section>\n\n  <footer>\n    <p data-i18n=\"foot_bonus\"></p>\n    <p data-i18n=\"foot_combo\"></p>\n    <p id=\"foot-date\"></p>\n  </footer>\n</main>\n\n<script>const DATA = /*DATA*/null;</script>\n<script>\nconst T = {\n  en: {\n    tagline: \"The most food for your rubles.\",\n    tab_rank: \"Rankings\", tab_combos: \"Combos\", tab_budget: \"Budget\",\n    m_kcal: \"Calories\", m_protein: \"Protein\", m_grams: \"Weight\",\n    u_kcal: \"kcal\", u_protein: \"g protein\", u_grams: \"g food\",\n    s_food: \"Food\", s_drinks: \"Drinks\", s_all: \"All\",\n    search: \"Search the menu\", per100: \"per 100 ₽\",\n    g: \"g\", ml: \"ml\", kcal: \"kcal\", protein: \"g protein\",\n    bonus_hint: \"Average serving is this much heavier than the listed weight\",\n    sort_rub: \"Most ₽ saved\", sort_pct: \"Biggest %\", coupons_only: \"Coupons only\",\n    coupon: \"Coupon\", separately: \"separately\", save: \"save\", lose: \"overpay\",\n    picks: \"Best picks\", unpriced: \"Some parts aren't sold on their own, so there's nothing to compare.\",\n    toy: \"Includes a toy. Its price isn't counted.\",\n    budget: \"Budget\", with_drink: \"With a drink\", allow_combos: \"Combos & coupons\", max_each: \"Max of each\",\n    spent: \"spent\", left: \"left\", drink: \"drink\", code: \"code\",\n    nothing: \"Nothing matches.\", no_order: \"Can't build an order for this budget. Try a bigger one.\",\n    foot_bonus: \"Menu weights are the guaranteed minimum. The official nutrition sheet gives the average serving, and the green +N% is the difference. All numbers here use the average.\",\n    foot_combo: \"“Separately” is what a combo's parts cost à la carte. If a part isn't sold alone (like 2 wings), it's the cheapest packs that cover it.\",\n    foot_date: d => `Prices from ${d}. Unofficial, not affiliated with Rostic's.`,\n  },\n  ru: {\n    tagline: \"Максимум еды за ваши рубли.\",\n    tab_rank: \"Рейтинг\", tab_combos: \"Комбо\", tab_budget: \"Бюджет\",\n    m_kcal: \"Калории\", m_protein: \"Белок\", m_grams: \"Вес\",\n    u_kcal: \"ккал\", u_protein: \"г белка\", u_grams: \"г еды\",\n    s_food: \"Еда\", s_drinks: \"Напитки\", s_all: \"Всё\",\n    search: \"Поиск по меню\", per100: \"на 100 ₽\",\n    g: \"г\", ml: \"мл\", kcal: \"ккал\", protein: \"г белка\",\n    bonus_hint: \"Средняя порция тяжелее заявленного веса на столько\",\n    sort_rub: \"Больше ₽\", sort_pct: \"Больше %\", coupons_only: \"Только купоны\",\n    coupon: \"Купон\", separately: \"по отдельности\", save: \"выгода\", lose: \"переплата\",\n    picks: \"Что выбрать\", unpriced: \"Часть позиций отдельно не продаётся, сравнить не с чем.\",\n    toy: \"Внутри игрушка, её цена не учтена.\",\n    budget: \"Бюджет\", with_drink: \"С напитком\", allow_combos: \"Комбо и купоны\", max_each: \"Не больше\",\n    spent: \"потрачено\", left: \"осталось\", drink: \"напиток\", code: \"код\",\n    nothing: \"Ничего не нашлось.\", no_order: \"На такой бюджет заказ не собрать. Попробуйте больше.\",\n    foot_bonus: \"В меню указан минимальный вес. В официальной таблице КБЖУ указана средняя порция, и зелёный +N% показывает разницу. Все расчёты здесь по средней порции.\",\n    foot_combo: \"«По отдельности» значит сумму цен всех частей комбо. Если часть не продаётся отдельно (например, 2 крылышка), берётся самый дешёвый набор, который её покрывает.\",\n    foot_date: d => `Цены от ${d}. Неофициальный проект, не связан с Rostic's.`,\n  },\n};\n\nconst METRICS = {\n  kcal:    { get: x => x.kcal,    digits: 0 },\n  protein: { get: x => x.protein, digits: 1 },\n  grams:   { get: x => x.grams,   digits: 0 },\n};\nconst state = { lang: \"ru\", metric: \"kcal\", scope: \"food\", q: \"\", comboSort: \"rub\", couponsOnly: false, bMetric: \"kcal\" };\n\nconst $ = id => document.getElementById(id);\nconst esc = s => String(s).replace(/[&<>\"]/g, c => ({ \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\", '\"': \"&quot;\" })[c]);\nconst t = k => T[state.lang][k];\nconst locale = () => state.lang === \"ru\" ? \"ru-RU\" : \"en-GB\";\nconst num = (v, digits = 0) => new Intl.NumberFormat(locale(), { minimumFractionDigits: digits, maximumFractionDigits: digits }).format(v);\nconst rub = v => `${num(Math.round(v))} ₽`;\nconst isDrink = it => it.unit === \"ml\";\nconst nameHtml = it => `${esc(it.name)}${it.label ? ` <span class=\"label\">${esc(it.label)}</span>` : \"\"}`;\nconst fmtMetric = (metric, v) => num(v, METRICS[metric].digits);\n\n/* ---------- segmented controls ---------- */\nconst metricOpts = { kcal: \"m_kcal\", protein: \"m_protein\", grams: \"m_grams\" };\nconst SEGS = [\n  { el: \"lang\", key: \"lang\", opts: { ru: \"RU\", en: \"EN\" }, raw: true, on: () => applyLang() },\n  { el: \"metric\", key: \"metric\", opts: metricOpts, on: () => renderRank() },\n  { el: \"scope\", key: \"scope\", opts: { food: \"s_food\", drinks: \"s_drinks\", all: \"s_all\" }, on: () => renderRank() },\n  { el: \"combo-sort\", key: \"comboSort\", opts: { rub: \"sort_rub\", pct: \"sort_pct\" }, on: () => renderCombos() },\n  { el: \"b-metric\", key: \"bMetric\", opts: metricOpts, on: () => renderBudget() },\n];\nfunction drawSeg(s) {\n  $(s.el).innerHTML = Object.entries(s.opts).map(([k, label]) =>\n    `<button type=\"button\" data-k=\"${k}\" aria-pressed=\"${state[s.key] === k}\">${s.raw ? label : esc(t(label))}</button>`).join(\"\");\n}\nfor (const s of SEGS) {\n  $(s.el).addEventListener(\"click\", e => {\n    const b = e.target.closest(\"button\"); if (!b || state[s.key] === b.dataset.k) return;\n    state[s.key] = b.dataset.k;\n    drawSeg(s);\n    s.on();\n  });\n}\n\n/* ---------- rankings ---------- */\nfunction renderRank() {\n  const m = METRICS[state.metric];\n  const q = state.q.trim().toLowerCase();\n  const rows = DATA.items\n    .filter(it => it.known && m.get(it) > 0)\n    .filter(it => state.scope === \"all\" || (state.scope === \"drinks\") === isDrink(it))\n    .filter(it => !q || it.name.toLowerCase().includes(q))\n    .map(it => ({ it, v: m.get(it) / it.price * 100 }))\n    .sort((a, b) => b.v - a.v);\n  const max = rows.length ? rows[0].v : 1;\n  $(\"rank-list\").innerHTML = rows.map(({ it, v }, i) => {\n    const promo = it.oldPrice > it.price ? `<span class=\"tag promo\">−${Math.round((1 - it.price / it.oldPrice) * 100)}%</span>` : \"\";\n    const bonus = it.bonus >= 1.1 ? `<span class=\"tag bonus\" title=\"${esc(t(\"bonus_hint\"))}\">+${Math.round((it.bonus - 1) * 100)}%</span>` : \"\";\n    const size = it.grams ? `${num(it.grams)} ${t(\"g\")}` : `${num(it.ml)} ${t(\"ml\")}`;\n    return `<li class=\"row\">\n      <span class=\"rank\">${i + 1}</span>\n      <div class=\"body\">\n        <div class=\"name\">${nameHtml(it)}${promo}${bonus}</div>\n        <div class=\"sub\">${it.oldPrice > it.price ? `<span class=\"old\">${num(it.oldPrice)}</span>` : \"\"}<b>${rub(it.price)}</b> · ${num(it.kcal)} ${t(\"kcal\")} · ${num(it.protein, 1)} ${t(\"protein\")} · ${size}</div>\n      </div>\n      <div class=\"v\">${fmtMetric(state.metric, v)}<small>${t(\"u_\" + state.metric)} ${t(\"per100\")}</small></div>\n      <span class=\"meter\" style=\"width:${(v / max * 100).toFixed(1)}%\"></span>\n    </li>`;\n  }).join(\"\") || `<li class=\"empty\">${t(\"nothing\")}</li>`;\n}\n\n/* ---------- combos ---------- */\n// Pick `g.pick` options per slot, best first by `score`.\nfunction choose(combo, score) {\n  return combo.groups.map(g => {\n    const opts = [...g.options].sort((a, b) => score(b) - score(a) || (b.standalone ?? 0) - (a.standalone ?? 0));\n    return { group: g, chosen: opts.slice(0, g.pick) };\n  });\n}\n\nfunction comboDeal(c) {\n  const picks = choose(c, o => o.standalone ?? -1);\n  const parts = picks.flatMap(p => p.chosen);\n  const priced = parts.every(o => o.standalone != null);\n  const separately = parts.reduce((s, o) => s + (o.standalone ?? 0), 0);\n  return { picks, priced, separately, save: separately - c.price };\n}\n\nfunction renderCombos() {\n  const rows = DATA.combos\n    .filter(c => !state.couponsOnly || c.code)\n    .map(c => ({ c, d: comboDeal(c) }))\n    .sort((a, b) => (b.d.priced - a.d.priced) ||\n      (state.comboSort === \"rub\" ? b.d.save - a.d.save : b.d.save / b.d.separately - a.d.save / a.d.separately));\n  $(\"combo-list\").innerHTML = rows.map(({ c, d }) => {\n    const pct = Math.round(Math.abs(d.save) / d.separately * 100);\n    const choices = d.picks.filter(p => p.group.options.length > p.group.pick);\n    const title = c.code\n      ? `<span class=\"coupon\"><small>${esc(t(\"coupon\"))}</small>${esc(c.code)}</span>`\n      : `<div class=\"name\">${esc(c.name)}</div>`;\n    const deal = d.priced\n      ? `<span>${t(\"separately\")} ${rub(d.separately)}</span><span class=\"chip ${d.save >= 0 ? \"good\" : \"bad\"}\">${t(d.save >= 0 ? \"save\" : \"lose\")} ${rub(Math.abs(d.save))} · ${pct}%</span>`\n      : `<span class=\"note\">${t(\"unpriced\")}</span>`;\n    return `<article class=\"card\">\n      <div class=\"card-head\">\n        <div class=\"body\">${title}<div class=\"desc\">${esc(c.short)}</div></div>\n        <div class=\"price\">${c.oldPrice > c.price ? `<span class=\"old\">${num(c.oldPrice)} ₽</span>` : \"\"}${rub(c.price)}</div>\n      </div>\n      <div class=\"deal\">${deal}</div>\n      ${choices.length ? `<ul class=\"picks\">${choices.map(p => `<li><span>${esc(p.group.title)}</span><b>${p.chosen.map(o => esc(o.name)).join(\" + \")}</b></li>`).join(\"\")}</ul>` : \"\"}\n      ${c.cats.includes(\"Комбо с игрушкой\") ? `<div class=\"note\">${t(\"toy\")}</div>` : \"\"}\n    </article>`;\n  }).join(\"\") || `<div class=\"empty\">${t(\"nothing\")}</div>`;\n}\n\n/* ---------- budget optimiser (0/1 knapsack over copies, with a has-drink flag) ---------- */\nfunction candidates(metric, allowCombos) {\n  const m = METRICS[metric];\n  const out = DATA.items\n    .filter(it => it.known && it.price > 0)\n    .map(it => ({ name: it.name, label: it.label, price: Math.ceil(it.price), value: m.get(it), drink: isDrink(it), picks: null, code: null }));\n  if (allowCombos) {\n    for (const c of DATA.combos) {\n      const picks = choose(c, o => m.get(o));\n      const parts = picks.flatMap(p => p.chosen);\n      out.push({\n        name: c.name, label: \"\", code: c.code, price: Math.ceil(c.price),\n        value: parts.reduce((s, o) => s + m.get(o), 0),\n        drink: parts.some(o => o.ml > 0),\n        picks: picks.filter(p => p.group.options.length > p.group.pick),\n      });\n    }\n  }\n  return out.filter(x => x.value > 0 || x.drink);\n}\n\nfunction optimise(budget, metric, copies, needDrink, allowCombos) {\n  const items = candidates(metric, allowCombos).flatMap(x => Array.from({ length: copies }, () => x));\n  const B = budget, W = B + 1, n = items.length;\n  // dp[f*W + b] = best value with spend <= b; f = 1 once a drink is in the order\n  let dp = new Float64Array(2 * W).fill(-Infinity);\n  for (let b = 0; b <= B; b++) dp[b] = 0;\n  const take = new Uint8Array(n * 2 * W);\n  for (let i = 0; i < n; i++) {\n    const { price, value, drink } = items[i];\n    const next = dp.slice();\n    for (let f = 0; f < 2; f++) {\n      const nf = drink ? 1 : f;\n      for (let b = price; b <= B; b++) {\n        const cand = dp[f * W + b - price] + value;\n        if (cand > next[nf * W + b]) { next[nf * W + b] = cand; take[i * 2 * W + nf * W + b] = 1 + f; }\n      }\n    }\n    dp = next;\n  }\n  // walk back from the best end state\n  let f = needDrink ? 1 : (dp[W + B] > dp[B] ? 1 : 0), b = B;\n  if (dp[f * W + b] === -Infinity) return null;\n  const chosen = [];\n  for (let i = n - 1; i >= 0; i--) {\n    const tk = take[i * 2 * W + f * W + b];\n    if (tk) { chosen.push(items[i]); b -= items[i].price; f = tk - 1; }\n  }\n  return chosen;\n}\n\nfunction renderBudget() {\n  const budget = Math.min(5000, Math.max(0, Math.floor(+$(\"b-money\").value || 0)));\n  const metric = state.bMetric;\n  const copies = Math.min(5, Math.max(1, Math.floor(+$(\"b-copies\").value || 1)));\n  const chosen = optimise(budget, metric, copies, $(\"b-drink\").checked, $(\"b-combos\").checked);\n  if (!chosen || !chosen.length) {\n    $(\"b-totals\").innerHTML = \"\";\n    $(\"b-list\").innerHTML = `<li class=\"empty\">${t(\"no_order\")}</li>`;\n    return;\n  }\n  const groups = new Map();\n  for (const x of chosen) {\n    const g = groups.get(x) || { x, n: 0 };\n    g.n++; groups.set(x, g);\n  }\n  const spent = chosen.reduce((s, x) => s + x.price, 0);\n  const total = chosen.reduce((s, x) => s + x.value, 0);\n  $(\"b-totals\").innerHTML = `\n    <div><b>${rub(spent)}</b><span>${t(\"spent\")}</span></div>\n    <div><b>${rub(budget - spent)}</b><span>${t(\"left\")}</span></div>\n    <div><b>${fmtMetric(metric, total)}</b><span>${t(\"u_\" + metric)}</span></div>\n    <div><b>${fmtMetric(metric, total / spent * 100)}</b><span>${t(\"per100\")}</span></div>`;\n  $(\"b-list\").innerHTML = [...groups.values()].sort((a, b) => b.x.price * b.n - a.x.price * a.n).map(({ x, n }) => {\n    const detail = x.picks && x.picks.length\n      ? x.picks.map(p => esc(p.chosen.map(o => o.name).join(\" + \"))).join(\" · \")\n      : x.drink ? t(\"drink\") : \"\";\n    return `<li class=\"row\">\n      <span class=\"rank\">${n}×</span>\n      <div class=\"body\">\n        <div class=\"name\">${x.code ? `${esc(t(\"coupon\"))} ${esc(x.code)}` : nameHtml(x)}</div>\n        <div class=\"sub\"><b>${rub(x.price * n)}</b>${detail ? ` · ${detail}` : \"\"}</div>\n      </div>\n      <div class=\"v\">${fmtMetric(metric, x.value * n)}<small>${t(\"u_\" + metric)}</small></div>\n    </li>`;\n  }).join(\"\");\n}\n\n/* ---------- language, tabs, wiring ---------- */\nfunction applyLang() {\n  document.documentElement.lang = state.lang;\n  try { localStorage.setItem(\"rmm-lang\", state.lang); } catch (e) {}\n  document.querySelectorAll(\"[data-i18n]\").forEach(el => { el.textContent = t(el.dataset.i18n); });\n  document.querySelectorAll(\"[data-i18n-ph]\").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });\n  const date = new Intl.DateTimeFormat(locale(), { day: \"numeric\", month: \"long\", year: \"numeric\" }).format(new Date(DATA.captured));\n  $(\"foot-date\").textContent = t(\"foot_date\")(date);\n  SEGS.forEach(drawSeg);\n  renderRank();\n  renderCombos();\n  if (!$(\"tab-budget\").hidden) renderBudget();\n}\n\nfunction openTab(tab) {\n  document.querySelectorAll(\"nav button\").forEach(x => x.setAttribute(\"aria-selected\", x.dataset.tab === tab));\n  [\"rank\", \"combos\", \"budget\"].forEach(id => $(`tab-${id}`).hidden = id !== tab);\n  if (tab === \"budget\") renderBudget();\n}\ndocument.querySelector(\"nav\").addEventListener(\"click\", e => {\n  const b = e.target.closest(\"button\"); if (!b) return;\n  history.replaceState(null, \"\", `#${b.dataset.tab}`);\n  openTab(b.dataset.tab);\n});\n$(\"q\").addEventListener(\"input\", e => { state.q = e.target.value; renderRank(); });\n$(\"coupons-only\").addEventListener(\"change\", e => { state.couponsOnly = e.target.checked; renderCombos(); });\n[\"b-money\", \"b-copies\", \"b-drink\", \"b-combos\"].forEach(id => $(id).addEventListener(\"input\", renderBudget));\n\nlet saved = null;\ntry { saved = localStorage.getItem(\"rmm-lang\"); } catch (e) {}\nstate.lang = saved in T ? saved : (navigator.language || \"\").toLowerCase().startsWith(\"ru\") ? \"ru\" : \"en\";\napplyLang();\nif ([\"combos\", \"budget\"].includes(location.hash.slice(1))) openTab(location.hash.slice(1));\n</script>\n</body>\n</html>\n"
+    },
+    {
+      "role": "assistant",
+      "text": "Template rewritten. Building it and taking one round of screenshots at phone width, mixing languages and themes so I see both of each:"
+    },
+    {
+      "role": "tool",
+      "name": "bash"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "tool",
+      "name": "read"
+    },
+    {
+      "role": "assistant",
+      "text": "The redesign is done: run `open site/index.html`. I checked all three tabs at phone width in both light and dark mode. Nothing is clipped and the budget optimizer still gives the same order.\n\n**What changed:**\n- **Bolder look:** red-and-white bucket stripes across the top, a heavy wide \"MIN-MAXER\" headline, chunky tabs, and big numbers for the value score, prices and budget totals. Each ranking row has a yellow meter along the bottom showing how it compares to #1, and the top 3 ranks are in red.\n- **Coupons:** the code is now a big yellow price tag, since that's what you read out at the counter.\n- **RU/EN switch:** it's in the top right. It starts in your browser's language and remembers what you picked. Numbers follow the language too (10,8 г белка vs 10.8 g protein). Menu item names stay in Russian, since that's what's on the menu board.\n- **Cleaner:** I removed the store ID, item counts and the long explanations. All that's left is a 3-line footer: what the green +N% means, what \"separately\" means, and the date of the prices. I kept the date because prices change.\n\nIn the screenshots the page only rendered in English, because the test browser was set to English, so I haven't seen the Russian strings on screen. Check them once on your phone.\n\nThe fonts load from Google Fonts. Without internet the page falls back to system fonts, but all the data is inside the file."
+    },
+    {
+      "role": "user",
+      "text": "/reload-plugins"
+    }
+  ]
+}
